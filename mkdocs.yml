@@ -1,0 +1,50 @@
+site_name: edgeql-queries
+site_url: "https://nsidnev.github.io/edgeql-queries"
+site_description: Simple EdgeQL in Python
+
+repo_name: nsidnev/edgeql-queries
+repo_url: https://github.com/nsidnev/edgeql-queries
+edit_uri: ''
+
+theme:
+  name: 'material'
+  palette:
+    primary: black
+
+nav:
+  - Introduction: 'index.md'
+  - Queries Definition:
+      - Queries Definition: 'queries-definition/queries-definition-intro.md'
+      - Operation Types:
+          - Query Single Object: 'queries-definition/operation-types/select-single.md'
+          - Execute Query: 'queries-definition/operation-types/execute.md'
+          - Query Set Of Objects: 'queries-definition/operation-types/select-set.md'
+  - Improve Typing Of Queries: 'improve-typing.md'
+  - API Reference:
+      - Queries: 'reference/queries.md'
+      - Loaders: 'reference/loaders.md'
+      - Query Loaders: 'reference/query_loaders.md'
+      - Parsing: 'reference/parsing.md'
+      - Models: 'reference/models.md'
+      - Errors: 'reference/exceptions.md'
+      - Executors: 'reference/executors.md'
+  - Changelog: 'changelog.md'
+
+markdown_extensions:
+  - markdown.extensions.codehilite:
+      guess_lang: false
+      linenums: true
+  - markdown_include.include:
+      base_path: docs
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.emoji
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      watch:
+        - edgeql_queries
