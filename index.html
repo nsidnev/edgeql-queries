@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Simple EdgeQL in Python" name="description"/>
+<link href="https://nsidnev.github.io/edgeql-queries/" rel="canonical"/>
+<link href="assets/images/favicon.png" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.0.1" name="generator"/>
+<title>edgeql-queries</title>
+<link href="assets/stylesheets/main.c3000690.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.4444686e.min.css" rel="stylesheet"/>
+<meta content="" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+</head>
+<body data-md-color-accent="" data-md-color-primary="black" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#introduction">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header-nav md-grid">
+<a aria-label="edgeql-queries" class="md-header-nav__button md-logo" href="https://nsidnev.github.io/edgeql-queries" title="edgeql-queries">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z"></path></svg>
+</a>
+<label class="md-header-nav__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg>
+</label>
+<div class="md-header-nav__title" data-md-component="header-title">
+<div class="md-header-nav__ellipsis">
+<span class="md-header-nav__topic md-ellipsis">
+            edgeql-queries
+          </span>
+<span class="md-header-nav__topic md-ellipsis">
+            
+              Introduction
+            
+          </span>
+</div>
+</div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Type to start searching
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header-nav__source">
+<a class="md-source" href="https://github.com/nsidnev/edgeql-queries" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    nsidnev/edgeql-queries
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="edgeql-queries" class="md-nav__button md-logo" href="https://nsidnev.github.io/edgeql-queries" title="edgeql-queries">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z"></path></svg>
+</a>
+    edgeql-queries
+  </label>
+<div class="md-nav__source">
+<a class="md-source" href="https://github.com/nsidnev/edgeql-queries" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    nsidnev/edgeql-queries
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Introduction
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="." title="Introduction">
+      Introduction
+    </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+    Requirements
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+    Example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#credits">
+    Credits
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#license">
+    License
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
+      Queries Definition
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Queries Definition" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Queries Definition
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="queries-definition/queries-definition-intro/" title="Queries Definition">
+      Queries Definition
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" id="nav-2-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2-2">
+      Operation Types
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Operation Types" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="nav-2-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Operation Types
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="queries-definition/operation-types/select-single/" title="Query Single Object">
+      Query Single Object
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="queries-definition/operation-types/execute/" title="Execute Query">
+      Execute Query
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="queries-definition/operation-types/select-set/" title="Query Set Of Objects">
+      Query Set Of Objects
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="improve-typing/" title="Improve Typing Of Queries">
+      Improve Typing Of Queries
+    </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      API Reference
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="API Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        API Reference
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/queries/" title="Queries">
+      Queries
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/loaders/" title="Loaders">
+      Loaders
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/query_loaders/" title="Query Loaders">
+      Query Loaders
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/parsing/" title="Parsing">
+      Parsing
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/models/" title="Models">
+      Models
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/exceptions/" title="Errors">
+      Errors
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="reference/executors/" title="Executors">
+      Executors
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="changelog/" title="Changelog">
+      Changelog
+    </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#requirements">
+    Requirements
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#installation">
+    Installation
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#example">
+    Example
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#credits">
+    Credits
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#license">
+    License
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<h1 align="center">edgeql-queries</h1>
+<p align="center">
+<em>Simple EdgeQL in Python.</em>
+</p>
+<p align="center">
+<a href="https://github.com/nsidnev/edgeql-queries">
+<img alt="Tests" src="https://github.com/nsidnev/edgeql-queries/workflows/Tests/badge.svg"/>
+</a>
+<a href="https://github.com/nsidnev/edgeql-queries">
+<img alt="Styles" src="https://github.com/nsidnev/edgeql-queries/workflows/Styles/badge.svg"/>
+</a>
+<a href="https://codecov.io/gh/nsidnev/edgeql-queries">
+<img alt="Coverage" src="https://codecov.io/gh/nsidnev/edgeql-queries/branch/master/graph/badge.svg"/>
+</a>
+<a href="https://github.com/ambv/black">
+<img alt="Code Style" src="https://img.shields.io/badge/code%20style-black-000000.svg"/>
+</a>
+<a href="https://pypi.org/project/edgeql-queries/">
+<img alt="Package version" src="https://badge.fury.io/py/edgeql-queries.svg"/>
+</a>
+<a href="https://github.com/nsidnev/edgeql-queries/blob/master/LICENSE">
+<img alt="License" src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg"/>
+</a>
+</p>
+<hr/>
+<h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">¶</a></h1>
+<p><code>edgeql-queries</code> is a library that allows you to store your 
+<a href="https://edgedb.com/docs/edgeql/overview/">EdgeQL</a> queries in separate files and then 
+execute them like normal Python functions. This way you can control versions of the 
+queries code, as with any other languages, but use it in Python applications.</p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>This library may become less useful after the release of the 
+<a href="https://edgedb.com/roadmap#client_language_bindings">query builder</a> for EdgeDB, 
+but who knows  <code>¯\_(ツ)_/¯</code>.</p>
+</div>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
+<p><code>edgeql-queries</code> require only the <a href="https://github.com/edgedb/edgedb-python">EdgeDB driver for Python</a>.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
+<p>You can install <code>edgeql-queries</code> using <code>pip</code>:
+<div class="highlight"><pre><span></span><code>pip install edgeql-querie
+</code></pre></div></p>
+<p>Or if you are use <code>poetry</code>:
+<div class="highlight"><pre><span></span><code>poetry install edgeql-querie
+</code></pre></div></p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
+<p>There is a more complex example based on the EdgeDB <a href="https://edgedb.com/docs/tutorial/index">tutorial</a> 
+in the <a href="https://github.com/nsidnev/edgeql-queries/blob/master/example">example</a> folder in the repository. 
+You can look there to see more features.</p>
+<p>Here is a simplified version:</p>
+<ol>
+<li>
+<p>Let's assume that we have the following schema in our already configured database:
+<div class="highlight"><pre><span></span><code><span class="kr">module</span> <span class="kr">default</span> {
+    <span class="kr">type</span> Person {
+        <span class="kr">required</span> <span class="kr">property</span> first_name <span class="o">-&gt;</span> <span class="nb">str</span>;
+        <span class="kr">required</span> <span class="kr">property</span> last_name <span class="o">-&gt;</span> <span class="nb">str</span>;
+    }
+}
+</code></pre></div></p>
+</li>
+<li>
+<p>We'll write our queries in the <code>queries.edgeql</code>:
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: select-users-by-last-name</span>
+<span class="c c-Singleline"># Select all users that have same last name.</span>
+<span class="kr">SELECT</span> Person {
+    first_name,
+}
+<span class="kr">FILTER</span> .last_name <span class="o">=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$last_name</span>
+
+<span class="c c-Singleline"># name: select-user-by-id!</span>
+<span class="c c-Singleline"># Select single user's last name by it's id.</span>
+<span class="kr">SELECT</span> Person {
+    last_name
+}
+<span class="kr">FILTER</span> .id <span class="o">=</span> <span class="o">&lt;</span><span class="nb">uuid</span><span class="o">&gt;</span><span class="nv">$user_id</span>
+
+<span class="c c-Singleline"># name: create-keanu-reeves*</span>
+<span class="c c-Singleline"># Create new user.</span>
+<span class="kr">INSERT</span> Person {
+    first_name <span class="o">:=</span> <span class="s">"Keanu"</span>,
+    last_name <span class="o">:=</span> <span class="s">"Reeves"</span>,
+</code></pre></div></p>
+</li>
+<li>
+<p>Finally, we'll write our Python code:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">edgedb</span>
+<span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
+
+<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./query_set0.edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
+
+<span class="c1"># create Keanu</span>
+<span class="n">queries</span><span class="o">.</span><span class="n">create_keanu_reeves</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+
+<span class="c1"># query all Keanu from database</span>
+<span class="n">keanu_set</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">select_users_by_last_name</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">"Reeves"</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">keanu</span> <span class="ow">in</span> <span class="n">keanu_set</span><span class="p">:</span>
+    <span class="n">keanu_from_db</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">select_user_by_id</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">keanu</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">keanu</span><span class="o">.</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">keanu_from_db</span><span class="o">.</span><span class="n">last_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">keanu_from_db</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">¶</a></h2>
+<p>This project is inspired by <a href="https://github.com/nackjicholson/aiosql">aiosql</a> 
+project and is based on it's source code.</p>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">¶</a></h2>
+<p>This project is licensed under the terms of the MIT license.</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-nav">
+<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="queries-definition/queries-definition-intro/" rel="next" title="Queries Definition">
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Queries Definition
+              </div>
+</div>
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script src="assets/javascripts/vendor.f45d2d8d.min.js"></script>
+<script src="assets/javascripts/bundle.74d0b805.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script>
+        app = initialize({
+          base: ".",
+          features: [],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+</body>
+</html>
