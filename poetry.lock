@@ -535,13 +535,13 @@ description = "Automatic documentation from sources, for MkDocs."
 name = "mkdocstrings"
 optional = true
 python-versions = ">=3.6,<4.0"
-version = "0.10.2"
+version = "0.10.3"
 
 [package.dependencies]
 beautifulsoup4 = ">=4.8.2,<5.0.0"
 mkdocs = ">=1.1,<2.0"
 pymdown-extensions = ">=6.3,<8.0"
-pytkdocs = ">=0.2.0,<0.3.0"
+pytkdocs = ">=0.2.0,<0.4.0"
 
 [[package]]
 category = "dev"
@@ -1217,8 +1217,8 @@ mkdocs-material = [
     {file = "mkdocs_material-5.0.2-py2.py3-none-any.whl", hash = "sha256:304ce9e489074588376d921373010db964b5d062747d80bf61753156350c817c"},
 ]
 mkdocstrings = [
-    {file = "mkdocstrings-0.10.2-py3-none-any.whl", hash = "sha256:39747c893acd41bdbfc714c10721bac1ed6a69063aa2735fa19d1b4e85842fe7"},
-    {file = "mkdocstrings-0.10.2.tar.gz", hash = "sha256:66eb2f6e58618916b331d5cf525f48f38e331c676c69e33adb14aaa90cf6ea74"},
+    {file = "mkdocstrings-0.10.3-py3-none-any.whl", hash = "sha256:6a432b90703c343c445aa5bf59bf93ef0efa0f55395daee79c59ab57c732bf79"},
+    {file = "mkdocstrings-0.10.3.tar.gz", hash = "sha256:13722641310562ad1ca6a225d65cfdad6554831b5e17dc1101ac66be35d0dbe5"},
 ]
 more-itertools = [
     {file = "more-itertools-8.2.0.tar.gz", hash = "sha256:b1ddb932186d8a6ac451e1d95844b382f55e12686d51ca0c68b6f61f2ab7a507"},
