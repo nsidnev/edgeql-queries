@@ -15,11 +15,14 @@
     <a href="https://github.com/ambv/black">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style" />
     </a>
-    <a href="https://pypi.org/project/edgeql-queries/">
-        <img src="https://badge.fury.io/py/edgeql-queries.svg" alt="Package version" />
+    <a href="https://github.com/wemake-services/wemake-python-styleguide">
+        <img src="https://img.shields.io/badge/style-wemake-000000.svg" alt="WPS Linter"/>
     </a>
     <a href="https://github.com/nsidnev/edgeql-queries/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg" alt="License" />
+    </a>
+    <a href="https://pypi.org/project/edgeql-queries/">
+        <img src="https://badge.fury.io/py/edgeql-queries.svg" alt="Package version" />
     </a>
 </p>
 

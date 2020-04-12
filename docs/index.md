@@ -15,11 +15,14 @@
     <a href="https://github.com/ambv/black">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code Style" />
     </a>
-    <a href="https://pypi.org/project/edgeql-queries/">
-        <img src="https://badge.fury.io/py/edgeql-queries.svg" alt="Package version" />
+    <a href="https://github.com/wemake-services/wemake-python-styleguide">
+        <img src="https://img.shields.io/badge/style-wemake-000000.svg" alt="WPS Linter"/>
     </a>
     <a href="https://github.com/nsidnev/edgeql-queries/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg" alt="License" />
+    </a>
+    <a href="https://pypi.org/project/edgeql-queries/">
+        <img src="https://badge.fury.io/py/edgeql-queries.svg" alt="Package version" />
     </a>
 </p>
 
@@ -28,14 +31,14 @@
 # Introduction
 
 
-`edgeql-queries` is a library that allows you to store your 
-[EdgeQL](https://edgedb.com/docs/edgeql/overview/) queries in separate files and then 
-execute them like normal Python functions. This way you can control versions of the 
+`edgeql-queries` is a library that allows you to store your
+[EdgeQL](https://edgedb.com/docs/edgeql/overview/) queries in separate files and then
+execute them like normal Python functions. This way you can control versions of the
 queries code, as with any other languages, but use it in Python applications.
 
 !!! information
-    This library may become less useful after the release of the 
-    [query builder](https://edgedb.com/roadmap#client_language_bindings) for EdgeDB, 
+    This library may become less useful after the release of the
+    [query builder](https://edgedb.com/roadmap#client_language_bindings) for EdgeDB,
     but who knows  `¯\_(ツ)_/¯`.
 
 ## Requirements
@@ -57,8 +60,8 @@ Or if you are use `poetry`:
 ## Example
 
 
-There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/tutorial/index) 
-in the [example](https://github.com/nsidnev/edgeql-queries/blob/master/example) folder in the repository. 
+There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/tutorial/index)
+in the [example](https://github.com/nsidnev/edgeql-queries/blob/master/example) folder in the repository.
 You can look there to see more features.
 
 Here is a simplified version:
@@ -80,7 +83,7 @@ Here is a simplified version:
 
 ## Credits
 
-This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql) 
+This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql)
 project and is based on it's source code.
 
 ## License
