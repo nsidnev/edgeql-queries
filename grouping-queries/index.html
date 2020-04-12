@@ -6,12 +6,12 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Simple EdgeQL in Python" name="description"/>
-<link href="https://nsidnev.github.io/edgeql-queries/queries-definition/operation-types/select-set/" rel="canonical"/>
-<link href="../../../assets/images/favicon.png" rel="shortcut icon"/>
+<link href="https://nsidnev.github.io/edgeql-queries/grouping-queries/" rel="canonical"/>
+<link href="../assets/images/favicon.png" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-5.0.2" name="generator"/>
-<title>Query Set Of Objects - edgeql-queries</title>
-<link href="../../../assets/stylesheets/main.07c9fbf5.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ecd4686e.min.css" rel="stylesheet"/>
+<title>Grouping Queries - edgeql-queries</title>
+<link href="../assets/stylesheets/main.07c9fbf5.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ecd4686e.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -40,7 +40,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Query Set Of Objects
+              Grouping Queries
             
           </span>
 </div>
@@ -110,12 +110,12 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../.." title="Introduction">
+<a class="md-nav__link" href=".." title="Introduction">
       Introduction
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
 <label class="md-nav__link" for="nav-2">
       Queries Definition
       <span class="md-nav__icon md-icon">
@@ -131,12 +131,12 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../queries-definition-intro/" title="Queries Definition">
+<a class="md-nav__link" href="../queries-definition/queries-definition-intro/" title="Queries Definition">
       Queries Definition
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" id="nav-2-2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" id="nav-2-2" type="checkbox"/>
 <label class="md-nav__link" for="nav-2-2">
       Operation Types
       <span class="md-nav__icon md-icon">
@@ -152,18 +152,17 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../select-single/" title="Query Single Object">
+<a class="md-nav__link" href="../queries-definition/operation-types/select-single/" title="Query Single Object">
       Query Single Object
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../execute/" title="Execute Query">
+<a class="md-nav__link" href="../queries-definition/operation-types/execute/" title="Execute Query">
       Execute Query
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./" title="Query Set Of Objects">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../queries-definition/operation-types/select-set/" title="Query Set Of Objects">
       Query Set Of Objects
     </a>
 </li>
@@ -174,12 +173,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../improve-typing/" title="Improve Typing Of Queries">
+<a class="md-nav__link" href="../improve-typing/" title="Improve Typing Of Queries">
       Improve Typing Of Queries
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../grouping-queries/" title="Grouping Queries">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./" title="Grouping Queries">
       Grouping Queries
     </a>
 </li>
@@ -200,37 +200,37 @@
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/queries/" title="Queries">
+<a class="md-nav__link" href="../reference/queries/" title="Queries">
       Queries
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/loaders/" title="Loaders">
+<a class="md-nav__link" href="../reference/loaders/" title="Loaders">
       Loaders
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/query_loaders/" title="Query Loaders">
+<a class="md-nav__link" href="../reference/query_loaders/" title="Query Loaders">
       Query Loaders
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/parsing/" title="Parsing">
+<a class="md-nav__link" href="../reference/parsing/" title="Parsing">
       Parsing
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/models/" title="Models">
+<a class="md-nav__link" href="../reference/models/" title="Models">
       Models
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/exceptions/" title="Errors">
+<a class="md-nav__link" href="../reference/exceptions/" title="Errors">
       Errors
     </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reference/executors/" title="Executors">
+<a class="md-nav__link" href="../reference/executors/" title="Executors">
       Executors
     </a>
 </li>
@@ -238,7 +238,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../changelog/" title="Changelog">
+<a class="md-nav__link" href="../changelog/" title="Changelog">
       Changelog
     </a>
 </li>
@@ -249,26 +249,91 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<h1>Query Set Of Objects</h1>
-<p>If you just need to get the query results, do not write anything after the name. 
-Such query will use <code>.fetchall</code> from the driver:</p>
-<p><code>queries.edgeql</code>:
-<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: select-all-users</span>
-<span class="kr">SELECT</span> Person {
-    first_name,
-    last_name,
-    age
+<h1>Grouping Queries</h1>
+<p>If you pass a single file or directory without nesting in the 
+<a href="https://nsidnev.github.io/edgeql-queries/reference/loaders/#edgeql_queries.loaders.from_path">from_path</a> function, then your EdgeQL queries will be placed 
+directly in the returned <a href="https://nsidnev.github.io/edgeql-queries/reference/queries/#edgeql_queries.queries.Queries">queries</a> as attributes.</p>
+<p>For example, if there is a single file with queries named <code>queries.edgeql</code>:
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: create-new-person!</span>
+<span class="c c-Singleline"># Create new person with passing first and lst names.</span>
+<span class="kr">INSERT</span> Person {
+    first_name <span class="o">:=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$first_name</span>,
+    last_name <span class="o">:=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$last_name</span>,
+}
+
+<span class="c c-Singleline"># name: select-movies-by-year</span>
+<span class="c c-Singleline"># Get movies by release year.</span>
+<span class="kr">SELECT</span> Movie {
+    title,
+    year,
+    director: {
+        last_name,
+    },
+    actors: {
+        first_name,
+        last_name,
+    }
+}
+<span class="kr">FILTER</span> .year <span class="o">=</span> <span class="o">&lt;</span><span class="nb">int64</span><span class="o">&gt;</span><span class="nv">$year</span>
+</code></pre></div></p>
+<p>or a directory named <code>edgeql</code> with 2 <code>edgeql/persons.edgeql</code> and <code>edgeql/movies.edgeql</code> files:</p>
+<p><code>edgeql/persons.edgeql</code>:
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: create-new-person!</span>
+<span class="c c-Singleline"># Create new person with passing first and lst names.</span>
+<span class="kr">INSERT</span> Person {
+    first_name <span class="o">:=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$first_name</span>,
+    last_name <span class="o">:=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$last_name</span>,
 }
 </code></pre></div></p>
-<p>And python code:
+<p><code>edgeql/movies.edgeql</code>
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: select-movies-by-year</span>
+<span class="c c-Singleline"># Get movies by release year.</span>
+<span class="kr">SELECT</span> Movie {
+    title,
+    year,
+    director: {
+        last_name,
+    },
+    actors: {
+        first_name,
+        last_name,
+    }
+}
+<span class="kr">FILTER</span> .year <span class="o">=</span> <span class="o">&lt;</span><span class="nb">int64</span><span class="o">&gt;</span><span class="nv">$year</span>
+</code></pre></div></p>
+<p>Then working python code will look like this:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">edgedb</span>
 <span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
+<span class="c1"># or from_path('./edgeql', async_driver=False) for directory</span>
 <span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries.edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">users</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">select_all_users</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
-</code></pre></div></p>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
+
+<span class="n">queries</span><span class="o">.</span><span class="n">create_new_person</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">"Keanu"</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">"Reeves"</span><span class="p">)</span>
+</code></pre></div>
+<p>But if you pass a directory with subdirectories that contain <code>.edgeql</code> files, then these 
+queries will be placed as subqueries in the returned queries.</p>
+<p>For example, if there is the following directory tree:</p>
+<div class="highlight"><pre><span></span><code>edgeql/
+├── persons
+│   └── persons.edgeql
+└── movies
+    └── movies.edgeql
+</code></pre></div>
+<p>Then <code>edgeql-queries</code> will generate 2 subgroups for the returned queries, and the 
+working code will look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">edgedb</span>
+<span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
+
+<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
+
+<span class="n">movies</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">movies</span><span class="o">.</span><span class="n">select_movies_by_year</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span>
+</code></pre></div>
 </article>
 </div>
 </div>
@@ -276,7 +341,7 @@ Such query will use <code>.fetchall</code> from the driver:</p>
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../execute/" rel="prev" title="Execute Query">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../improve-typing/" rel="prev" title="Improve Typing Of Queries">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -285,17 +350,17 @@ Such query will use <code>.fetchall</code> from the driver:</p>
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Execute Query
+                Improve Typing Of Queries
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../../../improve-typing/" rel="next" title="Improve Typing Of Queries">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../reference/queries/" rel="next" title="Queries">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Improve Typing Of Queries
+                Queries
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">
@@ -317,14 +382,14 @@ Such query will use <code>.fetchall</code> from the driver:</p>
 </div>
 </footer>
 </div>
-<script src="../../../assets/javascripts/vendor.36cbf620.min.js"></script>
-<script src="../../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.36cbf620.min.js"></script>
+<script src="../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
-          base: "../../..",
+          base: "..",
           features: [],
           search: Object.assign({
-            worker: "../../../assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
