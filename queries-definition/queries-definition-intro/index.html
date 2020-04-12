@@ -293,37 +293,39 @@
 <p>An EdgeQL query that can be parsed using <code>edgeql-queries</code> has some limitations:</p>
 <ol>
 <li>Query must be named.</li>
-<li>The Query name must not contain characters that cannot be used in Python 
+<li>The query's name must not contain characters that cannot be used in Python
     identifiers (<strong>except for the <code>-</code> character, since it will be converted to <code>_</code></strong>).</li>
-<li>They can have special characters after their names, which will change the way 
+<li>They can have special characters after their names, which will change the way
     these queries are executed:<ul>
-<li><code>*</code>: query will be executed as a script using the <code>.execute</code> method from the driver.    </li>
-<li><code>!</code>: query will always return a single object, and therefore such query will be 
+<li><code>*</code>: query will be executed as a script using the <code>.execute</code> method from the driver.</li>
+<li><code>!</code>: query will always return a single object, and therefore such query will be
     executed using the <code>.fetchone</code> method from the driver.</li>
-<li>empty: a regular query that returns a set of objects and will be executed by the 
+<li>empty: a regular query that returns a set of objects and will be executed by the
     <code>.fetchall</code> method from the driver.</li>
 </ul>
 </li>
 </ol>
 <h2 id="names">Names<a class="headerlink" href="#names" title="Permanent link">¶</a></h2>
-<p>The query name must be a valid Python identifier, but it can contain a <code>-</code> character, 
+<p>The query name must be a valid Python identifier, but it can contain a <code>-</code> character,
 which will be converted to <code>_</code>. An example of valid query names:</p>
-<ul>
-<li><div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: get-persons-by-age</span>
+<p>*
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: get-persons-by-age</span>
 <span class="kr">SELECT</span> Person {
     first_name
 }
 <span class="kr">FILTER</span> .age <span class="o">=</span> <span class="o">&lt;</span><span class="nb">int64</span><span class="o">&gt;</span><span class="nv">$age</span>
-</code></pre></div></li>
-<li><div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: get-person-by-full-name!</span>
+</code></pre></div>
+*
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: get-person-by-full-name!</span>
 <span class="kr">SELECT</span> Person {
     first_name,
     last_name,
     age
 }
 <span class="kr">FILTER</span> .first_name <span class="o">=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$first_name</span> <span class="kr">AND</span> .last_name <span class="o">=</span> <span class="o">&lt;</span><span class="nb">str</span><span class="o">&gt;</span><span class="nv">$last_name</span>
-</code></pre></div></li>
-<li><div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: create-test-users*</span>
+</code></pre></div>
+*
+<div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: create-test-users*</span>
 <span class="kr">FOR</span> x <span class="kr">IN</span> {
     (name <span class="o">:=</span> <span class="s">'Alice'</span>, theme <span class="o">:=</span> <span class="s">'fire'</span>),
     (name <span class="o">:=</span> <span class="s">'Bob'</span>, theme <span class="o">:=</span> <span class="s">'rain'</span>),
@@ -337,8 +339,7 @@ which will be converted to <code>_</code>. An example of valid query names:</p>
             theme <span class="o">:=</span> x.theme,
         }
 )
-</code></pre></div></li>
-</ul>
+</code></pre></div></p>
 </article>
 </div>
 </div>

@@ -361,9 +361,9 @@ this example will probably be useless.</p>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">migration_query</span> <span class="ow">in</span> <span class="n">queries</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">available_queries</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"migrate: </span><span class="si">{</span><span class="n">migration_query</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"migrate: </span><span class="si">{</span><span class="n">migration_query</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">conn</span><span class="o">.</span><span class="n">transaction</span><span class="p">():</span>
-        <span class="n">queries</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">get_executor</span><span class="p">(</span><span class="n">migration_query</span><span class="p">)(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">migrations</span><span class="o">.</span><span class="n">get_executor</span><span class="p">(</span><span class="n">migration_query</span><span class="o">.</span><span class="n">name</span><span class="p">)(</span><span class="n">conn</span><span class="p">)</span>
 </code></pre></div></p>
 </article>
 </div>

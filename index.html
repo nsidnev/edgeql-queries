@@ -369,10 +369,10 @@ but who knows  <code>¯\_(ツ)_/¯</code>.</p>
 <p><code>edgeql-queries</code> require only the <a href="https://github.com/edgedb/edgedb-python">EdgeDB driver for Python</a>.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h2>
 <p>You can install <code>edgeql-queries</code> using <code>pip</code>:
-<div class="highlight"><pre><span></span><code>pip install edgeql-querie
+<div class="highlight"><pre><span></span><code>pip install edgeql-queries
 </code></pre></div></p>
 <p>Or if you are use <code>poetry</code>:
-<div class="highlight"><pre><span></span><code>poetry install edgeql-querie
+<div class="highlight"><pre><span></span><code>poetry install edgeql-queries
 </code></pre></div></p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">¶</a></h2>
 <p>There is a more complex example based on the EdgeDB <a href="https://edgedb.com/docs/tutorial/index">tutorial</a> 
@@ -418,7 +418,7 @@ You can look there to see more features.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">edgedb</span>
 <span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
 
-<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./query_set0.edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries.edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
 

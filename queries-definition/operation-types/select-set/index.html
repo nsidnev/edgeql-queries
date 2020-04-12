@@ -260,7 +260,7 @@ Such query will use <code>.fetchall</code> from the driver:</p>
 <span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
 
 <span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"edgedb://edgedb@localhost/edgedb"</span><span class="p">)</span>
-<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries.edgeql"</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">select_all_users</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
 </code></pre></div></p>
