@@ -1,5 +1,5 @@
-Since [Queries][edgeql_queries.queries.Queries] are dynamically generated at runtime, th
-ey cannot provide type hints for your editors/IDEs or linters. But you can write typings 
+Since [Queries][edgeql_queries.queries.Queries] are dynamically generated at runtime, they
+cannot provide type hints for your editors/IDEs or linters. But you can write typings
 for your queries yourself.
 
 `queries.edgeql`:

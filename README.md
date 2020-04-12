@@ -33,7 +33,7 @@
 
 ## Credits
 
-This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql) 
+This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql)
 project and is based on it's source code.
 
 ## License
