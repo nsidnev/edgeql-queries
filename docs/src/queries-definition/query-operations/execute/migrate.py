@@ -6,6 +6,6 @@ queries = from_path("./edgeql", async_driver=False)
 conn = edgedb.connect("edgedb://edgedb@localhost/edgedb")
 
 for migration_query in queries.migrations.available_queries:
-    print(f"migrate: {migration_query}")
+    print(f"migrate: {migration_query.name}")
     with conn.transaction():
-        queries.migrations.get_executor(migration_query)(conn)
+        queries.migrations.get_executor(migration_query.name)(conn)
