@@ -3,7 +3,7 @@
     <em>Simple EdgeQL in Python.</em>
 </p>
 <p align="center">
-<a href=https://github.com/nsidnev/edgeql-queries>
+    <a href=https://github.com/nsidnev/edgeql-queries>
         <img src=https://github.com/nsidnev/edgeql-queries/workflows/Tests/badge.svg alt="Tests" />
     </a>
     <a href=https://github.com/nsidnev/edgeql-queries>
@@ -31,14 +31,14 @@
 # Introduction
 
 
-`edgeql-queries` is a library that allows you to store your 
-[EdgeQL](https://edgedb.com/docs/edgeql/overview/) queries in separate files and then 
-execute them like normal Python functions. This way you can control versions of the 
+`edgeql-queries` is a library that allows you to store your
+[EdgeQL](https://edgedb.com/docs/edgeql/overview/) queries in separate files and then
+execute them like normal Python functions. This way you can control versions of the
 queries code, as with any other languages, but use it in Python applications.
 
 !!! information
-    This library may become less useful after the release of the 
-    [query builder](https://edgedb.com/roadmap#client_language_bindings) for EdgeDB, 
+    This library may become less useful after the release of the
+    [query builder](https://edgedb.com/roadmap#client_language_bindings) for EdgeDB,
     but who knows  `¯\_(ツ)_/¯`.
 
 ## Requirements
@@ -60,8 +60,8 @@ Or if you are use `poetry`:
 ## Example
 
 
-There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/tutorial/index) 
-in the [example](https://github.com/nsidnev/edgeql-queries/blob/master/example) folder in the repository. 
+There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/tutorial/index)
+in the [example](https://github.com/nsidnev/edgeql-queries/blob/master/example) folder in the repository.
 You can look there to see more features.
 
 Here is a simplified version:
@@ -83,7 +83,7 @@ Here is a simplified version:
 
 ## Credits
 
-This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql) 
+This project is inspired by [aiosql](https://github.com/nackjicholson/aiosql)
 project and is based on it's source code.
 
 ## License
