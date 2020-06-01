@@ -426,6 +426,7 @@ i18n = ["Babel (>=0.8)"]
 [[package]]
 category = "main"
 description = "Lightweight pipelining: using Python functions as pipeline jobs."
+marker = "python_version > \"2.7\""
 name = "joblib"
 optional = true
 python-versions = "*"
@@ -449,7 +450,7 @@ description = "A Python implementation of Lunr.js"
 name = "lunr"
 optional = true
 python-versions = "*"
-version = "0.5.6"
+version = "0.5.8"
 
 [package.dependencies]
 future = ">=0.16.0"
@@ -457,10 +458,11 @@ six = ">=1.11.0"
 
 [package.dependencies.nltk]
 optional = true
+python = ">=2.8"
 version = ">=3.2.5"
 
 [package.extras]
-languages = ["nltk (>=3.2.5)"]
+languages = ["nltk (>=3.2.5,<3.5)", "nltk (>=3.2.5)"]
 
 [[package]]
 category = "main"
@@ -509,7 +511,7 @@ description = "Project documentation with Markdown."
 name = "mkdocs"
 optional = true
 python-versions = ">=3.5"
-version = "1.1"
+version = "1.1.2"
 
 [package.dependencies]
 Jinja2 = ">=2.10.1"
@@ -521,7 +523,7 @@ tornado = ">=5.0"
 
 [package.dependencies.lunr]
 extras = ["languages"]
-version = "0.5.6"
+version = "0.5.8"
 
 [[package]]
 category = "main"
@@ -586,6 +588,7 @@ version = "0.4.3"
 [[package]]
 category = "main"
 description = "Natural Language Toolkit"
+marker = "python_version > \"2.7\""
 name = "nltk"
 optional = true
 python-versions = "*"
@@ -899,6 +902,7 @@ version = "6.0.4"
 [[package]]
 category = "main"
 description = "Fast, Extensible Progress Meter"
+marker = "python_version > \"2.7\""
 name = "tqdm"
 optional = true
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
@@ -1186,8 +1190,8 @@ livereload = [
     {file = "livereload-2.6.1.tar.gz", hash = "sha256:89254f78d7529d7ea0a3417d224c34287ebfe266b05e67e51facaf82c27f0f66"},
 ]
 lunr = [
-    {file = "lunr-0.5.6-py2.py3-none-any.whl", hash = "sha256:1208622930c915a07e6f8e8640474357826bad48534c0f57969b6fca9bffc88e"},
-    {file = "lunr-0.5.6.tar.gz", hash = "sha256:7be69d7186f65784a4f2adf81e5c58efd6a9921aa95966babcb1f2f2ada75c20"},
+    {file = "lunr-0.5.8-py2.py3-none-any.whl", hash = "sha256:aab3f489c4d4fab4c1294a257a30fec397db56f0a50273218ccc3efdbf01d6ca"},
+    {file = "lunr-0.5.8.tar.gz", hash = "sha256:c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e"},
 ]
 markdown = [
     {file = "Markdown-3.2.1-py2.py3-none-any.whl", hash = "sha256:e4795399163109457d4c5af2183fbe6b60326c17cfdf25ce6e7474c6624f725d"},
@@ -1236,8 +1240,8 @@ mccabe = [
     {file = "mccabe-0.6.1.tar.gz", hash = "sha256:dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"},
 ]
 mkdocs = [
-    {file = "mkdocs-1.1-py2.py3-none-any.whl", hash = "sha256:1e385a70aea8a9dedb731aea4fd5f3704b2074801c4f96f06b2920999babda8a"},
-    {file = "mkdocs-1.1.tar.gz", hash = "sha256:9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"},
+    {file = "mkdocs-1.1.2-py3-none-any.whl", hash = "sha256:096f52ff52c02c7e90332d2e53da862fde5c062086e1b5356a6e392d5d60f5e9"},
+    {file = "mkdocs-1.1.2.tar.gz", hash = "sha256:f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"},
 ]
 mkdocs-material = [
     {file = "mkdocs-material-5.0.0.tar.gz", hash = "sha256:aa601ff55dc880b86327320077bfaf1628a2cf4ed3765336ab97fa72cb4ffc8b"},
