@@ -529,13 +529,25 @@ description = "A Material Design theme for MkDocs"
 name = "mkdocs-material"
 optional = true
 python-versions = "*"
-version = "5.0.0"
+version = "5.2.2"
 
 [package.dependencies]
 Pygments = ">=2.4"
 markdown = ">=3.2"
 mkdocs = ">=1.1"
+mkdocs-material-extensions = ">=1.0"
 pymdown-extensions = ">=7.0"
+
+[[package]]
+category = "main"
+description = "Extension pack for Python Markdown."
+name = "mkdocs-material-extensions"
+optional = true
+python-versions = ">=3.5"
+version = "1.0"
+
+[package.dependencies]
+mkdocs-material = ">=5.0.0"
 
 [[package]]
 category = "main"
@@ -998,7 +1010,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings", "markdown-include", "typer"]
 
 [metadata]
-content-hash = "75c19137b4951a2ca44074c9bf1157ef1f128c1b11a4794dc12cdb94a0e71ebf"
+content-hash = "f508548fff8af401ff8c668a37bd92f835ef0d36eae95ef48c6b45da9b94ca98"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1240,8 +1252,12 @@ mkdocs = [
     {file = "mkdocs-1.1.tar.gz", hash = "sha256:9243291392f59e20b655e4e46210233453faf97787c2cf72176510e868143174"},
 ]
 mkdocs-material = [
-    {file = "mkdocs-material-5.0.0.tar.gz", hash = "sha256:aa601ff55dc880b86327320077bfaf1628a2cf4ed3765336ab97fa72cb4ffc8b"},
-    {file = "mkdocs_material-5.0.0-py2.py3-none-any.whl", hash = "sha256:67fc93fd9f06c4f5b5b6b06f9e27c8f7876866377a0dd65660df4d4df6523f95"},
+    {file = "mkdocs-material-5.2.2.tar.gz", hash = "sha256:381d35fe2fc80773c6c94fe18622f29719ed15719f968b14c2a628a41489b9ab"},
+    {file = "mkdocs_material-5.2.2-py2.py3-none-any.whl", hash = "sha256:c896bfb8d7c52caeac423aa5b210828c317aa7a0916ab02ee1ada242edc5c813"},
+]
+mkdocs-material-extensions = [
+    {file = "mkdocs-material-extensions-1.0.tar.gz", hash = "sha256:17d7491e189af75700310b7ec33c6c48a22060b8b445001deca040cb60471cde"},
+    {file = "mkdocs_material_extensions-1.0-py3-none-any.whl", hash = "sha256:09569c3694b5acc1e8334c9730e52b4bcde65fc9d613cc20e49af131ef1a9ca0"},
 ]
 mkdocstrings = [
     {file = "mkdocstrings-0.11.0-py3-none-any.whl", hash = "sha256:3ef5465d2432d4a17cc822810fa5993019e608428cef050ce75c41bedfc295e0"},
