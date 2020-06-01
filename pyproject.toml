@@ -2,45 +2,44 @@
 name = "edgeql-queries"
 version = "0.0.2"
 description = "Simple EdgeQL in Python."
-
 authors = ["Nik Sidnev <sidnev.nick@gmail.com>"]
 repository = "https://github.com/nsidnev/edgeql-queries"
 documentation = "https://nsidnev.github.io/edgeql-queries/"
-
 readme = "README.md"
-
 license = "MIT"
-
 
 [tool.poetry.dependencies]
 python = "^3.7"
 edgedb = "^0.7.1"
 
-# docs dependencies
-mkdocs = { version = "^1.1", optional = true }
-mkdocs-material = { version = "5.0", optional = true }
-mkdocstrings = { version = ">=0.10,<0.12", optional = true }
-markdown-include = { version = "^0.5.1", optional = true }
-typer = { version = ">=0.1.1,<0.3.0", optional = true }
-
-
 [tool.poetry.dev-dependencies]
+# formatters
 black = "^19.10b0"
 isort = "^4.3.21"
 autoflake = "^1.3.1"
-
+# linters
 wemake-python-styleguide = "^0.14.0"
 mypy = "^0.770"
-
+# tests
 pytest = "5.3.5"
 pytest-cov = "^2.9.0"
 pytest-asyncio = "^0.10.0"
 pytest-env = "^0.6.2"
-
+# docs
+mkdocs = "^1.1"
+mkdocs-material = "^5.2.2"
+mkdocstrings = "^0.11.0"
+markdown-include = "^0.5.1"
+typer = "^0.2.1"
 
 [tool.poetry.extras]
-docs = ["mkdocs", "mkdocs-material", "mkdocstrings", "markdown-include", "typer"]
-
+docs = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings",
+  "markdown-include",
+  "typer"
+]
 
 [tool.black]
 target_version = ['py36', 'py37', 'py38']
@@ -67,7 +66,6 @@ exclude = '''
   |locale
 )/
 '''
-
 
 [build-system]
 requires = ["poetry>=1.0"]
