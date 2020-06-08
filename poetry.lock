@@ -109,7 +109,7 @@ version = "7.1.2"
 [[package]]
 category = "dev"
 description = "Cross-platform colored terminal text."
-marker = "platform_system == \"Windows\" or sys_platform == \"win32\""
+marker = "sys_platform == \"win32\" or platform_system == \"Windows\""
 name = "colorama"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
@@ -148,7 +148,7 @@ description = "EdgeDB Python driver"
 name = "edgedb"
 optional = false
 python-versions = "*"
-version = "0.7.1"
+version = "0.8.0"
 
 [package.extras]
 dev = ["Cython (0.29.14)", "pytest (>=3.6.0)", "sphinx (>=2.3.1,<2.4.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.4.3,<0.5.0)", "pycodestyle (>=2.5.0,<2.6.0)", "flake8 (>=3.7.9,<3.8.0)", "uvloop (>=0.14.0)"]
@@ -1011,7 +1011,7 @@ testing = ["jaraco.itertools", "func-timeout"]
 docs = []
 
 [metadata]
-content-hash = "1f4146810b850603b52408e2dfbc3deb36a8598161b9e9f1ec48c952ec179404"
+content-hash = "90ed9b00800a47c649bff0fa206f9e37c327aa739c4c4eebe26a7c8451af918e"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1097,16 +1097,16 @@ docutils = [
     {file = "docutils-0.16.tar.gz", hash = "sha256:c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"},
 ]
 edgedb = [
-    {file = "edgedb-0.7.1-cp36-cp36m-macosx_10_13_x86_64.whl", hash = "sha256:af0e20592e4667ec7696b8ad72879eb02cf108b16b4d3e745f6b2f51e6ce71b7"},
-    {file = "edgedb-0.7.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:fcc5f96488bae0fc3ed9026e7a2d69be2d1231efbf4b907ab307a6621d38dc5d"},
-    {file = "edgedb-0.7.1-cp36-cp36m-win_amd64.whl", hash = "sha256:f4a460c963d66bd838f965aa68cad5f8f2bb63adac028f024019a0ab1d748704"},
-    {file = "edgedb-0.7.1-cp37-cp37m-macosx_10_13_x86_64.whl", hash = "sha256:fe684f73088e3d63a5fef30900074873ad889061b4febd2f8d5521ad2fa45f2d"},
-    {file = "edgedb-0.7.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:d91bc408c7e1926675eba2a42a7290adc566f238cc093cbdaba18e7013e4409c"},
-    {file = "edgedb-0.7.1-cp37-cp37m-win_amd64.whl", hash = "sha256:aeca09bdb3506eeecf621802a1b7b857a12cfef8164acf1a1cd2845963c82ee3"},
-    {file = "edgedb-0.7.1-cp38-cp38-macosx_10_13_x86_64.whl", hash = "sha256:9c6bcab8cf65d6b8b587af8e2b2fdaa93e5755cd567a38bfbccf860face4457d"},
-    {file = "edgedb-0.7.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:0475ab09bb9b75b4610aac0be23f20be5d0dac22be37838aa7be6b992ea0e476"},
-    {file = "edgedb-0.7.1-cp38-cp38-win_amd64.whl", hash = "sha256:5e3b2e19338679a50c3c35e34f467291bd0b009828acf7f3a3c053274cdcccba"},
-    {file = "edgedb-0.7.1.tar.gz", hash = "sha256:e7726530dffd13ad99aa7b2ec872034ebbcbc13b8a2783db7f9e77efad7b3b24"},
+    {file = "edgedb-0.8.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:122c8dd8457fd1440e646c2a5a3fcd6f1cd831d043721cdf3dea8bf3ca3b631f"},
+    {file = "edgedb-0.8.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:f8800e30641b458710ab3014859d527fbdc30d27ef7137ed8993ddd5ac49cb1c"},
+    {file = "edgedb-0.8.0-cp36-cp36m-win_amd64.whl", hash = "sha256:d57eda35fa1db021131626324dbd3c5989379db116c221dc117cef785246714b"},
+    {file = "edgedb-0.8.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:606f4edfc8fb656e62232d505a435e159f2a9a6021396e48c3edf80556eaf695"},
+    {file = "edgedb-0.8.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:66bca7c4fb49f7a2756b24e2871b564a8e356ee3213668656e0c327f04afcc86"},
+    {file = "edgedb-0.8.0-cp37-cp37m-win_amd64.whl", hash = "sha256:f6c6105e36ec5c79fe6ccca3bcf0021550dd11fdcf490a24845c668c44d84b59"},
+    {file = "edgedb-0.8.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:55bcd6f927a4aff289b420cc21f7a57ce46c6aa3e55ead124c1261d58ec67e7e"},
+    {file = "edgedb-0.8.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:883a423d5aec4be089e42d8b506caa229f67e7d75374a3e0443863756684462a"},
+    {file = "edgedb-0.8.0-cp38-cp38-win_amd64.whl", hash = "sha256:ba55298c0a71a0b627c88aa530194bbc200bb83a2aef1e34702464fd7d2c9cd6"},
+    {file = "edgedb-0.8.0.tar.gz", hash = "sha256:c18aff37f93dab3612c41df25cfcb9e71355a585d5134e72acfa944386313591"},
 ]
 eradicate = [
     {file = "eradicate-1.0.tar.gz", hash = "sha256:4ffda82aae6fd49dfffa777a857cb758d77502a1f2e0f54c9ac5155a39d2d01a"},
@@ -1233,6 +1233,11 @@ markupsafe = [
     {file = "MarkupSafe-1.1.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:ba59edeaa2fc6114428f1637ffff42da1e311e29382d81b339c1817d37ec93c6"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win32.whl", hash = "sha256:b00c1de48212e4cc9603895652c5c410df699856a2853135b3967591e4beebc2"},
     {file = "MarkupSafe-1.1.1-cp37-cp37m-win_amd64.whl", hash = "sha256:9bf40443012702a1d2070043cb6291650a0841ece432556f784f004937f0f32c"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:6788b695d50a51edb699cb55e35487e430fa21f1ed838122d722e0ff0ac5ba15"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:cdb132fc825c38e1aeec2c8aa9338310d29d337bebbd7baa06889d09a60a1fa2"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:13d3144e1e340870b25e7b10b98d779608c02016d5184cfb9927a9f10c689f42"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-win32.whl", hash = "sha256:596510de112c685489095da617b5bcbbac7dd6384aeebeda4df6025d0256a81b"},
+    {file = "MarkupSafe-1.1.1-cp38-cp38-win_amd64.whl", hash = "sha256:e8313f01ba26fbbe36c7be1966a7b7424942f670f38e666995b88d012765b9be"},
     {file = "MarkupSafe-1.1.1.tar.gz", hash = "sha256:29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"},
 ]
 mccabe = [
