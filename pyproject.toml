@@ -28,7 +28,7 @@ pytest-env = "^0.6.2"
 # docs
 mkdocs = "^1.1"
 mkdocs-material = "^5.4.0"
-mkdocstrings = "^0.11.3"
+mkdocstrings = "^0.12.0"
 markdown-include = "^0.5.1"
 typer = "^0.3.0"
 
