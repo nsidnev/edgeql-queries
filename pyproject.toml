@@ -15,7 +15,7 @@ edgedb = ">=0.7.1,<0.9.0"
 [tool.poetry.dev-dependencies]
 # formatters
 black = "^19.10b0"
-isort = "^4.3.21"
+isort = "^5.2.2"
 autoflake = "^1.3.1"
 # linters
 wemake-python-styleguide = "^0.14.0"
