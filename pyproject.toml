@@ -21,7 +21,7 @@ autoflake = "^1.3.1"
 wemake-python-styleguide = "^0.14.0"
 mypy = "^0.782"
 # tests
-pytest = "5.3.5"
+pytest = "6.0.1"
 pytest-cov = "^2.10.0"
 pytest-asyncio = "^0.10.0"
 pytest-env = "^0.6.2"
