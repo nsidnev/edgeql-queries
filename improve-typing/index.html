@@ -8,10 +8,10 @@
 <meta content="Simple EdgeQL in Python" name="description"/>
 <link href="https://nsidnev.github.io/edgeql-queries/improve-typing/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.3" name="generator"/>
 <title>Improve Typing Of Queries - edgeql-queries</title>
-<link href="../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.a46bcfb3.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.947af8d5.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.7f672a1f.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -278,41 +278,35 @@ for your queries yourself.</p>
 }
 </code></pre></div></p>
 <p>And python code:
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">cast</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Protocol</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">cast</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
 
 <span class="kn">import</span> <span class="nn">edgedb</span>
-<span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
+<span class="kn">import</span> <span class="nn">edgeql_queries</span>
+
+<span class="n">EdgeDBFetcher</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">edgedb</span><span class="o">.</span><span class="n">AsyncIOPool</span><span class="p">,</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">AsyncIOConnection</span><span class="p">]</span>
 
 
-<span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">EdgeDBObject</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">Protocol</span><span class="p">):</span>
     <span class="nb">id</span><span class="p">:</span> <span class="n">UUID</span>
-
-
-<span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="n">EdgeDBObject</span><span class="p">):</span>
     <span class="n">first_name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span>
 
 
 <span class="k">class</span> <span class="nc">Queries</span><span class="p">:</span>
     <span class="k">async</span> <span class="k">def</span> <span class="nf">select_users_by_last_name</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">:</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">AsyncIOConnection</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">fetcher</span><span class="p">:</span> <span class="n">EdgeDBFetcher</span><span class="p">,</span> <span class="n">last_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">Person</span><span class="p">]:</span>
         <span class="o">...</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">select_user_by_id</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">:</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">AsyncIOConnection</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">UUID</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Person</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">select_user_by_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fetcher</span><span class="p">:</span> <span class="n">EdgeDBFetcher</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">UUID</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">Person</span><span class="p">:</span>
         <span class="o">...</span>
 
-    <span class="k">async</span> <span class="k">def</span> <span class="nf">create_keanu_reeves</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conn</span><span class="p">:</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">AsyncIOConnection</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">async</span> <span class="k">def</span> <span class="nf">create_keanu_reeves</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fetcher</span><span class="p">:</span> <span class="n">EdgeDBFetcher</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="o">...</span>
 
 
-<span class="n">queries</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Queries</span><span class="p">,</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries.edgeql"</span><span class="p">))</span>
+<span class="n">queries</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">Queries</span><span class="p">,</span> <span class="n">edgeql_queries</span><span class="o">.</span><span class="n">from_path</span><span class="p">(</span><span class="s2">"./queries.edgeql"</span><span class="p">))</span>
 </code></pre></div></p>
 </article>
 </div>
@@ -362,14 +356,14 @@ for your queries yourself.</p>
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.d710d30a.min.js"></script>
-<script src="../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+<script src="../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../assets/javascripts/worker/search.8e2cddea.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

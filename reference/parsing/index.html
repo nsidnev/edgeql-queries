@@ -8,10 +8,10 @@
 <meta content="Simple EdgeQL in Python" name="description"/>
 <link href="https://nsidnev.github.io/edgeql-queries/reference/parsing/" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.4.0" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.3" name="generator"/>
 <title>Parsing - edgeql-queries</title>
-<link href="../../assets/stylesheets/main.fe0cca5b.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.a46bcfb3.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.947af8d5.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.7f672a1f.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -412,16 +412,16 @@ get_edgeql_query<span class="p">(</span><span class="n">lines</span><span class=
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>101
-102
-103
+<pre><span></span>103
 104
 105
 106
 107
 108
 109
-110</pre>
+110
+111
+112</pre>
 </div>
 </td>
 <td class="code">
@@ -514,47 +514,49 @@ converted into Python identificator.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98</pre>
+<pre><span></span> 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100</pre>
 </div>
 </td>
 <td class="code">
@@ -581,7 +583,7 @@ converted into Python identificator.</p>
     <span class="n">name</span> <span class="o">=</span> <span class="n">name_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
 
     <span class="n">operation_suffix</span> <span class="o">=</span> <span class="s2">""</span>
-    <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">_OPERATION_SUFFFIXES_TO_TYPES</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">_OPERATION_SUFFFIXES_TO_TYPES</span><span class="p">:</span>  <span class="c1"># pragma: no branch</span>
         <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">suffix</span><span class="p">):</span>
             <span class="n">operation_suffix</span> <span class="o">=</span> <span class="n">suffix</span>
             <span class="k">break</span>
@@ -593,7 +595,9 @@ converted into Python identificator.</p>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">VALID_QUERY_NAME_PATTERN</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">query_name</span><span class="p">):</span>
         <span class="k">raise</span> <span class="n">EdgeQLParsingError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s1">'name must convert to valid python variable, got "</span><span class="si">{</span><span class="n">query_name</span><span class="si">}</span><span class="s1">".'</span><span class="p">,</span>
+            <span class="s1">'name must be convertable to valid python variable, got "</span><span class="si">{0}</span><span class="s1">"'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">query_name</span><span class="p">,</span>
+            <span class="p">),</span>
         <span class="p">)</span>
 
     <span class="k">return</span> <span class="p">(</span>
@@ -659,9 +663,7 @@ parse_query_from_string<span class="p">(</span><span class="n">query</span><span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>113
-114
-115
+<pre><span></span>115
 116
 117
 118
@@ -672,7 +674,9 @@ parse_query_from_string<span class="p">(</span><span class="n">query</span><span
 123
 124
 125
-126</pre>
+126
+127
+128</pre>
 </div>
 </td>
 <td class="code">
@@ -750,14 +754,14 @@ parse_query_from_string<span class="p">(</span><span class="n">query</span><span
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.d710d30a.min.js"></script>
-<script src="../../assets/javascripts/bundle.b39636ac.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
+<script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

@@ -1,7 +1,7 @@
 import edgedb
-from edgeql_queries import from_path
+import edgeql_queries
 
-queries = from_path("./edgeql", async_driver=False)
+queries = edgeql_queries.from_path("./edgeql", async_driver=False)
 
 conn = edgedb.connect("edgedb://edgedb@localhost/edgedb")
 
