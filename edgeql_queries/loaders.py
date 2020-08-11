@@ -28,7 +28,7 @@ def from_path(edgeql_path: Union[str, Path], async_driver: bool = True) -> Queri
     path = Path(edgeql_path)
 
     if not path.exists():
-        raise EdgeQLLoadError(f"{path} does not exist")
+        raise EdgeQLLoadError("{0} does not exist".format(path))
 
     queries = Queries(async_driver)
 
@@ -39,4 +39,6 @@ def from_path(edgeql_path: Union[str, Path], async_driver: bool = True) -> Queri
         query_data_tree = load_query_data_from_dir_path(path)
         return load_from_tree(queries, query_data_tree)
 
-    raise EdgeQLLoadError(f"edgeql_path must be a directory or file, got {edgeql_path}")
+    raise EdgeQLLoadError(
+        "edgeql_path must be a directory or file, got {0}".format(edgeql_path),
+    )

@@ -62,7 +62,7 @@ def load_query_data_from_dir_path(dir_path: Path) -> QueriesTree:
         ValueError: if dir_path is not directory.
     """
     if not dir_path.is_dir():
-        raise ValueError(f"path {dir_path} must be a directory")
+        raise ValueError("path {0} must be a directory".format(dir_path))
 
     return _load_query_data_tree(dir_path, dir_path)
 

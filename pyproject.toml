@@ -10,27 +10,31 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-edgedb = ">=0.7.1,<0.9.0"
+edgedb = "0.9.0"
 
 [tool.poetry.dev-dependencies]
+# common tasks
+nox = "^2020.5.24"
 # formatters
 black = "^19.10b0"
-isort = "^4.3.21"
+isort = "^4.3.21" # TODO: update after support in WPS
 autoflake = "^1.3.1"
+add-trailing-comma = "^2.0.1"
 # linters
-wemake-python-styleguide = "^0.14.0"
+wemake-python-styleguide = "^0.14.1"
 mypy = "^0.782"
+flake8-pytest-style = "^1.2.3"
 # tests
-pytest = "5.3.5"
+pytest = "^6.0.1"
 pytest-cov = "^2.10.0"
-pytest-asyncio = "^0.10.0"
+pytest-asyncio = "^0.14.0"
 pytest-env = "^0.6.2"
 # docs
-mkdocs = "^1.1"
-mkdocs-material = "^5.4.0"
-mkdocstrings = "^0.12.0"
+mkdocs = "^1.1.2"
+mkdocs-material = "^5.5.3"
+mkdocstrings = "^0.12.2"
 markdown-include = "^0.5.1"
-typer = "^0.3.0"
+typer = "^0.3.1"
 
 [tool.poetry.extras]
 docs = [

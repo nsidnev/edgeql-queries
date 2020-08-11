@@ -10,20 +10,26 @@ from edgedb.datatypes import datatypes
 from edgeql_queries.models import EdgeQLOperationType, Query
 
 
-def _execute(conn: BlockingIOConnection, *, query: Query) -> None:
-    return conn.execute(query.edgeql)
+def _execute(__edgeql_query__: Query, conn: BlockingIOConnection) -> None:
+    return conn.execute(__edgeql_query__.edgeql)
 
 
 def _set_return(
-    conn: BlockingIOConnection, *, query: Query, **query_args: Any,
+    __edgeql_query__: Query,
+    conn: BlockingIOConnection,
+    *query_args: Any,
+    **query_kwargs: Any,
 ) -> datatypes.Set:
-    return conn.fetchall(query.edgeql, **query_args)
+    return conn.query(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 def _single_return(
-    conn: BlockingIOConnection, *, query: Query, **query_args: Any,
+    __edgeql_query__: Query,
+    conn: BlockingIOConnection,
+    *query_args: Any,
+    **query_kwargs: Any,
 ) -> Any:
-    return conn.fetchone(query.edgeql, **query_args)
+    return conn.query_one(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 _OPERATION_TO_EXECUTOR: Mapping[EdgeQLOperationType, Callable] = MappingProxyType(
@@ -45,4 +51,4 @@ def create_sync_executor(query: Query) -> Callable:
         Created sync executor.
     """
     executor = _OPERATION_TO_EXECUTOR[query.operation_type]
-    return partial(executor, query=query)
+    return partial(executor, query)

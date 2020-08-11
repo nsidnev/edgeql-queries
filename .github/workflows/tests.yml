@@ -11,7 +11,7 @@ jobs:
         python-version: [3.7, 3.8]
     services:
       edgedb:
-        image: edgedb/edgedb:latest
+        image: edgedb/edgedb:1-alpha4
         ports:
           - 5656:5656
     steps:
@@ -25,13 +25,18 @@ jobs:
           pip install poetry==1.0
           poetry config virtualenvs.in-project true
           poetry install
+      - name: Install EdgeDB CLI
+        run: |
+          mkdir -p ~/.local/bin/
+          curl https://packages.edgedb.com/dist/linux-x86_64/edgedb-cli_latest > ~/.local/bin/edgedb
+          chmod +x ~/.local/bin/edgedb
+      - name: Wait For EdgeDB bootstraping
+        run: |
+          ~/.local/bin/edgedb --user=edgedb --database=edgedb --wait-until-available 5min
       - name: Run tests
         env:
           EDGEDB_DSN: edgedb://edgedb@localhost/edgedb
         run: |
-          # sleep for 1 minute for EdgeDB bootstraping.
-          # TODO: remove after release cli with --wait-until-available
-          sleep 60
           source .venv/bin/activate
           ./scripts/test --cov-report=xml
       - uses: codecov/codecov-action@v1.0.6

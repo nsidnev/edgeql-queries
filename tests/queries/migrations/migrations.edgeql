@@ -1,8 +1,7 @@
 # name: create-movies*
 # Migrate movies schema inside transaction.
-START TRANSACTION;
 
-CREATE MIGRATION movies TO {
+START MIGRATION TO {
     module default {
         type Movie {
             required property title -> str;
@@ -18,6 +17,6 @@ CREATE MIGRATION movies TO {
     }
 };
 
-COMMIT MIGRATION movies;
+POPULATE MIGRATION;
 
-COMMIT;
+COMMIT MIGRATION;

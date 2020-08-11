@@ -13,7 +13,7 @@ def test_error_if_query_is_in_wrong_format() -> None:
                 first_name,
                 last_name
             }
-            """
+            """,
         )
 
 
@@ -27,5 +27,5 @@ def test_error_if_query_name_is_in_wrong_format() -> None:
                 first_name,
                 last_name
             }
-            """
+            """,
         )

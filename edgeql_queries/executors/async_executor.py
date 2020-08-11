@@ -2,28 +2,30 @@
 
 from functools import partial
 from types import MappingProxyType
-from typing import Any, Callable, Mapping
+from typing import Any, Callable, Mapping, Union
 
-from edgedb import AsyncIOConnection
+from edgedb import AsyncIOConnection, AsyncIOPool
 from edgedb.datatypes import datatypes
 
 from edgeql_queries.models import EdgeQLOperationType, Query
 
+_AsyncFetcher = Union[AsyncIOConnection, AsyncIOPool]
 
-async def _execute(conn: AsyncIOConnection, *, query: Query) -> None:
-    return await conn.execute(query.edgeql)
+
+async def _execute(__edgeql_query__: Query, conn: _AsyncFetcher) -> None:
+    return await conn.execute(__edgeql_query__.edgeql)
 
 
 async def _set_return(
-    conn: AsyncIOConnection, *, query: Query, **query_args: Any,
+    __edgeql_query__: Query, conn: _AsyncFetcher, *query_args: Any, **query_kwargs: Any,
 ) -> datatypes.Set:
-    return await conn.fetchall(query.edgeql, **query_args)
+    return await conn.query(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 async def _single_return(
-    conn: AsyncIOConnection, *, query: Query, **query_args: Any,
+    __edgeql_query__: Query, conn: _AsyncFetcher, *query_args: Any, **query_kwargs: Any,
 ) -> Any:
-    return await conn.fetchone(query.edgeql, **query_args)
+    return await conn.query_one(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 _OPERATION_TO_EXECUTOR: Mapping[EdgeQLOperationType, Callable] = MappingProxyType(
@@ -45,4 +47,4 @@ def create_async_executor(query: Query) -> Callable:
         Created async executor.
     """
     executor = _OPERATION_TO_EXECUTOR[query.operation_type]
-    return partial(executor, query=query)
+    return partial(executor, query)
