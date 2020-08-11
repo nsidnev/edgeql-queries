@@ -30,13 +30,10 @@ jobs:
           mkdir -p ~/.local/bin/
           curl https://packages.edgedb.com/dist/linux-x86_64/edgedb-cli_latest > ~/.local/bin/edgedb
           chmod +x ~/.local/bin/edgedb
-      - name: Wait For EdgeDB bootstraping
-        run: |
-          ~/.local/bin/edgedb --user=edgedb --database=edgedb --wait-until-available 5min
       - name: Run tests
         env:
           EDGEDB_DSN: edgedb://edgedb@localhost/edgedb
         run: |
-          source .venv/bin/activate
-          ./scripts/test --cov-report=xml
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry run nox -s test
       - uses: codecov/codecov-action@v1.0.6

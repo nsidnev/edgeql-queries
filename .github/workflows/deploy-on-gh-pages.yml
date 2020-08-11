@@ -21,8 +21,7 @@ jobs:
           poetry install
       - name: Build MkDocs for GitHub Pages
         run: |
-          source .venv/bin/activate
-          ./scripts/docs.py build
+          poetry run nox -s docs-build
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
