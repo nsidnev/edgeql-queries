@@ -6,7 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.0.1](https://github.com/nsidnev/edgeql-queries/compare/0.0.1...HEAD)</small>
+<small>[Compare with 0.0.2](https://github.com/nsidnev/edgeql-queries/compare/0.0.2...HEAD)</small>
+
+## [0.0.2] - 2020-08-11
+<small>[Compare with 0.0.1](https://github.com/nsidnev/edgeql-queries/compare/0.0.1...0.0.2)</small>
 
 ### Added
 
