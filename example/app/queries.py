@@ -1,4 +1,3 @@
-from dataclasses import dataclass
 from typing import List, Protocol, cast
 from uuid import UUID
 
@@ -8,8 +7,7 @@ from edgeql_queries import from_path
 from app.models import Movie
 
 
-@dataclass
-class EdgeDBObject:
+class EdgeDBObject(Protocol):
     id: UUID
 
 

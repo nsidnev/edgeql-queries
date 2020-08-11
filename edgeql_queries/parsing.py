@@ -77,7 +77,7 @@ def get_query_name_and_operation(header_line: str) -> Tuple[str, EdgeQLOperation
     name = name_match.group(1).replace("-", "_")
 
     operation_suffix = ""
-    for suffix in _OPERATION_SUFFFIXES_TO_TYPES:
+    for suffix in _OPERATION_SUFFFIXES_TO_TYPES:  # pragma: no branch
         if name.endswith(suffix):
             operation_suffix = suffix
             break
@@ -89,7 +89,9 @@ def get_query_name_and_operation(header_line: str) -> Tuple[str, EdgeQLOperation
 
     if not VALID_QUERY_NAME_PATTERN.match(query_name):
         raise EdgeQLParsingError(
-            f'name must convert to valid python variable, got "{query_name}".',
+            'name must be convertable to valid python variable, got "{0}"'.format(
+                query_name,
+            ),
         )
 
     return (

@@ -6,37 +6,39 @@ import pytest
 
 from edgeql_queries import from_path
 from edgeql_queries.queries import Queries
+from tests.typing import EdgeDBAsyncFetcher
 
 
-@pytest.fixture
+@pytest.fixture()
 def queries_path() -> pathlib.Path:
     return pathlib.Path(__file__).parent / "queries"
 
 
-@pytest.fixture
+@pytest.fixture()
 def async_queries(queries_path: pathlib.Path) -> Queries:
     return from_path(queries_path)
 
 
-@pytest.fixture
+@pytest.fixture()
 def sync_queries(queries_path: pathlib.Path) -> Queries:
     return from_path(queries_path, async_driver=False)
 
 
-@pytest.fixture
+@pytest.fixture()
 def edgedb_dsn() -> str:
     return os.getenv("EDGEDB_DSN")
 
 
-@pytest.fixture
-async def async_connection(edgedb_dsn: str) -> edgedb.AsyncIOConnection:
-    conn = await edgedb.async_connect(edgedb_dsn)
-    yield conn
-    await conn.aclose()
+@pytest.fixture(params=[edgedb.create_async_pool, edgedb.async_connect])
+async def async_fetcher(request, edgedb_dsn: str) -> EdgeDBAsyncFetcher:
+    fetcher_creator = request.param
+    fetcher = await fetcher_creator(edgedb_dsn)
+    yield fetcher
+    await fetcher.aclose()
 
 
-@pytest.fixture
-def sync_connection(edgedb_dsn: str) -> edgedb.BlockingIOConnection:
+@pytest.fixture()
+def sync_fetcher(edgedb_dsn: str) -> edgedb.BlockingIOConnection:
     conn = edgedb.connect(edgedb_dsn)
     yield conn
     conn.close()
@@ -44,10 +46,10 @@ def sync_connection(edgedb_dsn: str) -> edgedb.BlockingIOConnection:
 
 @pytest.fixture(autouse=True)
 async def setup_database(
-    async_connection: edgedb.AsyncIOConnection, async_queries: Queries
+    async_fetcher: edgedb.AsyncIOConnection, async_queries: Queries,
 ) -> None:
-    await async_queries.migrations.create_movies(async_connection)
-    await async_connection.execute(
+    await async_queries.migrations.create_movies(async_fetcher)
+    await async_fetcher.execute(
         """
         INSERT Movie {
             title := 'Blade Runner 2049',
@@ -73,12 +75,12 @@ async def setup_database(
                 }),
             }
         };
-        """
+        """,
     )
     yield
-    await async_connection.execute(
+    await async_fetcher.execute(
         """
         DELETE Movie;
         DELETE Person;
-        """
+        """,
     )

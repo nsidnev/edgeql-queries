@@ -52,7 +52,7 @@ You can install `edgeql-queries` using `pip`:
 {!./src/index/install_using_pip.sh!}
 ```
 
-Or if you are use `poetry`:
+Or if you are using `poetry`:
 ```bash
 {!./src/index/install_using_poetry.sh!}
 ```

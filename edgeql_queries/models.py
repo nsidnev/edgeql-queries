@@ -7,28 +7,28 @@ from enum import IntEnum, auto
 class EdgeQLOperationType(IntEnum):
     """Enumeration for operation types for queries."""
 
+    #: type for operation that returns a single object.
     single_return = auto()
-    """type for operation that returns a single object."""
 
+    #: type for operation that returns a common set of object.
     set_return = auto()
-    """type for operation that returns a common set of object."""
 
+    #: type for operation that returns nothing.
     execute = auto()
-    """type for operation that returns nothing."""
 
 
 @dataclass
 class Query:
     """Parsed query."""
 
+    #: name of parsed query.
     name: str
-    """name of parsed query."""
 
+    #: query operation type.
     operation_type: EdgeQLOperationType
-    """query operation type."""
 
+    #: EdgeQL query that should be executed.
     edgeql: str
-    """EdgeQL query that should be executed."""
 
     def __hash__(self) -> int:
         """Hash query.

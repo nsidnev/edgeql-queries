@@ -22,5 +22,4 @@ jobs:
           poetry install
       - name: Run linters
         run: |
-          source .venv/bin/activate
-          ./scripts/lint
+          poetry run nox -s lint

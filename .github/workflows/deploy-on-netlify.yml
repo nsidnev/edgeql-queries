@@ -25,8 +25,7 @@ jobs:
           poetry install
       - name: Build MkDocs for Netlify
         run: |
-          source .venv/bin/activate
-          ./scripts/docs.py build
+          poetry run nox -s docs-build
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.0.3
         with:
