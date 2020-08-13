@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Update `netlify-action` to update existing message with deploymet instead of spaming with new.
+* Update `netlify-action` to update existing message with docs deployment instead of spaming with new one.
 * Change the license from `MIT` to `FreeBSD` as in the parent projects([`aiosql`](https://github.com/nackjicholson/aiosql) and [`anosql`](https://github.com/honza/anosql)).
 
 ## [0.0.2] - 2020-08-11
