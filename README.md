@@ -41,4 +41,4 @@ project and is based on it's source code.
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the FreeBSD license.
