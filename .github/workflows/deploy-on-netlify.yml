@@ -27,7 +27,7 @@ jobs:
         run: |
           poetry run nox -s docs-build
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.0.3
+        uses: nwtgck/actions-netlify@v1.1
         with:
           publish-dir: "./site"
           production-branch: master
