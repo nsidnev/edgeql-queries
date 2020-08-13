@@ -4,7 +4,7 @@ import pathlib
 import edgedb
 import pytest
 
-from edgeql_queries import from_path
+import edgeql_queries
 from edgeql_queries.queries import Queries
 from tests.typing import EdgeDBAsyncFetcher
 
@@ -16,12 +16,12 @@ def queries_path() -> pathlib.Path:
 
 @pytest.fixture()
 def async_queries(queries_path: pathlib.Path) -> Queries:
-    return from_path(queries_path)
+    return edgeql_queries.from_path(queries_path)
 
 
 @pytest.fixture()
 def sync_queries(queries_path: pathlib.Path) -> Queries:
-    return from_path(queries_path, async_driver=False)
+    return edgeql_queries.from_path(queries_path, async_driver=False)
 
 
 @pytest.fixture()
@@ -45,11 +45,11 @@ def sync_fetcher(edgedb_dsn: str) -> edgedb.BlockingIOConnection:
 
 
 @pytest.fixture(autouse=True)
-async def setup_database(
-    async_fetcher: edgedb.AsyncIOConnection, async_queries: Queries,
+def setup_database(
+    sync_fetcher: edgedb.BlockingIOConnection, sync_queries: Queries,
 ) -> None:
-    await async_queries.migrations.create_movies(async_fetcher)
-    await async_fetcher.execute(
+    sync_queries.migrations.create_movies(sync_fetcher)
+    sync_fetcher.execute(
         """
         INSERT Movie {
             title := 'Blade Runner 2049',
@@ -78,7 +78,7 @@ async def setup_database(
         """,
     )
     yield
-    await async_fetcher.execute(
+    sync_fetcher.execute(
         """
         DELETE Movie;
         DELETE Person;

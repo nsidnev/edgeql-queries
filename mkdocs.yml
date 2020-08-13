@@ -21,6 +21,8 @@ nav:
           - Query Set Of Objects: 'queries-definition/operation-types/select-set.md'
   - Improve Typing Of Queries: 'improve-typing.md'
   - Grouping Queries: 'grouping-queries.md'
+  - Contrib:
+    - aiosql: 'contrib/aiosql.md'
   - API Reference:
       - Queries: 'reference/queries.md'
       - Loaders: 'reference/loaders.md'

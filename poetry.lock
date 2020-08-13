@@ -10,6 +10,17 @@ python-versions = ">=3.6.1"
 tokenize-rt = ">=3.0.1"
 
 [[package]]
+name = "aiosql"
+version = "3.1.2"
+description = "Simple SQL in Python."
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.dependencies]
+typing_extensions = ">=3.7.4,<4.0.0"
+
+[[package]]
 name = "appdirs"
 version = "1.4.4"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -611,7 +622,7 @@ extras = ["languages"]
 
 [[package]]
 name = "mkdocs-material"
-version = "5.5.3"
+version = "5.5.6"
 description = "A Material Design theme for MkDocs"
 category = "dev"
 optional = false
@@ -1049,23 +1060,6 @@ optional = false
 python-versions = "*"
 
 [[package]]
-name = "typer"
-version = "0.3.1"
-description = "Typer, build great CLIs. Easy to code. Based on Python type hints."
-category = "dev"
-optional = false
-python-versions = ">=3.6"
-
-[package.extras]
-all = ["colorama (>=0.4.3,<0.5.0)", "shellingham (>=1.3.0,<2.0.0)"]
-dev = ["autoflake (>=1.3.1,<2.0.0)", "flake8 (>=3.8.3,<4.0.0)"]
-doc = ["mkdocs (>=1.1.2,<2.0.0)", "mkdocs-material (>=5.4.0,<6.0.0)", "markdown-include (>=0.5.1,<0.6.0)"]
-test = ["shellingham (>=1.3.0,<2.0.0)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (>=2.10.0,<3.0.0)", "coverage (>=5.2,<6.0)", "pytest-xdist (>=1.32.0,<2.0.0)", "pytest-sugar (>=0.9.4,<0.10.0)", "mypy (0.782)", "black (>=19.10b0,<20.0b0)", "isort (>=5.0.6,<6.0.0)"]
-
-[package.dependencies]
-click = ">=7.1.1,<7.2.0"
-
-[[package]]
 name = "typing-extensions"
 version = "3.7.4.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
@@ -1141,18 +1135,19 @@ marker = "python_version < \"3.8\""
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
-[extras]
-docs = []
-
 [metadata]
 lock-version = "1.0"
 python-versions = "^3.7"
-content-hash = "b416014623d185acc74ef9b078e3155b32e5dc179c0eb39a0bdd9ebdad66e02f"
+content-hash = "a57f6a17fced25ba60cfc5cda4daf8fec428f380a2f5df1e9be557a2809f4ffa"
 
 [metadata.files]
 add-trailing-comma = [
     {file = "add_trailing_comma-2.0.1-py2.py3-none-any.whl", hash = "sha256:34e090e00d9f93992fd09ffdc7cd8cdddcdb03f950efa5b60166209c98789801"},
     {file = "add_trailing_comma-2.0.1.tar.gz", hash = "sha256:7b8e63fe870045646b80e97cc79988cae8a820de0bdbdf4032c554e451ea18d0"},
+]
+aiosql = [
+    {file = "aiosql-3.1.2-py3-none-any.whl", hash = "sha256:d8b804008981f6cf4170906c10146151fba08fc1a6dbc6c1cb5e52415d38687c"},
+    {file = "aiosql-3.1.2.tar.gz", hash = "sha256:565ea71a280df7f1af76ee604ef99991c6c55142b3a44c2e6887884836844cf3"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
@@ -1413,8 +1408,8 @@ mkdocs = [
     {file = "mkdocs-1.1.2.tar.gz", hash = "sha256:f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"},
 ]
 mkdocs-material = [
-    {file = "mkdocs-material-5.5.3.tar.gz", hash = "sha256:c604e1600b8f59827c53ce29505070fa24766a5ea32c18c2a99fe5769ee4b31c"},
-    {file = "mkdocs_material-5.5.3-py2.py3-none-any.whl", hash = "sha256:a1d92cc8e42a83235e4be1ea6906cf839f2f9d6fb4709c9ea0b20591fa5bfc14"},
+    {file = "mkdocs-material-5.5.6.tar.gz", hash = "sha256:08af704cdfaf2a07fd5f135831df9106c589bfd422f9ef026929981433e80b9d"},
+    {file = "mkdocs_material-5.5.6-py2.py3-none-any.whl", hash = "sha256:29f3637d5fb758d076344b026a67b8e316743d0c2da84b9303383f6cbeabfd5f"},
 ]
 mkdocs-material-extensions = [
     {file = "mkdocs-material-extensions-1.0.tar.gz", hash = "sha256:17d7491e189af75700310b7ec33c6c48a22060b8b445001deca040cb60471cde"},
@@ -1630,10 +1625,6 @@ typed-ast = [
     {file = "typed_ast-1.4.1-cp38-cp38-win_amd64.whl", hash = "sha256:fc0fea399acb12edbf8a628ba8d2312f583bdbdb3335635db062fa98cf71fca4"},
     {file = "typed_ast-1.4.1-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:d43943ef777f9a1c42bf4e552ba23ac77a6351de620aa9acf64ad54933ad4d34"},
     {file = "typed_ast-1.4.1.tar.gz", hash = "sha256:8c8aaad94455178e3187ab22c8b01a3837f8ee50e09cf31f1ba129eb293ec30b"},
-]
-typer = [
-    {file = "typer-0.3.1-py3-none-any.whl", hash = "sha256:778a9695e68eb26a0a0321ca9d3f1a8809783f6f083549b84c67bc2385bf014e"},
-    {file = "typer-0.3.1.tar.gz", hash = "sha256:85b1e5f6369750b4220ad548ea30b881a2c502504e5a0d849db9bdf6b487bdbf"},
 ]
 typing-extensions = [
     {file = "typing_extensions-3.7.4.2-py2-none-any.whl", hash = "sha256:f8d2bd89d25bc39dabe7d23df520442fa1d8969b82544370e03d88b5a591c392"},

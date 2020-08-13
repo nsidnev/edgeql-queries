@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "edgeql-queries"
-version = "0.0.2"
+version = "0.0.3"
 description = "Simple EdgeQL in Python."
 authors = ["Nik Sidnev <sidnev.nick@gmail.com>"]
 repository = "https://github.com/nsidnev/edgeql-queries"
@@ -34,19 +34,11 @@ mkdocs = "^1.1.2"
 mkdocs-material = "^5.5.3"
 mkdocstrings = "^0.12.2"
 markdown-include = "^0.5.1"
-typer = "^0.3.1"
-
-[tool.poetry.extras]
-docs = [
-  "mkdocs",
-  "mkdocs-material",
-  "mkdocstrings",
-  "markdown-include",
-  "typer"
-]
+# check support for aiosql
+aiosql = "^3.1.2"
 
 [tool.black]
-target_version = ['py36', 'py37', 'py38']
+target_version = ['py37', 'py38']
 include = '\.pyi?$'
 exclude = '''
 /(\.git/

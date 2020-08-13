@@ -1,5 +1,7 @@
 """Definition for main collection for queries."""
 
+from __future__ import annotations
+
 from typing import Callable, Dict, List, Set, Union
 
 from edgeql_queries.executors.async_executor import create_async_executor
@@ -15,7 +17,7 @@ def _create_handler_from_query(query: Query, use_async: bool = True) -> Callable
     return create_sync_executor(query)
 
 
-def load_from_list(queries_collection: "Queries", queries: List[Query]) -> "Queries":
+def load_from_list(queries_collection: Queries, queries: List[Query]) -> Queries:
     """Add queries from list.
 
     Arguments:
@@ -31,7 +33,7 @@ def load_from_list(queries_collection: "Queries", queries: List[Query]) -> "Quer
     return queries_collection
 
 
-def load_from_tree(queries_collection: "Queries", query_tree: QueriesTree) -> "Queries":
+def load_from_tree(queries_collection: Queries, query_tree: QueriesTree) -> Queries:
     """Add queries from tree.
 
     Arguments:
@@ -85,7 +87,7 @@ class Queries:
         """
         return self._is_async
 
-    def add_query(self, name: str, query_handler: Union["Queries", Query]) -> None:
+    def add_query(self, name: str, query_handler: Union[Queries, Query]) -> None:
         """Add a single query to collection.
 
         Arguments:

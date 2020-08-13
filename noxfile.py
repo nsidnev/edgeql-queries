@@ -1,22 +1,20 @@
 """Run common tasks using nox."""
 import pathlib
-
 import sys
-import pathlib
 
 import mkdocs.commands.build
 import mkdocs.commands.gh_deploy
 import mkdocs.commands.serve
 import mkdocs.config
 import mkdocs.utils
+import nox
+from nox.sessions import Session
 from pygments.lexers import LEXERS
 
 sys.path.append(str(pathlib.Path(__file__).resolve().parent))
 
-from edgeql_lexer import EdgeQLLexer
+from edgeql_lexer import EdgeQLLexer  # isort:skip
 
-import nox
-from nox.sessions import Session
 
 LEXERS["EdgeQLLexer"] = (
     "edgeql_lexer",
@@ -78,7 +76,12 @@ def run_formatters(session: Session) -> None:
     session.run("isort", "--recursive", *targets)
     # sort edgeql_queries imports as it third-party library
     session.run(
-        "isort", "--recursive", "--thirdparty=edgeql_queries", "example", "docs/src",
+        "isort",
+        "--recursive",
+        "--thirdparty=edgeql_queries",
+        "--thirdparty=asyncpg",
+        "example",
+        "docs/src",
     )
 
 
