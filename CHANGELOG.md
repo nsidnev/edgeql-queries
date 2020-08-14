@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <small>[Compare with 0.0.2](https://github.com/nsidnev/edgeql-queries/compare/0.0.2...HEAD)</small>
 
+### Added
+
+* Add support for `aiosql` via custom adapter.
+
 ### Changed
 
 * Update `netlify-action` to update existing message with docs deployment instead of spaming with new one.
@@ -19,12 +23,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 * Add support for positional arguments.
-* Move to `nox` from scripts.
 * Add `py.typed` file for providing types information for type checkers.
 * Update `edgedb-python` to `0.9.0`.
 * Update CI to use new EdgeDB alpha release.
 * Check support for pools.
 * Fix typos and examples in docs.
+
+### Changed
+
+* Move to `nox` from scripts.
 
 ## [0.0.1] - 2020-04-09
 

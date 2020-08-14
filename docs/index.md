@@ -43,7 +43,7 @@ queries code, as with any other languages, but use it in Python applications.
 
 ## Requirements
 
-`edgeql-queries` require only the [EdgeDB driver for Python](https://github.com/edgedb/edgedb-python).
+`edgeql-queries` requires only the [EdgeDB driver for Python](https://github.com/edgedb/edgedb-python).
 
 ## Installation
 
