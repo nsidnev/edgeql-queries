@@ -8,9 +8,9 @@
 <meta content="Simple EdgeQL in Python" name="description"/>
 <link href="https://nsidnev.github.io/edgeql-queries/changelog/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.3" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.6" name="generator"/>
 <title>Changelog - edgeql-queries</title>
-<link href="../assets/stylesheets/main.947af8d5.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.63b94e9e.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.7f672a1f.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -188,13 +188,37 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-5">
+      Contrib
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+</span>
+</label>
+<nav aria-label="Contrib" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+        Contrib
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../contrib/aiosql/" title="aiosql">
+      aiosql
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       API Reference
       <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
 </span>
 </label>
 <nav aria-label="API Reference" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </span>
@@ -265,6 +289,11 @@
 <nav aria-label="[Unreleased]" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#added">
+    Added
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#changed">
     Changed
   </a>
@@ -279,8 +308,13 @@
 <nav aria-label="[0.0.2] - 2020-08-11" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#added">
+<a class="md-nav__link" href="#added_1">
     Added
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#changed_1">
+    Changed
   </a>
 </li>
 </ul>
@@ -293,7 +327,7 @@
 <nav aria-label="[0.0.1] - 2020-04-09" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#added_1">
+<a class="md-nav__link" href="#added_2">
     Added
   </a>
 </li>
@@ -326,6 +360,11 @@
 <nav aria-label="[Unreleased]" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#added">
+    Added
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#changed">
     Changed
   </a>
@@ -340,8 +379,13 @@
 <nav aria-label="[0.0.2] - 2020-08-11" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#added">
+<a class="md-nav__link" href="#added_1">
     Added
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#changed_1">
+    Changed
   </a>
 </li>
 </ul>
@@ -354,7 +398,7 @@
 <nav aria-label="[0.0.1] - 2020-04-09" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#added_1">
+<a class="md-nav__link" href="#added_2">
     Added
   </a>
 </li>
@@ -374,6 +418,10 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">¶</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.0.2...HEAD">Compare with 0.0.2</a></small></p>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">¶</a></h3>
+<ul>
+<li>Add support for <code>aiosql</code> via custom adapter.</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">¶</a></h3>
 <ul>
 <li>Update <code>netlify-action</code> to update existing message with docs deployment instead of spaming with new one.</li>
@@ -381,19 +429,22 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h2 id="002-2020-08-11">[0.0.2] - 2020-08-11<a class="headerlink" href="#002-2020-08-11" title="Permanent link">¶</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.0.1...0.0.2">Compare with 0.0.1</a></small></p>
-<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">¶</a></h3>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">¶</a></h3>
 <ul>
 <li>Add support for positional arguments.</li>
-<li>Move to <code>nox</code> from scripts.</li>
 <li>Add <code>py.typed</code> file for providing types information for type checkers.</li>
 <li>Update <code>edgedb-python</code> to <code>0.9.0</code>.</li>
 <li>Update CI to use new EdgeDB alpha release.</li>
 <li>Check support for pools.</li>
 <li>Fix typos and examples in docs.</li>
 </ul>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">¶</a></h3>
+<ul>
+<li>Move to <code>nox</code> from scripts.</li>
+</ul>
 <h2 id="001-2020-04-09">[0.0.1] - 2020-04-09<a class="headerlink" href="#001-2020-04-09" title="Permanent link">¶</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/8ccbf7955a1e158f58a978b18e662c9bf137f5a5...0.0.1">Compare with first commit</a></small></p>
-<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">¶</a></h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>First release.</li>
 </ul>
@@ -432,14 +483,14 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </div>
 </footer>
 </div>
-<script src="../assets/javascripts/vendor.c3dc8c49.min.js"></script>
-<script src="../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../assets/javascripts/vendor.d1f5a259.min.js"></script>
+<script src="../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

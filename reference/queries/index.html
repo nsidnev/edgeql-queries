@@ -8,9 +8,9 @@
 <meta content="Simple EdgeQL in Python" name="description"/>
 <link href="https://nsidnev.github.io/edgeql-queries/reference/queries/" rel="canonical"/>
 <link href="../../assets/images/favicon.png" rel="shortcut icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-5.5.3" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-5.5.6" name="generator"/>
 <title>Queries - edgeql-queries</title>
-<link href="../../assets/stylesheets/main.947af8d5.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.63b94e9e.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.7f672a1f.min.css" rel="stylesheet"/>
 <meta content="" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -185,16 +185,40 @@
       Grouping Queries
     </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
 <label class="md-nav__link" for="nav-5">
+      Contrib
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
+</span>
+</label>
+<nav aria-label="Contrib" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</span>
+        Contrib
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../contrib/aiosql/" title="aiosql">
+      aiosql
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-6" id="nav-6" type="checkbox"/>
+<label class="md-nav__link" for="nav-6">
       API Reference
       <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"></path></svg>
 </span>
 </label>
 <nav aria-label="API Reference" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="nav-5">
+<label class="md-nav__title" for="nav-6">
 <span class="md-nav__icon md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </span>
@@ -419,7 +443,7 @@
 <div class="doc doc-object doc-attribute">
 <h3 class="doc doc-heading" id="edgeql_queries.queries.Queries.available_queries">
 <code class="highlight">
-available_queries: <span class="n">List</span><span class="p">[</span><span class="n">edgeql_queries</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Query</span><span class="p">]</span> </code>
+available_queries: <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">]</span> </code>
 <span class="doc doc-properties">
 <small class="doc doc-property doc-property-property"><code>property</code></small>
 <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
@@ -437,7 +461,7 @@ available_queries: <span class="n">List</span><span class="p">[</span><span clas
 </thead>
 <tbody>
 <tr>
-<td><code>List[edgeql_queries.models.Query]</code></td>
+<td><code>List[Query]</code></td>
 <td>
 <p>List of queries.</p>
 </td>
@@ -517,7 +541,7 @@ __getattr__<span class="p">(</span><span class="bp">self</span><span class="p">,
 </thead>
 <tbody>
 <tr>
-<td><code>Union[Callable, Queries]</code></td>
+<td><code>Union[Callable, 'Queries']</code></td>
 <td>
 <p>Executor for query.</p>
 </td>
@@ -530,16 +554,16 @@ __getattr__<span class="p">(</span><span class="bp">self</span><span class="p">,
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>123
-124
-125
+<pre><span></span>125
 126
 127
 128
 129
 130
 131
-132</pre>
+132
+133
+134</pre>
 </div>
 </td>
 <td class="code">
@@ -599,16 +623,16 @@ __init__<span class="p">(</span><span class="bp">self</span><span class="p">,</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>59
-60
-61
+<pre><span></span>61
 62
 63
 64
 65
 66
 67
-68</pre>
+68
+69
+70</pre>
 </div>
 </td>
 <td class="code">
@@ -664,15 +688,15 @@ __repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>134
-135
-136
+<pre><span></span>136
 137
 138
 139
 140
 141
-142</pre>
+142
+143
+144</pre>
 </div>
 </td>
 <td class="code">
@@ -722,7 +746,7 @@ add_query<span class="p">(</span><span class="bp">self</span><span class="p">,</
 </tr>
 <tr>
 <td><code>query_handler</code></td>
-<td><code>Union[Queries, edgeql_queries.models.Query]</code></td>
+<td><code>Union[Queries, Query]</code></td>
 <td>
 <p>a single <a href="https://nsidnev.github.io/edgeql-queries/reference/models/#edgeql_queries.models.Query">query</a> that
 will be transformed to executor or
@@ -739,9 +763,7 @@ that will be registered as sub-queries.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 88
- 89
- 90
+<pre><span></span> 90
  91
  92
  93
@@ -761,12 +783,14 @@ that will be registered as sub-queries.</p>
 107
 108
 109
-110</pre>
+110
+111
+112</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">add_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_handler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="s2">"Queries"</span><span class="p">,</span> <span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">add_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_handler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Queries</span><span class="p">,</span> <span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">"""Add a single query to collection.</span>
 
 <span class="sd">    Arguments:</span>
@@ -835,7 +859,7 @@ get_executor<span class="p">(</span><span class="bp">self</span><span class="p">
 </thead>
 <tbody>
 <tr>
-<td><code>Union[Callable, Queries]</code></td>
+<td><code>Union[Callable, 'Queries']</code></td>
 <td>
 <p>Executor for query.</p>
 </td>
@@ -848,16 +872,16 @@ get_executor<span class="p">(</span><span class="bp">self</span><span class="p">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>112
-113
-114
+<pre><span></span>114
 115
 116
 117
 118
 119
 120
-121</pre>
+121
+122
+123</pre>
 </div>
 </td>
 <td class="code">
@@ -911,7 +935,7 @@ load_from_list<span class="p">(</span><span class="n">queries_collection</span><
 </tr>
 <tr>
 <td><code>queries</code></td>
-<td><code>List[edgeql_queries.models.Query]</code></td>
+<td><code>List[Query]</code></td>
 <td>
 <p>list of queries to be added.</p>
 </td>
@@ -942,9 +966,7 @@ load_from_list<span class="p">(</span><span class="n">queries_collection</span><
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>18
-19
-20
+<pre><span></span>20
 21
 22
 23
@@ -955,12 +977,14 @@ load_from_list<span class="p">(</span><span class="n">queries_collection</span><
 28
 29
 30
-31</pre>
+31
+32
+33</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_list</span><span class="p">(</span><span class="n">queries_collection</span><span class="p">:</span> <span class="s2">"Queries"</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"Queries"</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_list</span><span class="p">(</span><span class="n">queries_collection</span><span class="p">:</span> <span class="n">Queries</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Queries</span><span class="p">:</span>
     <span class="sd">"""Add queries from list.</span>
 
 <span class="sd">    Arguments:</span>
@@ -1010,7 +1034,7 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 </tr>
 <tr>
 <td><code>query_tree</code></td>
-<td><code>Dict[str, Union[edgeql_queries.models.Query, QueriesTree]]</code></td>
+<td><code>QueriesTree</code></td>
 <td>
 <p>tree of queries that should be added.</p>
 </td>
@@ -1041,9 +1065,7 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>34
-35
-36
+<pre><span></span>36
 37
 38
 39
@@ -1060,12 +1082,14 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 50
 51
 52
-53</pre>
+53
+54
+55</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_tree</span><span class="p">(</span><span class="n">queries_collection</span><span class="p">:</span> <span class="s2">"Queries"</span><span class="p">,</span> <span class="n">query_tree</span><span class="p">:</span> <span class="n">QueriesTree</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Queries"</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">load_from_tree</span><span class="p">(</span><span class="n">queries_collection</span><span class="p">:</span> <span class="n">Queries</span><span class="p">,</span> <span class="n">query_tree</span><span class="p">:</span> <span class="n">QueriesTree</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Queries</span><span class="p">:</span>
     <span class="sd">"""Add queries from tree.</span>
 
 <span class="sd">    Arguments:</span>
@@ -1103,7 +1127,7 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href="../../grouping-queries/" rel="prev" title="Grouping Queries">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../../contrib/aiosql/" rel="prev" title="aiosql">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1112,7 +1136,7 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Grouping Queries
+                aiosql
               </div>
 </div>
 </a>
@@ -1144,14 +1168,14 @@ load_from_tree<span class="p">(</span><span class="n">queries_collection</span><
 </div>
 </footer>
 </div>
-<script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
-<script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script src="../../assets/javascripts/vendor.d1f5a259.min.js"></script>
+<script src="../../assets/javascripts/bundle.d5fec882.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
 <script>
         app = initialize({
           base: "../..",
           features: [],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.fae956e7.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
