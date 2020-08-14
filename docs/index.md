@@ -19,7 +19,7 @@
         <img src="https://img.shields.io/badge/style-wemake-000000.svg" alt="WPS Linter"/>
     </a>
     <a href="https://github.com/nsidnev/edgeql-queries/blob/master/LICENSE">
-        <img src="https://img.shields.io/github/license/Naereen/StrapDown.js.svg" alt="License" />
+        <img src="https://img.shields.io/badge/License-FreeBSD-blue" alt="License" />
     </a>
     <a href="https://pypi.org/project/edgeql-queries/">
         <img src="https://badge.fury.io/py/edgeql-queries.svg" alt="Package version" />
@@ -88,4 +88,4 @@ project and is based on it's source code.
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the FreeBSD license.

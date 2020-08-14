@@ -6,7 +6,7 @@ authors = ["Nik Sidnev <sidnev.nick@gmail.com>"]
 repository = "https://github.com/nsidnev/edgeql-queries"
 documentation = "https://nsidnev.github.io/edgeql-queries/"
 readme = "README.md"
-license = "MIT"
+license = "FreeBSD"
 
 [tool.poetry.dependencies]
 python = "^3.7"
