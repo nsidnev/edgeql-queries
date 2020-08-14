@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.0.2](https://github.com/nsidnev/edgeql-queries/compare/0.0.2...HEAD)</small>
+<small>[Compare with 0.0.3](https://github.com/nsidnev/edgeql-queries/compare/0.0.3...HEAD)</small>
+
+## [0.0.3] - 2020-08-14
+
+<small>[Compare with 0.0.2](https://github.com/nsidnev/edgeql-queries/compare/0.0.2...0.0.3)</small>
 
 ### Added
 
@@ -18,6 +22,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Change the license from `MIT` to `FreeBSD` as in the parent projects([`aiosql`](https://github.com/nackjicholson/aiosql) and [`anosql`](https://github.com/honza/anosql)).
 
 ## [0.0.2] - 2020-08-11
+
 <small>[Compare with 0.0.1](https://github.com/nsidnev/edgeql-queries/compare/0.0.1...0.0.2)</small>
 
 ### Added
