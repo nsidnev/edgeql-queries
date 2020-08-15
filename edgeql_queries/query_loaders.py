@@ -1,16 +1,31 @@
 """Definition of loader for queries from files and directories."""
 
 from pathlib import Path
-from typing import List
+from typing import Iterator, List, Match, Optional, Tuple
 
 from edgeql_queries.models import Query
-from edgeql_queries.parsing import (
-    EMPTY_PATTERN,
-    NAME_DELIMITER,
-    QUERY_DEFINITION_PATTERN,
-    parse_query_from_string,
-)
+from edgeql_queries.parsing import QUERY_DEFINITION_PATTERN, parse_query_from_string
 from edgeql_queries.typing import QueriesTree
+
+MatchPair = Tuple[Match, Optional[Match]]
+
+
+def _iter_pairs(matches: Iterator[Match]) -> Iterator[MatchPair]:
+    start_match = next(matches)
+
+    try:
+        end_match = next(matches)
+    except StopIteration:
+        yield (start_match, None)
+        return
+
+    yield (start_match, end_match)
+
+    for next_match in matches:
+        start_match, end_match = end_match, next_match
+        yield (start_match, end_match)
+
+    yield (end_match, None)
 
 
 def load_query_data_from_edgeql(edgeql: str) -> List[Query]:
@@ -24,10 +39,17 @@ def load_query_data_from_edgeql(edgeql: str) -> List[Query]:
             later by [container][edgeql_queries.queries.Queries] for them.
     """
     query_data = []
-    for query_edgeql_str in QUERY_DEFINITION_PATTERN.split(edgeql):
-        if not EMPTY_PATTERN.match(query_edgeql_str):
-            query_edgeql_str = NAME_DELIMITER + query_edgeql_str
-            query_data.append(parse_query_from_string(query_edgeql_str))
+    matches_iter = _iter_pairs(QUERY_DEFINITION_PATTERN.finditer(edgeql))
+    for (start_match, end_match) in matches_iter:
+        if end_match is not None:
+            end_position = end_match.start()
+        else:
+            end_position = len(edgeql)
+        query_data.append(
+            parse_query_from_string(
+                start_match.groups()[0], edgeql[start_match.end() : end_position],
+            ),
+        )
     return query_data
 
 
