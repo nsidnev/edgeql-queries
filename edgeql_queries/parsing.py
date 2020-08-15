@@ -30,21 +30,13 @@ An example query that can be successfuly parsed:
 
 import re
 from types import MappingProxyType
-from typing import List, Mapping, Tuple
+from typing import Mapping, Tuple
 
 from edgeql_queries.exceptions import EdgeQLParsingError
 from edgeql_queries.models import EdgeQLOperationType, Query
 
-NAME_DELIMITER = "# name: "
-QUERY_DEFINITION_PATTERN = re.compile(r"#\s*name\s*:\s*")
-
-QUERY_NAME_DEFINITION_PATTERN = re.compile(r"#\s*name\s*:\s*(.+)\s*")
-
-EMPTY_PATTERN = re.compile(r"^\s*$")
-
+QUERY_DEFINITION_PATTERN = re.compile(r"^\s*#\s*name:\s*(.*)\s*", re.MULTILINE)
 VALID_QUERY_NAME_PATTERN = re.compile(r"^\w+$")
-
-DOC_COMMENT_PATTERN = re.compile(r"\s*\#\s*(.*)$")
 
 _OPERATION_SUFFFIXES_TO_TYPES: Mapping[str, EdgeQLOperationType] = MappingProxyType(
     {
@@ -55,12 +47,12 @@ _OPERATION_SUFFFIXES_TO_TYPES: Mapping[str, EdgeQLOperationType] = MappingProxyT
 )
 
 
-def get_query_name_and_operation(header_line: str) -> Tuple[str, EdgeQLOperationType]:
+def get_query_name_and_operation(name: str) -> Tuple[str, EdgeQLOperationType]:
     """Return query name and operation from query headers.
 
     Arguments:
-        header_line: start line from query definition
-            from which name and operation should be parsed.
+        name: raw query name with operator from which
+            final name and operation should be extracted.
 
     Returns:
         Query name and [operation type][edgeql_queries.models.EdgeQLOperationType]
@@ -69,12 +61,7 @@ def get_query_name_and_operation(header_line: str) -> Tuple[str, EdgeQLOperation
         EdgeQLParsingError: if header is in wrong format or name could not be
             converted into Python identificator.
     """
-    name_match = QUERY_NAME_DEFINITION_PATTERN.match(header_line)
-
-    if not name_match:
-        raise EdgeQLParsingError("query definition should start with name definition")
-
-    name = name_match.group(1).replace("-", "_")
+    name = name.replace("-", "_")
 
     operation_suffix = ""
     for suffix in _OPERATION_SUFFFIXES_TO_TYPES:  # pragma: no branch
@@ -100,29 +87,16 @@ def get_query_name_and_operation(header_line: str) -> Tuple[str, EdgeQLOperation
     )
 
 
-def get_edgeql_query(lines: List[str]) -> str:
-    """Parse EdgeQL query.
-
-    Arguments:
-        lines: lines from which EdgeQL query should be created.
-
-    Returns:
-        Created EdgeQL query.
-    """
-    return "\n".join(lines)
-
-
-def parse_query_from_string(query: str) -> Query:
+def parse_query_from_string(raw_name: str, query_body: str) -> Query:
     """Parse EdgeQL query string into [edgeql_queries.models.Query].
 
     Arguments:
-        query: EdgeQL query that should be parsed.
+        raw_name: query name with operation.
+        query_body: EdgeQL query.
 
     Returns:
         [edgeql_queries.models.Query] that will be later added for creating executors.
     """
-    lines = query.strip().splitlines()
+    query_name, operation_type = get_query_name_and_operation(raw_name)
 
-    query_name, operation_type = get_query_name_and_operation(lines[0])
-
-    return Query(query_name, operation_type, get_edgeql_query(lines[1:]))
+    return Query(query_name, operation_type, query_body)
