@@ -265,11 +265,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#edgeql_queries.parsing.get_edgeql_query">
-    get_edgeql_query()
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#edgeql_queries.parsing.get_query_name_and_operation">
     get_query_name_and_operation()
   </a>
@@ -327,11 +322,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#edgeql_queries.parsing.get_edgeql_query">
-    get_edgeql_query()
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#edgeql_queries.parsing.get_query_name_and_operation">
     get_query_name_and_operation()
   </a>
@@ -386,92 +376,9 @@
 </p>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
-<h2 class="doc doc-heading" id="edgeql_queries.parsing.get_edgeql_query">
-<code class="highlight language-python">
-get_edgeql_query<span class="p">(</span><span class="n">lines</span><span class="p">)</span> </code>
-<a class="headerlink" href="#edgeql_queries.parsing.get_edgeql_query" title="Permanent link">¶</a></h2>
-<div class="doc doc-contents">
-<p>Parse EdgeQL query.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>lines</code></td>
-<td><code>List[str]</code></td>
-<td>
-<p>lines from which EdgeQL query should be created.</p>
-</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>str</code></td>
-<td>
-<p>Created EdgeQL query.</p>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>edgeql_queries/parsing.py</code></summary>
-<table class="highlighttable">
-<tr>
-<td class="linenos">
-<div class="linenodiv">
-<pre><span></span>103
-104
-105
-106
-107
-108
-109
-110
-111
-112</pre>
-</div>
-</td>
-<td class="code">
-<div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_edgeql_query</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-    <span class="sd">"""Parse EdgeQL query.</span>
-
-<span class="sd">    Arguments:</span>
-<span class="sd">        lines: lines from which EdgeQL query should be created.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        Created EdgeQL query.</span>
-<span class="sd">    """</span>
-    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-</code></pre>
-</div>
-</td>
-</tr>
-</table>
-</details>
-</div>
-</div>
-<div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="edgeql_queries.parsing.get_query_name_and_operation">
 <code class="highlight language-python">
-get_query_name_and_operation<span class="p">(</span><span class="n">header_line</span><span class="p">)</span> </code>
+get_query_name_and_operation<span class="p">(</span><span class="n">name</span><span class="p">)</span> </code>
 <a class="headerlink" href="#edgeql_queries.parsing.get_query_name_and_operation" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
 <p>Return query name and operation from query headers.</p>
@@ -487,11 +394,11 @@ get_query_name_and_operation<span class="p">(</span><span class="n">header_line<
 </thead>
 <tbody>
 <tr>
-<td><code>header_line</code></td>
+<td><code>name</code></td>
 <td><code>str</code></td>
 <td>
-<p>start line from query definition
-from which name and operation should be parsed.</p>
+<p>raw query name with operator from which
+final name and operation should be extracted.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -538,59 +445,54 @@ converted into Python identificator.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 58
- 59
- 60
- 61
- 62
- 63
- 64
- 65
- 66
- 67
- 68
- 69
- 70
- 71
- 72
- 73
- 74
- 75
- 76
- 77
- 78
- 79
- 80
- 81
- 82
- 83
- 84
- 85
- 86
- 87
- 88
- 89
- 90
- 91
- 92
- 93
- 94
- 95
- 96
- 97
- 98
- 99
-100</pre>
+<pre><span></span>50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">get_query_name_and_operation</span><span class="p">(</span><span class="n">header_line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">EdgeQLOperationType</span><span class="p">]:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_query_name_and_operation</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">EdgeQLOperationType</span><span class="p">]:</span>
     <span class="sd">"""Return query name and operation from query headers.</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        header_line: start line from query definition</span>
-<span class="sd">            from which name and operation should be parsed.</span>
+<span class="sd">        name: raw query name with operator from which</span>
+<span class="sd">            final name and operation should be extracted.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        Query name and [operation type][edgeql_queries.models.EdgeQLOperationType]</span>
@@ -599,12 +501,7 @@ converted into Python identificator.</p>
 <span class="sd">        EdgeQLParsingError: if header is in wrong format or name could not be</span>
 <span class="sd">            converted into Python identificator.</span>
 <span class="sd">    """</span>
-    <span class="n">name_match</span> <span class="o">=</span> <span class="n">QUERY_NAME_DEFINITION_PATTERN</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">header_line</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">name_match</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">EdgeQLParsingError</span><span class="p">(</span><span class="s2">"query definition should start with name definition"</span><span class="p">)</span>
-
-    <span class="n">name</span> <span class="o">=</span> <span class="n">name_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">)</span>
 
     <span class="n">operation_suffix</span> <span class="o">=</span> <span class="s2">""</span>
     <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">_OPERATION_SUFFFIXES_TO_TYPES</span><span class="p">:</span>  <span class="c1"># pragma: no branch</span>
@@ -639,7 +536,7 @@ converted into Python identificator.</p>
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="edgeql_queries.parsing.parse_query_from_string">
 <code class="highlight language-python">
-parse_query_from_string<span class="p">(</span><span class="n">query</span><span class="p">)</span> </code>
+parse_query_from_string<span class="p">(</span><span class="n">raw_name</span><span class="p">,</span> <span class="n">query_body</span><span class="p">)</span> </code>
 <a class="headerlink" href="#edgeql_queries.parsing.parse_query_from_string" title="Permanent link">¶</a></h2>
 <div class="doc doc-contents">
 <p>Parse EdgeQL query string into [edgeql_queries.models.Query].</p>
@@ -655,10 +552,18 @@ parse_query_from_string<span class="p">(</span><span class="n">query</span><span
 </thead>
 <tbody>
 <tr>
-<td><code>query</code></td>
+<td><code>raw_name</code></td>
 <td><code>str</code></td>
 <td>
-<p>EdgeQL query that should be parsed.</p>
+<p>query name with operation.</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>query_body</code></td>
+<td><code>str</code></td>
+<td>
+<p>EdgeQL query.</p>
 </td>
 <td><em>required</em></td>
 </tr>
@@ -687,38 +592,36 @@ parse_query_from_string<span class="p">(</span><span class="n">query</span><span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128</pre>
+<pre><span></span> 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102</pre>
 </div>
 </td>
 <td class="code">
 <div class="highlight">
-<pre><span></span><code><span class="k">def</span> <span class="nf">parse_query_from_string</span><span class="p">(</span><span class="n">query</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Query</span><span class="p">:</span>
+<pre><span></span><code><span class="k">def</span> <span class="nf">parse_query_from_string</span><span class="p">(</span><span class="n">raw_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_body</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Query</span><span class="p">:</span>
     <span class="sd">"""Parse EdgeQL query string into [edgeql_queries.models.Query].</span>
 
 <span class="sd">    Arguments:</span>
-<span class="sd">        query: EdgeQL query that should be parsed.</span>
+<span class="sd">        raw_name: query name with operation.</span>
+<span class="sd">        query_body: EdgeQL query.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        [edgeql_queries.models.Query] that will be later added for creating executors.</span>
 <span class="sd">    """</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="n">query_name</span><span class="p">,</span> <span class="n">operation_type</span> <span class="o">=</span> <span class="n">get_query_name_and_operation</span><span class="p">(</span><span class="n">raw_name</span><span class="p">)</span>
 
-    <span class="n">query_name</span><span class="p">,</span> <span class="n">operation_type</span> <span class="o">=</span> <span class="n">get_query_name_and_operation</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-
-    <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="n">query_name</span><span class="p">,</span> <span class="n">operation_type</span><span class="p">,</span> <span class="n">get_edgeql_query</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span>
+    <span class="k">return</span> <span class="n">Query</span><span class="p">(</span><span class="n">query_name</span><span class="p">,</span> <span class="n">operation_type</span><span class="p">,</span> <span class="n">query_body</span><span class="p">)</span>
 </code></pre>
 </div>
 </td>
