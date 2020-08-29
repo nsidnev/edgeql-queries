@@ -4,14 +4,15 @@ on: push
 
 jobs:
   tests:
-    name: Tests
+    name: Tests (Python ${{ matrix.python-version }} / EdgeDB ${{ matrix.edgedb-version }})
     runs-on: ubuntu-18.04
     strategy:
       matrix:
         python-version: [3.7, 3.8]
+        edgedb-version: [1-alpha5]
     services:
       edgedb:
-        image: edgedb/edgedb:1-alpha4
+        image: edgedb/edgedb:${{ matrix.edgedb-version }}
         ports:
           - 5656:5656
     steps:
