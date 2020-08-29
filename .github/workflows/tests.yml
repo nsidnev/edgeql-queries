@@ -4,7 +4,7 @@ on: push
 
 jobs:
   tests:
-    name: Tests
+    name: Tests (Python ${{ matrix.python-version }} / EdgeDB ${{ matrix.edgedb-version }})
     runs-on: ubuntu-18.04
     strategy:
       matrix:
