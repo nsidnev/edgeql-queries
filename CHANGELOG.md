@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <small>[Compare with 0.0.4](https://github.com/nsidnev/edgeql-queries/compare/0.0.4...HEAD)</small>
 
+### Changed
+
+* Pin `edgedb-python` version on `>= 0.9.0`.
+* Run CI on EdgeDB Alpha 5.
+
 ## [0.0.4] - 2020-08-22
 
 <small>[Compare with 0.0.3](https://github.com/nsidnev/edgeql-queries/compare/0.0.3...0.0.4)</small>
