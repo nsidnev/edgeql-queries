@@ -17,13 +17,19 @@ async def _execute(__edgeql_query__: Query, conn: _AsyncFetcher) -> None:
 
 
 async def _set_return(
-    __edgeql_query__: Query, conn: _AsyncFetcher, *query_args: Any, **query_kwargs: Any,
+    __edgeql_query__: Query,
+    conn: _AsyncFetcher,
+    *query_args: Any,
+    **query_kwargs: Any,
 ) -> datatypes.Set:
     return await conn.query(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 async def _single_return(
-    __edgeql_query__: Query, conn: _AsyncFetcher, *query_args: Any, **query_kwargs: Any,
+    __edgeql_query__: Query,
+    conn: _AsyncFetcher,
+    *query_args: Any,
+    **query_kwargs: Any,
 ) -> Any:
     return await conn.query_one(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 

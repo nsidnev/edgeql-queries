@@ -42,5 +42,6 @@ class EdgeQLQueries:
             Built collection of queries with binded executors.
         """
         return eq_queries.load_from_tree(
-            eq_queries.Queries(self._use_async), queries_tree,
+            eq_queries.Queries(self._use_async),
+            queries_tree,
         )

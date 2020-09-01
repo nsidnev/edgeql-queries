@@ -46,7 +46,8 @@ def sync_fetcher(edgedb_dsn: str) -> edgedb.BlockingIOConnection:
 
 @pytest.fixture(autouse=True)
 def setup_database(
-    sync_fetcher: edgedb.BlockingIOConnection, sync_queries: Queries,
+    sync_fetcher: edgedb.BlockingIOConnection,
+    sync_queries: Queries,
 ) -> None:
     sync_queries.migrations.create_movies(sync_fetcher)
     sync_fetcher.execute(

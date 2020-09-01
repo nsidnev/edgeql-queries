@@ -11,7 +11,8 @@ async def test_selecting_single_object(
 ) -> None:
     title_regex = "blade runner%"
     movie = await async_queries.movies.select_movie_by_title(
-        async_fetcher, title=title_regex,
+        async_fetcher,
+        title=title_regex,
     )
     assert movie.title == "Blade Runner 2049"
 
@@ -33,7 +34,8 @@ async def test_executing_statemnt(
     await async_queries.persons.create_keanu_reeves(async_fetcher)
 
     person = await async_queries.persons.get_person_by_first_name(
-        async_fetcher, first_name=keanu_first_name,
+        async_fetcher,
+        first_name=keanu_first_name,
     )
     assert person.first_name == keanu_first_name
     assert person.last_name == "Reeves"
@@ -45,6 +47,8 @@ async def test_selecting_using_positional_arguments(
     first_arg = "Harry Potter and the Philosopher's Stone"
     second_arg = "Harry Potter%"
     check_result = await async_queries.check_string_matches_regex(
-        async_fetcher, first_arg, second_arg,
+        async_fetcher,
+        first_arg,
+        second_arg,
     )
     assert check_result

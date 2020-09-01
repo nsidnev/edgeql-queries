@@ -47,7 +47,8 @@ def load_query_data_from_edgeql(edgeql: str) -> List[Query]:
             end_position = len(edgeql)
         query_data.append(
             parse_query_from_string(
-                start_match.groups()[0], edgeql[start_match.end() : end_position],
+                start_match.groups()[0],
+                edgeql[start_match.end() : end_position],
             ),
         )
     return query_data

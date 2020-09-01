@@ -38,7 +38,10 @@ def _process_add_single_comma_path(session: Session, path: pathlib.Path) -> None
         return
 
     session.run(
-        "add-trailing-comma", "--py36-plus", "--exit-zero-even-if-changed", str(path),
+        "add-trailing-comma",
+        "--py36-plus",
+        "--exit-zero-even-if-changed",
+        str(path),
     )
 
 
