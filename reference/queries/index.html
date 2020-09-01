@@ -532,8 +532,7 @@ __getattr__<span class="p">(</span><span class="bp">self</span><span class="p">,
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>125
-126
+<pre><span></span>126
 127
 128
 129
@@ -541,7 +540,8 @@ __getattr__<span class="p">(</span><span class="bp">self</span><span class="p">,
 131
 132
 133
-134</pre>
+134
+135</pre>
 </div>
 </td>
 <td class="code">
@@ -666,15 +666,16 @@ __repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>136
-137
+<pre><span></span>137
 138
 139
 140
 141
 142
 143
-144</pre>
+144
+145
+146</pre>
 </div>
 </td>
 <td class="code">
@@ -686,7 +687,8 @@ __repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <span class="sd">        Raw string for queries collection.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="s2">"Queries(queries: </span><span class="si">{0}</span><span class="s2">, groups: </span><span class="si">{1}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">available_queries</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">available_queries</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre>
 </div>
@@ -763,7 +765,8 @@ that will be registered as sub-queries.</p>
 109
 110
 111
-112</pre>
+112
+113</pre>
 </div>
 </td>
 <td class="code">
@@ -784,7 +787,8 @@ that will be registered as sub-queries.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
 
         <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">_create_handler_from_query</span><span class="p">(</span>
-            <span class="n">query_handler</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">,</span>
+            <span class="n">query_handler</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">,</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">query_handler</span>
@@ -850,8 +854,7 @@ get_executor<span class="p">(</span><span class="bp">self</span><span class="p">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>114
-115
+<pre><span></span>115
 116
 117
 118
@@ -859,7 +862,8 @@ get_executor<span class="p">(</span><span class="bp">self</span><span class="p">
 120
 121
 122
-123</pre>
+123
+124</pre>
 </div>
 </td>
 <td class="code">

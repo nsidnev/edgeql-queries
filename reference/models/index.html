@@ -486,7 +486,9 @@ __repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 56
 57
 58
-59</pre>
+59
+60
+61</pre>
 </div>
 </td>
 <td class="code">
@@ -498,7 +500,9 @@ __repr__<span class="p">(</span><span class="bp">self</span><span class="p">)</s
 <span class="sd">        Raw string representation of query that contains all fields.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="s2">"Query(name: </span><span class="si">{0!r}</span><span class="s2">, operation_type: </span><span class="si">{1}</span><span class="s2">, edgeql: </span><span class="si">{2!r}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">operation_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">edgeql</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">operation_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">edgeql</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre>
 </div>

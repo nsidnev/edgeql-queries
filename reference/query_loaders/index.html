@@ -402,8 +402,7 @@ load_query_data_from_dir_path<span class="p">(</span><span class="n">dir_path</s
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>73
-74
+<pre><span></span>74
 75
 76
 77
@@ -418,7 +417,8 @@ load_query_data_from_dir_path<span class="p">(</span><span class="n">dir_path</s
 86
 87
 88
-89</pre>
+89
+90</pre>
 </div>
 </td>
 <td class="code">
@@ -522,7 +522,8 @@ load_query_data_from_edgeql<span class="p">(</span><span class="n">edgeql</span>
 50
 51
 52
-53</pre>
+53
+54</pre>
 </div>
 </td>
 <td class="code">
@@ -546,7 +547,8 @@ load_query_data_from_edgeql<span class="p">(</span><span class="n">edgeql</span>
             <span class="n">end_position</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">edgeql</span><span class="p">)</span>
         <span class="n">query_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
             <span class="n">parse_query_from_string</span><span class="p">(</span>
-                <span class="n">start_match</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">edgeql</span><span class="p">[</span><span class="n">start_match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="p">:</span> <span class="n">end_position</span><span class="p">],</span>
+                <span class="n">start_match</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">edgeql</span><span class="p">[</span><span class="n">start_match</span><span class="o">.</span><span class="n">end</span><span class="p">()</span> <span class="p">:</span> <span class="n">end_position</span><span class="p">],</span>
             <span class="p">),</span>
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">query_data</span>
@@ -627,8 +629,7 @@ load_query_data_from_file<span class="p">(</span><span class="n">file_path</span
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>56
-57
+<pre><span></span>57
 58
 59
 60
@@ -641,7 +642,8 @@ load_query_data_from_file<span class="p">(</span><span class="n">file_path</span
 67
 68
 69
-70</pre>
+70
+71</pre>
 </div>
 </td>
 <td class="code">

@@ -529,7 +529,8 @@ executors for them.</p>
 43
 44
 45
-46</pre>
+46
+47</pre>
 </div>
 </td>
 <td class="code">
@@ -545,7 +546,8 @@ executors for them.</p>
 <span class="sd">        Built collection of queries with binded executors.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">eq_queries</span><span class="o">.</span><span class="n">load_from_tree</span><span class="p">(</span>
-        <span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_async</span><span class="p">),</span> <span class="n">queries_tree</span><span class="p">,</span>
+        <span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_async</span><span class="p">),</span>
+        <span class="n">queries_tree</span><span class="p">,</span>
     <span class="p">)</span>
 </code></pre>
 </div>
