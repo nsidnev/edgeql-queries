@@ -55,5 +55,7 @@ class Query:
             Raw string representation of query that contains all fields.
         """
         return "Query(name: {0!r}, operation_type: {1}, edgeql: {2!r})".format(
-            self.name, self.operation_type.name, self.edgeql,
+            self.name,
+            self.operation_type.name,
+            self.edgeql,
         )

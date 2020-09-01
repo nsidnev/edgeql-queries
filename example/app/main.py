@@ -13,7 +13,9 @@ async def main() -> None:
 
     direcror_id = (
         await queries.create_new_person(
-            conn, first_name="Denis", last_name="Villeneuve",
+            conn,
+            first_name="Denis",
+            last_name="Villeneuve",
         )
     ).id
 
@@ -25,7 +27,9 @@ async def main() -> None:
     person_ids = []
     for person in persons:
         created_person = await queries.create_new_person(
-            conn, first_name=person.first_name, last_name=person.last_name,
+            conn,
+            first_name=person.first_name,
+            last_name=person.last_name,
         )
         person_ids.append(created_person.id)
 

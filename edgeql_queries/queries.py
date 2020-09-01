@@ -103,7 +103,8 @@ class Queries:
             self._available_queries.add(query_handler)
 
             handler_for_query = _create_handler_from_query(
-                query_handler, self._is_async,
+                query_handler,
+                self._is_async,
             )
         else:
             handler_for_query = query_handler
@@ -140,5 +141,6 @@ class Queries:
             Raw string for queries collection.
         """
         return "Queries(queries: {0}, groups: {1})".format(
-            self.available_queries, self._available_queries_groups,
+            self.available_queries,
+            self._available_queries_groups,
         )
