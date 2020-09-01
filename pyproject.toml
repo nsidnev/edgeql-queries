@@ -32,7 +32,7 @@ pytest-env = "^0.6.2"
 # docs
 mkdocs = "^1.1.2"
 mkdocs-material = "^5.5.3"
-mkdocstrings = "^0.12.2"
+mkdocstrings = "^0.13.0"
 markdown-include = "^0.5.1"
 # check support for aiosql
 aiosql = "^3.1.2"
