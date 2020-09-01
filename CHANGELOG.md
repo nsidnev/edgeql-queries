@@ -46,14 +46,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 * Add support for positional arguments.
 * Add `py.typed` file for providing types information for type checkers.
-* Update `edgedb-python` to `0.9.0`.
-* Update CI to use new EdgeDB alpha release.
-* Check support for pools.
-* Fix typos and examples in docs.
+* Add support for pools.
 
 ### Changed
 
 * Move to `nox` from scripts.
+* Run CI on EdgeDB alpha 4.
+* Pin `edgedb-python` on `^0.9.0`.
+
+### Fixed
+
+* Fix typos and examples in docs.
 
 ## [0.0.1] - 2020-04-09
 
