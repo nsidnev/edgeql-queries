@@ -578,7 +578,7 @@ description = "This is an extension to Python-Markdown which provides an \"inclu
 name = "markdown-include"
 optional = false
 python-versions = "*"
-version = "0.5.1"
+version = "0.6.0"
 
 [package.dependencies]
 markdown = "*"
@@ -1135,7 +1135,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "1dfbdf7d04ff96365e74b8652757b0c3c901b3b5a07858fd013e73722aef9dae"
+content-hash = "22ba427af12c8f446ad798316dfc092a20630ee4ea36596d5bb2a373f32496e9"
 lock-version = "1.0"
 python-versions = "^3.7"
 
@@ -1366,7 +1366,7 @@ markdown = [
     {file = "Markdown-3.2.2.tar.gz", hash = "sha256:1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"},
 ]
 markdown-include = [
-    {file = "markdown-include-0.5.1.tar.gz", hash = "sha256:72a45461b589489a088753893bc95c5fa5909936186485f4ed55caa57d10250f"},
+    {file = "markdown-include-0.6.0.tar.gz", hash = "sha256:6f5d680e36f7780c7f0f61dca53ca581bd50d1b56137ddcd6353efafa0c3e4a2"},
 ]
 markupsafe = [
     {file = "MarkupSafe-1.1.1-cp27-cp27m-macosx_10_6_intel.whl", hash = "sha256:09027a7803a62ca78792ad89403b1b7a73a01c8cb65909cd876f7fcebd79b161"},
