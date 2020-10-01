@@ -627,7 +627,7 @@ description = "A Material Design theme for MkDocs"
 name = "mkdocs-material"
 optional = false
 python-versions = "*"
-version = "5.5.12"
+version = "6.0.1"
 
 [package.dependencies]
 Pygments = ">=2.4"
@@ -1137,7 +1137,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "2692a82a625a9b08fb8abe9513540866a22607ef16df70f3357b6b3c26cf2eae"
+content-hash = "b75fb21eec4c7e1af6120de328ac5065e43539ffbab4ca5b68aa3cba53a7668d"
 lock-version = "1.0"
 python-versions = "^3.7"
 
@@ -1183,7 +1183,6 @@ beautifulsoup4 = [
     {file = "beautifulsoup4-4.9.1.tar.gz", hash = "sha256:73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"},
 ]
 black = [
-    {file = "black-20.8b1-py3-none-any.whl", hash = "sha256:70b62ef1527c950db59062cda342ea224d772abdf6adc58b86a45421bab20a6b"},
     {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
 ]
 click = [
@@ -1414,8 +1413,8 @@ mkdocs = [
     {file = "mkdocs-1.1.2.tar.gz", hash = "sha256:f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"},
 ]
 mkdocs-material = [
-    {file = "mkdocs-material-5.5.12.tar.gz", hash = "sha256:d956fba4b3e27b40490aa457678083e0c26fe4ea1b307d8322c3df3412a0b485"},
-    {file = "mkdocs_material-5.5.12-py2.py3-none-any.whl", hash = "sha256:9b2225af305668f422a01d4b41ddb7ebb938b1c43a0dde7aae3b00475e6c9ae3"},
+    {file = "mkdocs-material-6.0.1.tar.gz", hash = "sha256:8facb50db21fc0152ea5459ef67298512370503816dd2a6a2887f67330f61ed2"},
+    {file = "mkdocs_material-6.0.1-py2.py3-none-any.whl", hash = "sha256:79bf2951e5b9d435b8e1c0c3340a642f8359d90656b9344e64d9a2b7b6d2a1bb"},
 ]
 mkdocs-material-extensions = [
     {file = "mkdocs-material-extensions-1.0.tar.gz", hash = "sha256:17d7491e189af75700310b7ec33c6c48a22060b8b445001deca040cb60471cde"},
