@@ -15,7 +15,7 @@ description = "Simple SQL in Python."
 name = "aiosql"
 optional = false
 python-versions = ">=3.6,<4.0"
-version = "3.1.2"
+version = "3.2.0"
 
 [package.dependencies]
 typing_extensions = ">=3.7.4,<4.0.0"
@@ -1137,7 +1137,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "2692a82a625a9b08fb8abe9513540866a22607ef16df70f3357b6b3c26cf2eae"
+content-hash = "110ab915d58927e81cc67aaf536b55110c2483cb9a5356006939c17151364270"
 lock-version = "1.0"
 python-versions = "^3.7"
 
@@ -1147,8 +1147,8 @@ add-trailing-comma = [
     {file = "add_trailing_comma-2.0.1.tar.gz", hash = "sha256:7b8e63fe870045646b80e97cc79988cae8a820de0bdbdf4032c554e451ea18d0"},
 ]
 aiosql = [
-    {file = "aiosql-3.1.2-py3-none-any.whl", hash = "sha256:d8b804008981f6cf4170906c10146151fba08fc1a6dbc6c1cb5e52415d38687c"},
-    {file = "aiosql-3.1.2.tar.gz", hash = "sha256:565ea71a280df7f1af76ee604ef99991c6c55142b3a44c2e6887884836844cf3"},
+    {file = "aiosql-3.2.0-py3-none-any.whl", hash = "sha256:1a9daa9003bdf3f3e6a19fb934c9f7b0f7d41270c45488b21bd8b727b9cc602f"},
+    {file = "aiosql-3.2.0.tar.gz", hash = "sha256:f6e4fded66753dd82b020a9ea936ce8acb63e73640b4ac9026c6ad6874940a91"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
@@ -1183,7 +1183,6 @@ beautifulsoup4 = [
     {file = "beautifulsoup4-4.9.1.tar.gz", hash = "sha256:73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"},
 ]
 black = [
-    {file = "black-20.8b1-py3-none-any.whl", hash = "sha256:70b62ef1527c950db59062cda342ea224d772abdf6adc58b86a45421bab20a6b"},
     {file = "black-20.8b1.tar.gz", hash = "sha256:1c02557aa099101b9d21496f8a914e9ed2222ef70336404eeeac8edba836fbea"},
 ]
 click = [

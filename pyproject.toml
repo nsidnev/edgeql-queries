@@ -35,7 +35,7 @@ mkdocs-material = "^5.5.12"
 mkdocstrings = "^0.13.0"
 markdown-include = "^0.6.0"
 # check support for aiosql
-aiosql = "^3.1.2"
+aiosql = "^3.2.0"
 
 [tool.black]
 target_version = ['py37', 'py38']
