@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <small>[Compare with 0.0.5](https://github.com/nsidnev/edgeql-queries/compare/0.0.5...HEAD)</small>
 
+### Changed
+
+* Run CI on EdgeDB Alpha 6.
+* Run EdgeDB in docker-compose using EdgeDB Alpha 6.
+* Bump dependencies.
+
 ## [0.0.5] - 2020-09-02
 
 <small>[Compare with 0.0.4](https://github.com/nsidnev/edgeql-queries/compare/0.0.4...0.0.5)</small>
