@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7, 3.8]
-        edgedb-version: [1-alpha5]
+        edgedb-version: [1-alpha6]
     services:
       edgedb:
         image: edgedb/edgedb:${{ matrix.edgedb-version }}
