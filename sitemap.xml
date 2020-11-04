@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://nsidnev.github.io/edgeql-queries/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/queries-definition/queries-definition-intro/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/queries-definition/operation-types/select-single/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/queries-definition/operation-types/execute/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/queries-definition/operation-types/select-set/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/improve-typing/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/grouping-queries/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/contrib/aiosql/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/queries/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/loaders/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/query_loaders/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/parsing/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/models/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/exceptions/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/reference/executors/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://nsidnev.github.io/edgeql-queries/changelog/</loc>
-     <lastmod>2020-10-01</lastmod>
+     <lastmod>2020-11-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
