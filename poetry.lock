@@ -1,6 +1,6 @@
 [[package]]
 name = "add-trailing-comma"
-version = "2.0.1"
+version = "2.1.0"
 description = "Automatically add trailing commas to calls and literals"
 category = "dev"
 optional = false
@@ -1046,12 +1046,12 @@ testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "da257ff769c360f6e1fe53cf2029f127b53012542a268aaa94093b2a37ecc298"
+content-hash = "1f0254abacd2aed4d00098d498215b5f933280b46cf64da8a49bc6419e8d4416"
 
 [metadata.files]
 add-trailing-comma = [
-    {file = "add_trailing_comma-2.0.1-py2.py3-none-any.whl", hash = "sha256:34e090e00d9f93992fd09ffdc7cd8cdddcdb03f950efa5b60166209c98789801"},
-    {file = "add_trailing_comma-2.0.1.tar.gz", hash = "sha256:7b8e63fe870045646b80e97cc79988cae8a820de0bdbdf4032c554e451ea18d0"},
+    {file = "add_trailing_comma-2.1.0-py2.py3-none-any.whl", hash = "sha256:f462403aa2e997e20855708edb57536d1d3310d5c5fac7e80542578eb47fdb10"},
+    {file = "add_trailing_comma-2.1.0.tar.gz", hash = "sha256:f9864ffbc12ea4e54916a356d57341ab58f612867c2ad453339c51004807e8ce"},
 ]
 aiosql = [
     {file = "aiosql-3.2.0-py3-none-any.whl", hash = "sha256:1a9daa9003bdf3f3e6a19fb934c9f7b0f7d41270c45488b21bd8b727b9cc602f"},
