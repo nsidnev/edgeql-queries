@@ -2,12 +2,14 @@
 
 from functools import partial
 from types import MappingProxyType
-from typing import Any, Callable, Mapping
+from typing import Any, Callable, Mapping, Union
 
-from edgedb import BlockingIOConnection
+from edgedb import BlockingIOConnection, Transaction
 from edgedb.datatypes import datatypes
 
 from edgeql_queries.models import EdgeQLOperationType, Query
+
+_SyncFetcher = Union[BlockingIOConnection, Transaction]
 
 
 def _execute(__edgeql_query__: Query, conn: BlockingIOConnection) -> None:
@@ -16,7 +18,7 @@ def _execute(__edgeql_query__: Query, conn: BlockingIOConnection) -> None:
 
 def _set_return(
     __edgeql_query__: Query,
-    conn: BlockingIOConnection,
+    conn: _SyncFetcher,
     *query_args: Any,
     **query_kwargs: Any,
 ) -> datatypes.Set:
@@ -25,7 +27,7 @@ def _set_return(
 
 def _single_return(
     __edgeql_query__: Query,
-    conn: BlockingIOConnection,
+    conn: _SyncFetcher,
     *query_args: Any,
     **query_kwargs: Any,
 ) -> Any:

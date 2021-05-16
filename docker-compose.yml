@@ -1,7 +1,0 @@
-version: '3'
-
-services:
-  edgedb:
-    image: edgedb/edgedb:1-alpha6
-    ports:
-      - 5656:5656

@@ -7,7 +7,8 @@ pytestmark = pytest.mark.asyncio
 
 
 async def test_selecting_single_object(
-    async_fetcher: EdgeDBAsyncFetcher, aiosql_async_queries: Queries
+    async_fetcher: EdgeDBAsyncFetcher,
+    aiosql_async_queries: Queries,
 ) -> None:
     title_regex = "blade runner%"
     movie = await aiosql_async_queries.movies.select_movie_by_title(
@@ -18,7 +19,8 @@ async def test_selecting_single_object(
 
 
 async def test_selecting_multiple_objects(
-    async_fetcher: EdgeDBAsyncFetcher, aiosql_async_queries: Queries
+    async_fetcher: EdgeDBAsyncFetcher,
+    aiosql_async_queries: Queries,
 ) -> None:
     year = 2017
     movies = await aiosql_async_queries.movies.select_movies_by_year(
@@ -31,7 +33,8 @@ async def test_selecting_multiple_objects(
 
 
 async def test_executing_statemnt(
-    async_fetcher: EdgeDBAsyncFetcher, aiosql_async_queries: Queries
+    async_fetcher: EdgeDBAsyncFetcher,
+    aiosql_async_queries: Queries,
 ) -> None:
     keanu_first_name = "Keanu"
     await aiosql_async_queries.persons.create_keanu_reeves(async_fetcher)
@@ -45,7 +48,8 @@ async def test_executing_statemnt(
 
 
 async def test_selecting_using_positional_arguments(
-    async_fetcher: EdgeDBAsyncFetcher, aiosql_async_queries: Queries
+    async_fetcher: EdgeDBAsyncFetcher,
+    aiosql_async_queries: Queries,
 ) -> None:
     first_arg = "Harry Potter and the Philosopher's Stone"
     second_arg = "Harry Potter%"

@@ -24,8 +24,6 @@ LEXERS["EdgeQLLexer"] = (
     (),
 )
 
-config = mkdocs.config.load_config(site_dir=str("./site"))
-
 
 def _process_add_single_comma_path(session: Session, path: pathlib.Path) -> None:
     if path.is_dir():
@@ -76,13 +74,13 @@ def run_formatters(session: Session) -> None:
     )
     session.run("black", *targets)
     _process_add_single_comma(session, *targets)
-    session.run("isort", "--recursive", *targets)
-    # sort edgeql_queries imports as it third-party library
+    session.run("isort", *targets)
+    # sort edgeql_queries imports like as it was third-party library
     session.run(
         "isort",
-        "--recursive",
         "--thirdparty=edgeql_queries",
         "--thirdparty=asyncpg",
+        "--project=app",
         "example",
         "docs/src",
     )
@@ -99,36 +97,36 @@ def lint(session: Session) -> None:
     """
     targets = ("edgeql_queries",)
     black_targets = targets + ("tests", "example", "noxfile.py")
+    flake8_targets = targets + ("tests",)
 
     session.run("black", "--check", "--diff", *black_targets)
     session.run("mypy", *targets)
-    session.run("flake8", *targets)
+    session.run("flake8", *flake8_targets)
 
 
 @nox.session(python=False)
 def test(session: Session) -> None:
     """Run pytest."""
-    session.run(
-        "edgedb",
-        "--user=edgedb",
-        "--database=edgedb",
-        "--wait-until-available=5min",
-        "-c",
-        "SELECT 1 + 1",
-    )
     session.run("pytest", "--cov-config=setup.cfg")
 
 
 @nox.session(python=False, name="docs-build")
 def docs_build(_session: Session) -> None:
-    mkdocs.commands.build.build(config)
+    """Build docs for deploing them on GitHub Pages or Netlify."""
+    mkdocs.commands.build.build(_get_docs_config())
 
 
 @nox.session(python=False, name="docs-serve")
 def docs_serve(_session: Session) -> None:
+    """Run local website with documentation."""
     mkdocs.commands.serve.serve()
 
 
 @nox.session(python=False, name="docs-gh-deploy")
 def docs_gh_deploy(_session: Session) -> None:
-    mkdocs.commands.gh_deploy.gh_deploy(config)
+    """Deploy docs on GitHub Pages."""
+    mkdocs.commands.gh_deploy.gh_deploy(_get_docs_config())
+
+
+def _get_docs_config() -> dict:
+    return mkdocs.config.load_config(site_dir="./site")
