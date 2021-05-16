@@ -10,21 +10,38 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
-          python-version: 3.8
-      - name: Install dependencies
+          python-version: 3.9
+
+      - name: Install Poetry
         run: |
           pip install poetry==1.0
           poetry config virtualenvs.in-project true
+
+      - name: Set up cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-py-${{ matrix.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
+
+      - name: Ensure cache is healthy
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
+
+      - name: Install dependencies
+        run: |
           poetry install
+
       - name: Build MkDocs for GitHub Pages
         run: |
           poetry run nox -s docs-build
+
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
-          ACCESS_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
           BRANCH: gh-pages
           FOLDER: site

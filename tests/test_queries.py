@@ -4,7 +4,7 @@ from edgeql_queries.queries import Queries
 
 def test_queries_repr() -> None:
     queries = Queries()
-    assert repr(queries) == "Queries(queries: [], groups: {})"
+    assert repr(queries) == "Queries(queries: [], groups: {})"  # noqa: P103
 
 
 def test_getattr_for_queries(async_queries: Queries) -> None:

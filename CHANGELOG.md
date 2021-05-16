@@ -10,9 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Run CI on EdgeDB Alpha 6.
-* Run EdgeDB in docker-compose using EdgeDB Alpha 6.
+* Run CI on `EdgeDB Alpha 6`.
+* Run `EdgeDB` in `docker-compose` using `EdgeDB Alpha 6`.
 * Bump dependencies.
+* Run CI using latest stable `EdgeDB` version.
+* Run tests using `Python 3.9` in CI.
+* Update CI using latest stable actions.
+* Add cache for dependencies in CI.
+* Migrate to GitHub-native Dependantbot.
+* Replace `docker-compose` with `edgedb projects`.
+* Add support for transactions as arguments in queries.
+* Slightly update scripts.
+* Bump dependencies.
+* Move `pytest`, `coverage`, `mypy` and `isort` configuration into `pyproject.toml`.
+* Run `flake8` on tests with `flake8-pytest-style` and fix issues.
 
 ## [0.0.5] - 2020-09-02
 
@@ -21,7 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Pin `edgedb-python` version on `>= 0.9.0`.
-* Run CI on EdgeDB Alpha 5.
+* Run CI on `EdgeDB Alpha 5`.
 
 ## [0.0.4] - 2020-08-22
 
@@ -57,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 * Move to `nox` from scripts.
-* Run CI on EdgeDB alpha 4.
+* Run CI on `EdgeDB alpha 4`.
 * Pin `edgedb-python` on `^0.9.0`.
 
 ### Fixed

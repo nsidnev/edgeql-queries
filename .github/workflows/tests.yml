@@ -5,36 +5,57 @@ on: push
 jobs:
   tests:
     name: Tests (Python ${{ matrix.python-version }} / EdgeDB ${{ matrix.edgedb-version }})
+
     runs-on: ubuntu-18.04
+
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
-        edgedb-version: [1-alpha6]
+        python-version: [3.7, 3.8, 3.9]
+        edgedb-version: [1-beta2]
+
     services:
       edgedb:
         image: edgedb/edgedb:${{ matrix.edgedb-version }}
+        env:
+          EDGEDB_USER: edgedb
+          EDGEDB_PASSWORD: edgedb
         ports:
           - 5656:5656
+        options: --health-cmd="edgedb -c 'SELECT 1;'" --health-interval=10s --health-timeout=5s --health-retries=5
+
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
+
+      # TODO: check how to use edgedb/setup-edgedb action with EdgeDB projects and use them here
+
+      - name: Install Poetry
         run: |
           pip install poetry==1.0
           poetry config virtualenvs.in-project true
-          poetry install
-      - name: Install EdgeDB CLI
+
+      - name: Set up cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-py-${{ matrix.python-version }}-poetry-${{ hashFiles('poetry.lock') }}
+
+      - name: Ensure cache is healthy
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
+
+      - name: Install dependencies
         run: |
-          mkdir -p ~/.local/bin/
-          curl https://packages.edgedb.com/dist/linux-x86_64/edgedb-cli_latest > ~/.local/bin/edgedb
-          chmod +x ~/.local/bin/edgedb
+          poetry install
+
       - name: Run tests
         env:
-          EDGEDB_DSN: edgedb://edgedb@localhost/edgedb
-        run: |
-          export PATH="$HOME/.local/bin:$PATH"
-          poetry run nox -s test
-      - uses: codecov/codecov-action@v1.0.6
+          EDGEDB_DSN: edgedb://edgedb:edgedb@localhost:5656/edgedb
+        run: poetry run nox -s test
+
+      - uses: codecov/codecov-action@v1

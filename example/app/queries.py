@@ -16,7 +16,10 @@ class Queries(Protocol):
         ...
 
     async def create_new_person(
-        self, conn: AsyncIOConnection, first_name: str, last_name: str
+        self,
+        conn: AsyncIOConnection,
+        first_name: str,
+        last_name: str,
     ) -> EdgeDBObject:
         ...
 

@@ -4,12 +4,12 @@ from functools import partial
 from types import MappingProxyType
 from typing import Any, Callable, Mapping, Union
 
-from edgedb import AsyncIOConnection, AsyncIOPool
+from edgedb import AsyncIOConnection, AsyncIOPool, AsyncIOTransaction
 from edgedb.datatypes import datatypes
 
 from edgeql_queries.models import EdgeQLOperationType, Query
 
-_AsyncFetcher = Union[AsyncIOConnection, AsyncIOPool]
+_AsyncFetcher = Union[AsyncIOConnection, AsyncIOPool, AsyncIOTransaction]
 
 
 async def _execute(__edgeql_query__: Query, conn: _AsyncFetcher) -> None:
