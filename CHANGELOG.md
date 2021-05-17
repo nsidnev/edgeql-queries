@@ -79,14 +79,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Pin `edgedb-python` on `^0.9.0`.
 
+### Fixed
+
+- Fix typos and examples in docs.
+
 ### Misc
 
 - Move to `nox` from scripts.
 - Run CI on `EdgeDB alpha 4`.
-
-### Fixed
-
-- Fix typos and examples in docs.
 
 ## [0.0.1] - 2020-04-09
 
