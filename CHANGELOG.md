@@ -1,4 +1,5 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
@@ -6,24 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.0.5](https://github.com/nsidnev/edgeql-queries/compare/0.0.5...HEAD)</small>
+<small>[Compare with 0.1.0](https://github.com/nsidnev/edgeql-queries/compare/0.1.0...HEAD)</small>
 
-### Changed
+## [0.1.0] - 2021-05-17
 
-* Run CI on `EdgeDB Alpha 6`.
-* Run `EdgeDB` in `docker-compose` using `EdgeDB Alpha 6`.
-* Bump dependencies.
-* Run CI using latest stable `EdgeDB` version.
-* Run tests using `Python 3.9` in CI.
-* Update CI using latest stable actions.
-* Add cache for dependencies in CI.
-* Migrate to GitHub-native Dependantbot.
-* Replace `docker-compose` with `edgedb projects`.
-* Add support for transactions as arguments in queries.
-* Slightly update scripts.
-* Bump dependencies.
-* Move `pytest`, `coverage`, `mypy` and `isort` configuration into `pyproject.toml`.
-* Run `flake8` on tests with `flake8-pytest-style` and fix issues.
+<small>[Compare with 0.0.5](https://github.com/nsidnev/edgeql-queries/compare/0.0.5...0.1.0)</small>
+
+### Added
+
+- Support transactions as arguments in queries.
+
+### Misc
+
+- Bump dependencies.
+- Add cache for dependencies in CI.
+- Add `Python 3.9` in CI's matrix when running tests.
+- Run CI using latest `EdgeDB Beta 2` version.
+- Update CI using latest stable actions.
+- Migrate to GitHub-native Dependantbot.
+- Replace `docker-compose` with `edgedb projects`.
+- Move `pytest`, `coverage`, `mypy` and `isort` configuration into `pyproject.toml`.
+- Run `flake8` on tests with `flake8-pytest-style` and fix issues.
 
 ## [0.0.5] - 2020-09-02
 
@@ -31,8 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Pin `edgedb-python` version on `>= 0.9.0`.
-* Run CI on `EdgeDB Alpha 5`.
+- Pin `edgedb-python` version on `>= 0.9.0`.
+
+### Misc
+
+- Run CI on `EdgeDB Alpha 5`.
 
 ## [0.0.4] - 2020-08-22
 
@@ -40,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-* Change queries parsing allowing arbitrary comments in queries.
+- Change queries parsing allowing arbitrary comments in queries.
 
 ## [0.0.3] - 2020-08-14
 
@@ -48,12 +55,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add support for `aiosql` via custom adapter.
+- Support `aiosql` via custom adapter.
 
 ### Changed
 
-* Update `netlify-action` to update existing message with docs deployment instead of spaming with new one.
-* Change the license from `MIT` to `FreeBSD` as in the parent projects([`aiosql`](https://github.com/nackjicholson/aiosql) and [`anosql`](https://github.com/honza/anosql)).
+- Change the license from `MIT` to `FreeBSD` as in the parent projects([`aiosql`](https://github.com/nackjicholson/aiosql) and [`anosql`](https://github.com/honza/anosql)).
+
+### Misc
+
+- Update `netlify-action` to update existing message with docs deployment instead of spaming with new one.
 
 ## [0.0.2] - 2020-08-11
 
@@ -61,19 +71,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* Add support for positional arguments.
-* Add `py.typed` file for providing types information for type checkers.
-* Add support for pools.
+- Support positional arguments in queries.
+- Include `py.typed` file for providing types information for type checkers.
+- Support running queries through pools.
 
 ### Changed
 
-* Move to `nox` from scripts.
-* Run CI on `EdgeDB alpha 4`.
-* Pin `edgedb-python` on `^0.9.0`.
+- Pin `edgedb-python` on `^0.9.0`.
+
+### Misc
+
+- Move to `nox` from scripts.
+- Run CI on `EdgeDB alpha 4`.
 
 ### Fixed
 
-* Fix typos and examples in docs.
+- Fix typos and examples in docs.
 
 ## [0.0.1] - 2020-04-09
 
@@ -81,4 +94,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-* First release.
+- First release.
