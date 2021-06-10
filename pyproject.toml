@@ -16,7 +16,7 @@ edgedb = ">= 0.9.0"
 # common tasks
 nox = "^2020.12.31"
 # formatters
-black = "^21.4b2"
+black = "^21.5b2"
 isort = "^5.0"
 autoflake = "^1.3.1"
 add-trailing-comma = "^2.1.0"
