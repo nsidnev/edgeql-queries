@@ -635,7 +635,7 @@ mkdocs-material = ">=5.0.0"
 
 [[package]]
 name = "mkdocstrings"
-version = "0.15.1"
+version = "0.15.2"
 description = "Automatic documentation from sources, for MkDocs."
 category = "dev"
 optional = false
@@ -645,7 +645,7 @@ python-versions = ">=3.6,<4.0"
 Jinja2 = ">=2.11.1,<4.0"
 Markdown = ">=3.3,<4.0"
 MarkupSafe = ">=1.1,<3.0"
-mkdocs = ">=1.1,<2.0"
+mkdocs = ">=1.1.1,<2.0.0"
 mkdocs-autorefs = ">=0.1,<0.3"
 pymdown-extensions = ">=6.3,<9.0"
 pytkdocs = ">=0.2.0,<0.12.0"
@@ -1109,7 +1109,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pyt
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "9da781b7eb7e94908fc35967cabeaa9ca6bd788abbe716d176bd3cdb702b70de"
+content-hash = "ece01aa0226df4b3ae10667e7457375c42c4431a96eeca6ef84bc1028f37a48f"
 
 [metadata.files]
 add-trailing-comma = [
@@ -1416,8 +1416,8 @@ mkdocs-material-extensions = [
     {file = "mkdocs_material_extensions-1.0.1-py3-none-any.whl", hash = "sha256:d90c807a88348aa6d1805657ec5c0b2d8d609c110e62b9dce4daf7fa981fa338"},
 ]
 mkdocstrings = [
-    {file = "mkdocstrings-0.15.1-py3-none-any.whl", hash = "sha256:e5ee5c4199bad77d6f6d6a7e6771ad796bb3cd81ea2dc984bdf4773a9944ac7e"},
-    {file = "mkdocstrings-0.15.1.tar.gz", hash = "sha256:32d10df8a38c133772fd322008cd531831aac7ea7fc40a6831d696a262c1659e"},
+    {file = "mkdocstrings-0.15.2-py3-none-any.whl", hash = "sha256:8d6cbe64c07ae66739010979ca01d49dd2f64d1a45009f089d217b9cd2a65e36"},
+    {file = "mkdocstrings-0.15.2.tar.gz", hash = "sha256:c2fee9a3a644647c06eb2044fdfede1073adfd1a55bf6752005d3db10705fe73"},
 ]
 mypy = []
 mypy-extensions = [
