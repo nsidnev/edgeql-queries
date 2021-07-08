@@ -24,7 +24,7 @@ add-trailing-comma = "^2.1.0"
 wemake-python-styleguide = "^0.15.3"
 # TODO: return to stable release after adding support for pyproject.toml
 mypy = { git = "https://github.com/python/mypy", rev = "fdeedd6" }
-flake8-pytest-style = "^1.4.2"
+flake8-pytest-style = "^1.5.0"
 # tests
 pytest = "^6.1.2"
 pytest-cov = "^2.11.1"
