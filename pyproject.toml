@@ -36,7 +36,7 @@ mkdocs-material = "^7.1.9"
 mkdocstrings = "^0.15.2"
 markdown-include = "^0.6.0"
 # check support for aiosql
-aiosql = "^3.1.2"
+aiosql = "^3.3.1"
 
 [tool.pytest.ini_options]
 testpaths = "tests"
