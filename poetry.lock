@@ -142,6 +142,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "certifi"
+version = "2021.5.30"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "click"
 version = "8.0.0"
 description = "Composable command line interface toolkit"
@@ -208,14 +216,15 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "edgedb"
-version = "0.15.0"
+version = "0.16.0"
 description = "EdgeDB Python driver"
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-typing-extensions = ">=3.7.4,<3.8.0"
+certifi = {version = ">=2021.5.30", markers = "platform_system == \"Windows\""}
+typing-extensions = ">=3.10.0"
 
 [package.extras]
 dev = ["Cython (==0.29.23)", "pytest (>=3.6.0)", "sphinx (>=2.3.1,<2.4.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.4.3,<0.5.0)", "pycodestyle (>=2.6.0,<2.7.0)", "pyflakes (>=2.2.0,<2.3.0)", "flake8-bugbear (>=21.4.3,<21.5.0)", "flake8 (>=3.8.1,<3.9.0)", "uvloop (>=0.15.1)"]
@@ -1028,7 +1037,7 @@ python-versions = "*"
 
 [[package]]
 name = "typing-extensions"
-version = "3.7.4.3"
+version = "3.10.0.0"
 description = "Backported and Experimental Type Hints for Python 3.5+"
 category = "main"
 optional = false
@@ -1159,6 +1168,10 @@ cached-property = [
     {file = "cached-property-1.5.2.tar.gz", hash = "sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"},
     {file = "cached_property-1.5.2-py2.py3-none-any.whl", hash = "sha256:df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0"},
 ]
+certifi = [
+    {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
+    {file = "certifi-2021.5.30.tar.gz", hash = "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"},
+]
 click = [
     {file = "click-8.0.0-py3-none-any.whl", hash = "sha256:e90e62ced43dc8105fb9a26d62f0d9340b5c8db053a814e25d95c19873ae87db"},
     {file = "click-8.0.0.tar.gz", hash = "sha256:7d8c289ee437bcb0316820ccee14aefcb056e58d31830ecab8e47eda6540e136"},
@@ -1238,19 +1251,19 @@ docutils = [
     {file = "docutils-0.17.1.tar.gz", hash = "sha256:686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"},
 ]
 edgedb = [
-    {file = "edgedb-0.15.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:6081cbe5edf8e4f3bf2ee22682eacfbc4f55ccde84691d50647e6c31f33f27e2"},
-    {file = "edgedb-0.15.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:ac27a877442fa2fb172a18a17369e222151847971b520310d212a259d298a85b"},
-    {file = "edgedb-0.15.0-cp36-cp36m-win_amd64.whl", hash = "sha256:e48b15d75cc47832d17475ab9f0743b4135433b0921c60e5f071793388a5a9a4"},
-    {file = "edgedb-0.15.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:66ad532305be678470a002676c5c3054bef7375239aeeecc3865889a571fe7a0"},
-    {file = "edgedb-0.15.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:020b35377a15f6bc29768b5adc0e13593de14c124a165eedcced13fd1e04fb41"},
-    {file = "edgedb-0.15.0-cp37-cp37m-win_amd64.whl", hash = "sha256:0d17313361f0bf711ca841646b97f4e621f78f6a89ad52c61402e3e4d15f765b"},
-    {file = "edgedb-0.15.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:8e0290ac3769a7c3513c45f7fe8900ec4f5919338532f82317c3beff4b39dc7f"},
-    {file = "edgedb-0.15.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:5fb62c4cd1c082640bd547d46d6d63d91769fad418a5dba9dbb553dfd3551733"},
-    {file = "edgedb-0.15.0-cp38-cp38-win_amd64.whl", hash = "sha256:0197354908a537b8a11587d30bcc71d4f030a680261a6f7d115c1db48e6f7a6a"},
-    {file = "edgedb-0.15.0-cp39-cp39-macosx_10_14_x86_64.whl", hash = "sha256:eada7f4ad711936161e942168825c912b4cb6905e2f9747d591c60032fbbc0c8"},
-    {file = "edgedb-0.15.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:05d538ee1782fe6f04b919b8399ffa0cf1e4d1ec22a43548645ab05e04fad5fa"},
-    {file = "edgedb-0.15.0-cp39-cp39-win_amd64.whl", hash = "sha256:835aa2ff33e85d5beebe46ef221f4e17df7b6cf0dcbbbba2f3c6bc5507349462"},
-    {file = "edgedb-0.15.0.tar.gz", hash = "sha256:2a6057fde4a6920ab11631a1f80babfc5c81232f6e24bbdf3fbf233f5644bac2"},
+    {file = "edgedb-0.16.0-cp36-cp36m-macosx_10_14_x86_64.whl", hash = "sha256:6fd1aa71446f8c81000d032fac105fe893681167af8371e3297923b64fa2e3f4"},
+    {file = "edgedb-0.16.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:52c337146fc251dd1034fe2440a6d4cc83c7d026f74e3049b91a649d9306f60f"},
+    {file = "edgedb-0.16.0-cp36-cp36m-win_amd64.whl", hash = "sha256:2bd74c40a257bea27126204459532710e473c53c6d998339845418f6188e8967"},
+    {file = "edgedb-0.16.0-cp37-cp37m-macosx_10_14_x86_64.whl", hash = "sha256:af51dd5c03856eca6dda41aef856f47085dfc93a0cef8bd94a6296ff82ecaeb2"},
+    {file = "edgedb-0.16.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:747e50c56d983deab3d707fadb4eb755f33b60cbd2d884c5c2efa2eaddf4ba86"},
+    {file = "edgedb-0.16.0-cp37-cp37m-win_amd64.whl", hash = "sha256:bd95addf498d519b7c512c8d2d48e1172f5fe81d290b358ca3ce0abb92de354d"},
+    {file = "edgedb-0.16.0-cp38-cp38-macosx_10_14_x86_64.whl", hash = "sha256:9cce5aa2a41ea25d1f573c21e0636d0b37f221d51cd36f6b91b7c3ee85cb7fb9"},
+    {file = "edgedb-0.16.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:239654b23523565bb3fa71f38098315eb93e6de11ddd04d09598023835d5d4e0"},
+    {file = "edgedb-0.16.0-cp38-cp38-win_amd64.whl", hash = "sha256:822cfc92c42834b8dacdb94b3dbfac1ac681e98d68aa3920baa9c937ccf29155"},
+    {file = "edgedb-0.16.0-cp39-cp39-macosx_10_14_x86_64.whl", hash = "sha256:ce6405a921c51b9800a914dd742dabe25dbd4bcc883fd4f85e0983cb176866f1"},
+    {file = "edgedb-0.16.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.whl", hash = "sha256:d89f0cd814e701da534e136a86ac0e53bb1538f3f9557d824be7e3a38370af7c"},
+    {file = "edgedb-0.16.0-cp39-cp39-win_amd64.whl", hash = "sha256:7e82510e57639a736b73c80257036f45916c642682471de60e03732d27e49746"},
+    {file = "edgedb-0.16.0.tar.gz", hash = "sha256:76cc109290016403fcf405b4a21f91f429cf613294a8afb7b65daad7c0fa325e"},
 ]
 eradicate = [
     {file = "eradicate-2.0.0.tar.gz", hash = "sha256:27434596f2c5314cc9b31410c93d8f7e8885747399773cd088d3adea647a60c8"},
@@ -1644,9 +1657,9 @@ types-mypy-extensions = [
     {file = "types_mypy_extensions-0.4.3-py2.py3-none-any.whl", hash = "sha256:caa922de16b96ba76bbaf98494fc17ade256d3cc5561a809918494bc65b99e2e"},
 ]
 typing-extensions = [
-    {file = "typing_extensions-3.7.4.3-py2-none-any.whl", hash = "sha256:dafc7639cde7f1b6e1acc0f457842a83e722ccca8eef5270af2d74792619a89f"},
-    {file = "typing_extensions-3.7.4.3-py3-none-any.whl", hash = "sha256:7cb407020f00f7bfc3cb3e7881628838e69d8f3fcab2f64742a5e76b2f841918"},
-    {file = "typing_extensions-3.7.4.3.tar.gz", hash = "sha256:99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"},
+    {file = "typing_extensions-3.10.0.0-py2-none-any.whl", hash = "sha256:0ac0f89795dd19de6b97debb0c6af1c70987fd80a2d62d1958f7e56fcc31b497"},
+    {file = "typing_extensions-3.10.0.0-py3-none-any.whl", hash = "sha256:779383f6086d90c99ae41cf0ff39aac8a7937a9283ce0a414e5dd782f4c94a84"},
+    {file = "typing_extensions-3.10.0.0.tar.gz", hash = "sha256:50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"},
 ]
 virtualenv = [
     {file = "virtualenv-20.4.6-py2.py3-none-any.whl", hash = "sha256:307a555cf21e1550885c82120eccaf5acedf42978fd362d32ba8410f9593f543"},
