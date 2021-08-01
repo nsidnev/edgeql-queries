@@ -58,4 +58,4 @@ jobs:
           EDGEDB_DSN: edgedb://edgedb:edgedb@localhost:5656/edgedb
         run: poetry run nox -s test
 
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2.0.2
