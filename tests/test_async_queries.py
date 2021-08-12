@@ -11,7 +11,6 @@ async def test_selecting_single_object(
     async_queries: Queries,
 ) -> None:
     title_regex = "blade runner%"
-    print(async_fetcher)
     movie = await async_queries.movies.select_movie_by_title(
         async_fetcher,
         title=title_regex,
