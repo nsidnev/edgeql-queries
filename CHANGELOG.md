@@ -9,6 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <small>[Compare with 0.1.0](https://github.com/nsidnev/edgeql-queries/compare/0.1.0...HEAD)</small>
 
+### Changed
+
+- Pin `edgedb` 0.17.0 as minimal required version.
+- Use new `.query_single` methods instead of `.query_one`.
+
+### Misc
+
+- Bump dependencies.
+- Update `EdgeQL` lexer from latest master commit.
+- Run CI using latest `EdgeDB Beta 3` version.
+- Move `EdgeQL` queries files used in tests into `dbschema` directory created by `edgedb project`.
+- Update tests to get rid of `EdgeDB`'s DNS.
+
 ## [0.1.0] - 2021-05-17
 
 <small>[Compare with 0.0.5](https://github.com/nsidnev/edgeql-queries/compare/0.0.5...0.1.0)</small>

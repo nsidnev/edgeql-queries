@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9]
-        edgedb-version: [1-beta2]
+        edgedb-version: [1-beta3]
 
     services:
       edgedb:
@@ -19,9 +19,9 @@ jobs:
         env:
           EDGEDB_USER: edgedb
           EDGEDB_PASSWORD: edgedb
+          EDGEDB_GENERATE_SELF_SIGNED_CERT: 1
         ports:
           - 5656:5656
-        options: --health-cmd="edgedb -c 'SELECT 1;'" --health-interval=10s --health-timeout=5s --health-retries=5
 
     steps:
       - uses: actions/checkout@v2
@@ -30,8 +30,6 @@ jobs:
         uses: actions/setup-python@v2.2.2
         with:
           python-version: ${{ matrix.python-version }}
-
-      # TODO: check how to use edgedb/setup-edgedb action with EdgeDB projects and use them here
 
       - name: Install Poetry
         run: |
@@ -53,9 +51,42 @@ jobs:
         run: |
           poetry install
 
-      - name: Run tests
+      # replace with an action when it will be able to install CLI tools only
+      - name: Setup EdgeDB CLI
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.edgedb.com | bash -s -- -y
+          echo "$HOME/.local/edgedb/bin" >> $GITHUB_PATH
+
+      # replace manual project creation when it will be able to do with CLI tools
+      - name: Setup EdgeDB service as instance and link with project
         env:
-          EDGEDB_DSN: edgedb://edgedb:edgedb@localhost:5656/edgedb
+          EDGEDB_PASSWORD: "edgedb"
+        run: |
+          echo "$EDGEDB_PASSWORD" | edgedb \
+            instance link \
+            --user=edgedb \
+            --port=5656 \
+            --password-from-stdin \
+            --trust-tls-cert \
+            --non-interactive \
+            eq_test
+
+          EQ_REPO_PATH=$(pwd)
+          EQ_PATH_HASH=$(echo -n "$(pwd)" | sha1sum | awk '{ print $1 }')
+          EQ_BASENAME=$(basename $(pwd))
+          EQ_DIR_NAME="${EQ_BASENAME}-${EQ_PATH_HASH}"
+          CONFIG_DIR=$(realpath ${XDG_CONFIG_DIR:-~/.config/}/edgedb)
+          PROJECT_DIR="${CONFIG_DIR}/projects/${EQ_DIR_NAME}"
+          mkdir -p ${PROJECT_DIR}
+          cd ${PROJECT_DIR}
+          echo -n "eq_test" > instance-name
+          echo -n "${EQ_REPO_PATH}" > project-path
+          ln -s "${EQ_REPO_PATH}" project-link
+
+      - name: Run migrations
+        run: edgedb migrate
+
+      - name: Run tests
         run: poetry run nox -s test
 
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2

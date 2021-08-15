@@ -31,7 +31,7 @@ async def _single_return(
     *query_args: Any,
     **query_kwargs: Any,
 ) -> Any:
-    return await conn.query_one(__edgeql_query__.edgeql, *query_args, **query_kwargs)
+    return await conn.query_single(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
 _OPERATION_TO_EXECUTOR: Mapping[EdgeQLOperationType, Callable] = MappingProxyType(
