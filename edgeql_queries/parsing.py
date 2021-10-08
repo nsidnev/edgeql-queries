@@ -9,10 +9,12 @@ Queries that are acceptable by this library should follow some rules:
 3. They can have special symbols after their names that will change how
     this queries will be executed:
     * `*`: query will be executed as script with using `.execute` method from driver.
-    * `!`: query will always return a single object and executed with `.fetchone`
-        method from driver.
+    * `+`: query will return a single object or `None` and executed with
+        `.query_single` method from driver.
+    * `!`: query will always return a single object and executed with
+        `.query_required_single` method from driver.
     * empty: common query that will return a set of objects and will be executed with
-        `.fetchall` method from driver.
+        `.query` method from driver.
 
 An example query that can be successfuly parsed:
 ```edgeql
@@ -42,6 +44,7 @@ _OPERATION_SUFFFIXES_TO_TYPES: Mapping[str, EdgeQLOperationType] = MappingProxyT
     {
         "*": EdgeQLOperationType.execute,
         "!": EdgeQLOperationType.single_return,
+        "+": EdgeQLOperationType.required_single_return,
         "": EdgeQLOperationType.set_return,
     },
 )

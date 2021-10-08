@@ -1,5 +1,5 @@
-If you just need to get the query results, do not write anything after the name. 
-Such query will use `.fetchall` from the driver:
+If you just need to get the query results, do not write anything after the name.
+Such query will use `.query` from the driver:
 
 `queries.edgeql`:
 ```edgeql

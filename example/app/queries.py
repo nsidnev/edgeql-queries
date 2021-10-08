@@ -1,7 +1,7 @@
 from typing import List, Protocol, cast
 from uuid import UUID
 
-from edgedb import AsyncIOConnection
+from edgedb import AsyncIOExecutor
 from edgeql_queries import from_path
 
 from app.models import Movie
@@ -12,12 +12,12 @@ class EdgeDBObject(Protocol):
 
 
 class Queries(Protocol):
-    async def create_movies(self, conn: AsyncIOConnection) -> None:
+    async def create_movies(self, executor: AsyncIOExecutor) -> None:
         ...
 
     async def create_new_person(
         self,
-        conn: AsyncIOConnection,
+        executor: AsyncIOExecutor,
         first_name: str,
         last_name: str,
     ) -> EdgeDBObject:
@@ -25,7 +25,7 @@ class Queries(Protocol):
 
     async def create_new_movie(
         self,
-        conn: AsyncIOConnection,
+        executor: AsyncIOExecutor,
         title: str,
         year: int,
         director_id: UUID,
@@ -33,7 +33,7 @@ class Queries(Protocol):
     ) -> EdgeDBObject:
         ...
 
-    async def select_movie_by_id(self, conn: AsyncIOConnection, id: UUID) -> Movie:
+    async def select_movie_by_id(self, executor: AsyncIOExecutor, id: UUID) -> Movie:
         ...
 
 

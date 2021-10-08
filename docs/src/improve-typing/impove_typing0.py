@@ -4,8 +4,6 @@ from uuid import UUID
 import edgedb
 import edgeql_queries
 
-EdgeDBFetcher = Union[edgedb.AsyncIOPool, edgedb.AsyncIOConnection]
-
 
 class Person(Protocol):
     id: UUID
@@ -15,14 +13,20 @@ class Person(Protocol):
 
 class Queries:
     async def select_users_by_last_name(
-        self, fetcher: EdgeDBFetcher, last_name: str,
+        self,
+        executor: edgedb.AsyncIOExecutor,
+        last_name: str,
     ) -> Set[Person]:
         ...
 
-    async def select_user_by_id(self, fetcher: EdgeDBFetcher, user_id: UUID,) -> Person:
+    async def select_user_by_id(
+        self,
+        executor: edgedb.AsyncIOExecutor,
+        user_id: UUID,
+    ) -> Person:
         ...
 
-    async def create_keanu_reeves(self, fetcher: EdgeDBFetcher) -> None:
+    async def create_keanu_reeves(self, executor: edgedb.AsyncIOExecutor) -> None:
         ...
 
 

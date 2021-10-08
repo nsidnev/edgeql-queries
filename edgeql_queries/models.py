@@ -7,7 +7,10 @@ from enum import IntEnum, auto
 class EdgeQLOperationType(IntEnum):
     """Enumeration for operation types for queries."""
 
-    #: type for operation that returns a single object.
+    #: type for operation that definetly returns a single object.
+    required_single_return = auto()
+
+    #: type for operation that optionally returns a single object.
     single_return = auto()
 
     #: type for operation that returns a common set of object.

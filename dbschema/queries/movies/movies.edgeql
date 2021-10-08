@@ -7,7 +7,7 @@ INSERT Movie {
     actors := (SELECT Person FILTER contains(<array<uuid>>$person_ids, .id))
 };
 
-# name: select-movie-by-title!
+# name: select-movie-by-title+
 # Get a single movie by it's title
 SELECT Movie {
     title,

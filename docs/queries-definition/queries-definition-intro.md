@@ -3,13 +3,15 @@ An EdgeQL query that can be parsed using `edgeql-queries` has some limitations:
 1. Query must be named.
 2. The query's name must not contain characters that cannot be used in Python
     identifiers (**except for the `-` character, since it will be converted to `_`**).
-3. They can have special characters after their names, which will change the way
-    these queries are executed:
-    * `*`: query will be executed as a script using the `.execute` method from the driver.
-    * `!`: query will always return a single object, and therefore such query will be
-        executed using the `.query_one` method from the driver.
-    * empty: a regular query that returns a set of objects and will be executed by the
-        `.query` method from the driver.
+3. They can have special symbols after their names that will change how
+    this queries will be executed:
+    * `*`: query will be executed as script with using `.execute` method from driver.
+    * `+`: query will return a single object or `None` and executed with
+        `.query_single` method from driver.
+    * `!`: query will always return a single object and executed with
+        `.query_required_single` method from driver.
+    * empty: common query that will return a set of objects and will be executed with
+        `.query` method from driver.
 
 
 ## Names
