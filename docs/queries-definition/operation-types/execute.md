@@ -1,12 +1,11 @@
 ## Just Execute Query With `*`:
 
 
-If you are not using the result of the query, you can mark it `*`. This will tell 
+If you are not using the result of the query, you can mark it `*`. This will tell
 `edgeql-queries` to use the `.execute` driver method. This may be useful for migration, for example.
 
 !!! information
-    This is just an example. After the release of migration support directly in EdgeDB, 
-    this example will probably be useless.
+    This is only an example, because full migration support is directly in the EdgeDB CLI.
 
 For example, there are the following migrations for our scheme:
 

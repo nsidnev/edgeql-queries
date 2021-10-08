@@ -14,13 +14,16 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2.2.2
         with:
-          python-version: 3.9
+          python-version: '3.10'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+            version: 1.1.11
+            virtualenvs-in-project: true
 
       - name: Install dependencies
-        run: |
-          pip install poetry==1.1.8
-          poetry config virtualenvs.in-project true
-          poetry install --no-dev
+        run: poetry install --no-interaction --no-dev
 
       - name: Publish on PyPI
         env:

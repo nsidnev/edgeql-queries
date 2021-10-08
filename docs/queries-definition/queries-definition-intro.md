@@ -7,7 +7,7 @@ An EdgeQL query that can be parsed using `edgeql-queries` has some limitations:
     these queries are executed:
     * `*`: query will be executed as a script using the `.execute` method from the driver.
     * `!`: query will always return a single object, and therefore such query will be
-        executed using the `.query_one` method from the driver.
+        executed using the `.query_single` method from the driver.
     * empty: a regular query that returns a set of objects and will be executed by the
         `.query` method from the driver.
 
