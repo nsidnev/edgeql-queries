@@ -14,7 +14,7 @@ edgedb = ">= 0.17.0"
 
 [tool.poetry.dev-dependencies]
 # common tasks
-nox = "^2021.6.12"
+nox = "^2021.10.1"
 # formatters
 black = "^21.11b1"
 isort = "^5.10"
