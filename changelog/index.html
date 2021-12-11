@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://nsidnev.github.io/edgeql-queries/changelog/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -290,6 +290,20 @@
           Operation Types
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../queries-definition/operation-types/select-required-single/" class="md-nav__link">
+        Query Requried Single Object
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -583,6 +597,8 @@
       </a>
       
         
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -603,6 +619,13 @@
   
     <nav class="md-nav" aria-label="[Unreleased]">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#changed" class="md-nav__link">
@@ -632,7 +655,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added" class="md-nav__link">
+  <a href="#added_1" class="md-nav__link">
     Added
   </a>
   
@@ -706,7 +729,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_1" class="md-nav__link">
+  <a href="#added_2" class="md-nav__link">
     Added
   </a>
   
@@ -740,7 +763,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_2" class="md-nav__link">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
   
@@ -781,7 +804,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_3" class="md-nav__link">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
   
@@ -812,6 +835,8 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -832,6 +857,13 @@
   
     <nav class="md-nav" aria-label="[Unreleased]">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    Added
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#changed" class="md-nav__link">
@@ -861,7 +893,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added" class="md-nav__link">
+  <a href="#added_1" class="md-nav__link">
     Added
   </a>
   
@@ -935,7 +967,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_1" class="md-nav__link">
+  <a href="#added_2" class="md-nav__link">
     Added
   </a>
   
@@ -969,7 +1001,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_2" class="md-nav__link">
+  <a href="#added_3" class="md-nav__link">
     Added
   </a>
   
@@ -1010,7 +1042,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#added_3" class="md-nav__link">
+  <a href="#added_4" class="md-nav__link">
     Added
   </a>
   
@@ -1040,23 +1072,35 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.1.0...HEAD">Compare with 0.1.0</a></small></p>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for <code>Python 3.10</code>.</li>
+<li>Add support for <code>EdgeDB RC 3</code>.</li>
+<li>Add new operation type <code>+</code> that is used for <code>.query_single</code> method instead.</li>
+</ul>
 <h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Pin <code>edgedb</code> 0.17.0 as minimal required version.</li>
-<li>Use new <code>.query_single</code> methods instead of <code>.query_one</code>.</li>
+<li>Pin <code>edgedb</code> <code>0.19.0</code> as minimal required version.</li>
+<li><code>!</code> operation is now used for <code>.query_required_single</code> method.</li>
+<li>Use new <code>.query_single</code>/<code>.query_required_single</code> method instead of <code>.query_one</code>.</li>
 </ul>
 <h3 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Bump dependencies.</li>
 <li>Update <code>EdgeQL</code> lexer from latest master commit.</li>
-<li>Run CI using latest <code>EdgeDB Beta 3</code> version.</li>
 <li>Move <code>EdgeQL</code> queries files used in tests into <code>dbschema</code> directory created by <code>edgedb project</code>.</li>
-<li>Update tests to get rid of <code>EdgeDB</code>'s DNS.</li>
+<li>Update tests and documentation to get rid of <code>EdgeDB</code>'s DNS.</li>
+<li>Update documentation.</li>
+<li>Use <code>edgedb/setup-edgedb</code> action to install <code>EdgeDB CLI</code> and run <code>EdgeDB</code> instance for tests.</li>
+<li>Use <code>snok/install-poetry@v1</code> to install <code>Poetry</code>.</li>
+<li>Add <code>Python 3.10</code> in CI's matrix when running tests.</li>
+<li>Run CI using latest <code>EdgeDB RC 3</code> version.</li>
 </ul>
 <h2 id="010-2021-05-17">[0.1.0] - 2021-05-17<a class="headerlink" href="#010-2021-05-17" title="Permanent link">&para;</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.0.5...0.1.0">Compare with 0.0.5</a></small></p>
-<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
 <ul>
+<li>Add support for <code>Python 3.9</code>.</li>
 <li>Support transactions as arguments in queries.</li>
 </ul>
 <h3 id="misc_1">Misc<a class="headerlink" href="#misc_1" title="Permanent link">&para;</a></h3>
@@ -1089,7 +1133,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h2 id="003-2020-08-14">[0.0.3] - 2020-08-14<a class="headerlink" href="#003-2020-08-14" title="Permanent link">&para;</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.0.2...0.0.3">Compare with 0.0.2</a></small></p>
-<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support <code>aiosql</code> via custom adapter.</li>
 </ul>
@@ -1103,7 +1147,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h2 id="002-2020-08-11">[0.0.2] - 2020-08-11<a class="headerlink" href="#002-2020-08-11" title="Permanent link">&para;</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/0.0.1...0.0.2">Compare with 0.0.1</a></small></p>
-<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Support positional arguments in queries.</li>
 <li>Include <code>py.typed</code> file for providing types information for type checkers.</li>
@@ -1124,7 +1168,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 </ul>
 <h2 id="001-2020-04-09">[0.0.1] - 2020-04-09<a class="headerlink" href="#001-2020-04-09" title="Permanent link">&para;</a></h2>
 <p><small><a href="https://github.com/nsidnev/edgeql-queries/compare/8ccbf7955a1e158f58a978b18e662c9bf137f5a5...0.0.1">Compare with first commit</a></small></p>
-<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>First release.</li>
 </ul>
@@ -1185,10 +1229,10 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>

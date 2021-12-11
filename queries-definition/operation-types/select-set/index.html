@@ -14,7 +14,7 @@
         <link rel="canonical" href="https://nsidnev.github.io/edgeql-queries/queries-definition/operation-types/select-set/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.0">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -289,6 +289,20 @@
           Operation Types
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../select-required-single/" class="md-nav__link">
+        Query Requried Single Object
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -593,8 +607,8 @@
                 
                   <h1>Query Set Of Objects</h1>
                 
-                <p>If you just need to get the query results, do not write anything after the name. 
-Such query will use <code>.fetchall</code> from the driver:</p>
+                <p>If you just need to get the query results, do not write anything after the name.
+Such query will use <code>.query</code> from the driver:</p>
 <p><code>queries.edgeql</code>:
 <div class="highlight"><pre><span></span><code><span class="c c-Singleline"># name: select-all-users</span>
 <span class="kr">SELECT</span> Person {
@@ -607,10 +621,12 @@ Such query will use <code>.fetchall</code> from the driver:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">edgedb</span>
 <span class="kn">from</span> <span class="nn">edgeql_queries</span> <span class="kn">import</span> <span class="n">from_path</span>
 
-<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;edgedb://edgedb@localhost/edgedb&quot;</span><span class="p">)</span>
+<span class="n">conn</span> <span class="o">=</span> <span class="n">edgedb</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 <span class="n">queries</span> <span class="o">=</span> <span class="n">from_path</span><span class="p">(</span><span class="s2">&quot;./queries.edgeql&quot;</span><span class="p">,</span> <span class="n">async_driver</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="n">queries</span><span class="o">.</span><span class="n">select_all_users</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;user:&quot;</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">first_name</span><span class="p">)</span>
 </code></pre></div></p>
                 
               
@@ -684,10 +700,10 @@ Such query will use <code>.fetchall</code> from the driver:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
       
     
   </body>
