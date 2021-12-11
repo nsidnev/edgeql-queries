@@ -1,30 +1,30 @@
+import edgedb
 import pytest
 
 from edgeql_queries.queries import Queries
-from tests.typing import EdgeDBAsyncFetcher
 
 pytestmark = pytest.mark.asyncio
 
 
 async def test_selecting_single_object(
-    async_fetcher: EdgeDBAsyncFetcher,
+    async_client: edgedb.AsyncIOExecutor,
     aiosql_async_queries: Queries,
 ) -> None:
     title_regex = "blade runner%"
     movie = await aiosql_async_queries.movies.select_movie_by_title(
-        async_fetcher,
+        async_client,
         title=title_regex,
     )
     assert movie.title == "Blade Runner 2049"
 
 
 async def test_selecting_multiple_objects(
-    async_fetcher: EdgeDBAsyncFetcher,
+    async_client: edgedb.AsyncIOExecutor,
     aiosql_async_queries: Queries,
 ) -> None:
     year = 2017
     movies = await aiosql_async_queries.movies.select_movies_by_year(
-        async_fetcher,
+        async_client,
         year=year,
     )
     assert movies
@@ -33,14 +33,14 @@ async def test_selecting_multiple_objects(
 
 
 async def test_executing_statemnt(
-    async_fetcher: EdgeDBAsyncFetcher,
+    async_client: edgedb.AsyncIOExecutor,
     aiosql_async_queries: Queries,
 ) -> None:
     keanu_first_name = "Keanu"
-    await aiosql_async_queries.persons.create_keanu_reeves(async_fetcher)
+    await aiosql_async_queries.persons.create_keanu_reeves(async_client)
 
     person = await aiosql_async_queries.persons.get_person_by_first_name(
-        async_fetcher,
+        async_client,
         first_name=keanu_first_name,
     )
     assert person.first_name == keanu_first_name
@@ -48,13 +48,13 @@ async def test_executing_statemnt(
 
 
 async def test_selecting_using_positional_arguments(
-    async_fetcher: EdgeDBAsyncFetcher,
+    async_client: edgedb.AsyncIOExecutor,
     aiosql_async_queries: Queries,
 ) -> None:
     first_arg = "Harry Potter and the Philosopher's Stone"
     second_arg = "Harry Potter%"
     check_result = await aiosql_async_queries.check_string_matches_regex(
-        async_fetcher,
+        async_client,
         first_arg,
         second_arg,
     )

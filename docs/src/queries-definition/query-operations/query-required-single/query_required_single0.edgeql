@@ -1,4 +1,4 @@
-# name: select-person-by-ip+
+# name: select-person-by-ip!
 # Query user by IP.
 SELECT Person {
     username

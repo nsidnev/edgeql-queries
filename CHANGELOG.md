@@ -9,18 +9,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <small>[Compare with 0.1.0](https://github.com/nsidnev/edgeql-queries/compare/0.1.0...HEAD)</small>
 
+### Added
+
+- Add support for `Python 3.10`.
+- Add support for `EdgeDB RC 3`.
+- Add new operation type `+` that is used for `.query_single` method instead.
+
 ### Changed
 
-- Pin `edgedb` 0.17.0 as minimal required version.
-- Use new `.query_single` methods instead of `.query_one`.
+- Pin `edgedb` `0.19.0` as minimal required version.
+- `!` operation is now used for `.query_required_single` method.
+- Use new `.query_single`/`.query_required_single` method instead of `.query_one`.
 
 ### Misc
 
 - Bump dependencies.
 - Update `EdgeQL` lexer from latest master commit.
-- Run CI using latest `EdgeDB Beta 3` version.
 - Move `EdgeQL` queries files used in tests into `dbschema` directory created by `edgedb project`.
-- Update tests to get rid of `EdgeDB`'s DNS.
+- Update tests and documentation to get rid of `EdgeDB`'s DNS.
+- Update documentation.
+- Use `edgedb/setup-edgedb` action to install `EdgeDB CLI` and run `EdgeDB` instance for tests.
+- Use `snok/install-poetry@v1` to install `Poetry`.
+- Add `Python 3.10` in CI's matrix when running tests.
+- Run CI using latest `EdgeDB RC 3` version.
 
 ## [0.1.0] - 2021-05-17
 
@@ -28,6 +39,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add support for `Python 3.9`.
 - Support transactions as arguments in queries.
 
 ### Misc

@@ -2,23 +2,21 @@
 
 from functools import partial
 from types import MappingProxyType
-from typing import Any, Callable, Mapping, Union
+from typing import Any, Callable, Mapping
 
-from edgedb import BlockingIOConnection, Transaction
+from edgedb import Executor
 from edgedb.datatypes import datatypes
 
 from edgeql_queries.models import EdgeQLOperationType, Query
 
-_SyncFetcher = Union[BlockingIOConnection, Transaction]
 
-
-def _execute(__edgeql_query__: Query, conn: BlockingIOConnection) -> None:
-    return conn.execute(__edgeql_query__.edgeql)
+def _execute(__edgeql_query__: Query, executor: Executor) -> None:
+    return executor.execute(__edgeql_query__.edgeql)
 
 
 def _set_return(
     __edgeql_query__: Query,
-    conn: _SyncFetcher,
+    conn: Executor,
     *query_args: Any,
     **query_kwargs: Any,
 ) -> datatypes.Set:
@@ -27,15 +25,29 @@ def _set_return(
 
 def _single_return(
     __edgeql_query__: Query,
-    conn: _SyncFetcher,
+    conn: Executor,
     *query_args: Any,
     **query_kwargs: Any,
 ) -> Any:
     return conn.query_single(__edgeql_query__.edgeql, *query_args, **query_kwargs)
 
 
+def _required_single_return(
+    __edgeql_query__: Query,
+    conn: Executor,
+    *query_args: Any,
+    **query_kwargs: Any,
+) -> Any:
+    return conn.query_required_single(
+        __edgeql_query__.edgeql,
+        *query_args,
+        **query_kwargs,
+    )
+
+
 _OPERATION_TO_EXECUTOR: Mapping[EdgeQLOperationType, Callable] = MappingProxyType(
     {
+        EdgeQLOperationType.required_single_return: _required_single_return,
         EdgeQLOperationType.single_return: _single_return,
         EdgeQLOperationType.set_return: _set_return,
         EdgeQLOperationType.execute: _execute,

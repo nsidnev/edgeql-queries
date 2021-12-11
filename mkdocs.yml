@@ -16,6 +16,7 @@ nav:
   - Queries Definition:
       - Queries Definition: 'queries-definition/queries-definition-intro.md'
       - Operation Types:
+          - Query Requried Single Object: 'queries-definition/operation-types/select-required-single.md'
           - Query Single Object: 'queries-definition/operation-types/select-single.md'
           - Execute Query: 'queries-definition/operation-types/execute.md'
           - Query Set Of Objects: 'queries-definition/operation-types/select-set.md'

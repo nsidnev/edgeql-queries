@@ -10,21 +10,21 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.7, 3.8, 3.9]
-        edgedb-version: [1-beta3]
+        python-version:
+          - '3.7'
+          - '3.8'
+          - '3.9'
+          - '3.10'
 
-    services:
-      edgedb:
-        image: edgedb/edgedb:${{ matrix.edgedb-version }}
-        env:
-          EDGEDB_USER: edgedb
-          EDGEDB_PASSWORD: edgedb
-          EDGEDB_GENERATE_SELF_SIGNED_CERT: 1
-        ports:
-          - 5656:5656
+        edgedb-version:
+          - '1.0-rc.3'
 
     steps:
       - uses: actions/checkout@v2
+
+      - uses: edgedb/setup-edgedb@v1
+        with:
+          server-version: ${{ matrix.edgedb-version }}
 
       - name: Set up Python
         uses: actions/setup-python@v2.3.1
@@ -32,9 +32,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Poetry
-        run: |
-          pip install poetry==1.1.8
-          poetry config virtualenvs.in-project true
+        uses: snok/install-poetry@v1
+        with:
+            version: '1.1.12'
+            virtualenvs-in-project: true
 
       - name: Set up cache
         uses: actions/cache@v2
@@ -48,43 +49,7 @@ jobs:
         run: poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
 
       - name: Install dependencies
-        run: |
-          poetry install
-
-      # replace with an action when it will be able to install CLI tools only
-      - name: Setup EdgeDB CLI
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.edgedb.com | bash -s -- -y
-          echo "$HOME/.local/edgedb/bin" >> $GITHUB_PATH
-
-      # replace manual project creation when it will be able to do with CLI tools
-      - name: Setup EdgeDB service as instance and link with project
-        env:
-          EDGEDB_PASSWORD: "edgedb"
-        run: |
-          echo "$EDGEDB_PASSWORD" | edgedb \
-            instance link \
-            --user=edgedb \
-            --port=5656 \
-            --password-from-stdin \
-            --trust-tls-cert \
-            --non-interactive \
-            eq_test
-
-          EQ_REPO_PATH=$(pwd)
-          EQ_PATH_HASH=$(echo -n "$(pwd)" | sha1sum | awk '{ print $1 }')
-          EQ_BASENAME=$(basename $(pwd))
-          EQ_DIR_NAME="${EQ_BASENAME}-${EQ_PATH_HASH}"
-          CONFIG_DIR=$(realpath ${XDG_CONFIG_DIR:-~/.config/}/edgedb)
-          PROJECT_DIR="${CONFIG_DIR}/projects/${EQ_DIR_NAME}"
-          mkdir -p ${PROJECT_DIR}
-          cd ${PROJECT_DIR}
-          echo -n "eq_test" > instance-name
-          echo -n "${EQ_REPO_PATH}" > project-path
-          ln -s "${EQ_REPO_PATH}" project-link
-
-      - name: Run migrations
-        run: edgedb migrate
+        run: poetry install --no-interaction
 
       - name: Run tests
         run: poetry run nox -s test

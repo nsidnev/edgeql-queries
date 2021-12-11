@@ -38,7 +38,7 @@ queries code, as with any other languages, but use it in Python applications.
 
 !!! information
     This library may become less useful after the release of the
-    [query builder](https://edgedb.com/roadmap#client_language_bindings) for EdgeDB,
+    [query builder](https://edgedb.com/roadmap#client-language-bindings for EdgeDB,
     but who knows  `¯\_(ツ)_/¯`.
 
 ## Requirements
@@ -60,7 +60,7 @@ Or if you are using `poetry`:
 ## Example
 
 
-There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/tutorial/index)
+There is a more complex example based on the EdgeDB [tutorial](https://edgedb.com/docs/guides/quickstart)
 in the [example](https://github.com/nsidnev/edgeql-queries/blob/master/example) folder in the repository.
 You can look there to see more features.
 

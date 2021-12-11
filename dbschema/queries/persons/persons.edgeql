@@ -12,7 +12,7 @@ INSERT Person {
     last_name := 'Reeves',
 }
 
-# name: get-person-by-first-name!
+# name: get-person-by-first-name+
 # Get a single user by first name.
 SELECT Person {
     first_name,
