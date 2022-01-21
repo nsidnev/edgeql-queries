@@ -699,6 +699,47 @@ EdgeQLQueries        </code>
 
       <p>Queries that are compatible with aiosql.</p>
 
+        <details class="quote">
+          <summary>Source code in <code>edgeql_queries/contrib/aiosql/queries.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">EdgeQLQueries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Queries that are compatible with aiosql.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">adapter</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">EdgeQLSyncAdapter</span><span class="p">,</span> <span class="n">EdgeQLAsyncAdapter</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Init queries.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            adapter: adapter for aiosql with `is_aio_driver` field.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_async</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">is_aio_driver</span>
+
+    <span class="k">def</span> <span class="nf">load_from_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Load list of queries.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            queries: list of queries that should be used for creating</span>
+<span class="sd">                executors for them.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Built collection of queries with binded executors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">eq_queries</span><span class="o">.</span><span class="n">load_from_list</span><span class="p">(</span><span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_async</span><span class="p">),</span> <span class="n">queries</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_from_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries_tree</span><span class="p">:</span> <span class="n">QueriesTree</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Load queries tree.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            queries_tree: tree of queries that should be used for creating</span>
+<span class="sd">                executors for them.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Built collection of queries with binded executors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">eq_queries</span><span class="o">.</span><span class="n">load_from_tree</span><span class="p">(</span>
+            <span class="n">eq_queries</span><span class="o">.</span><span class="n">Queries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_use_async</span><span class="p">),</span>
+            <span class="n">queries_tree</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+        </details>
 
 
 

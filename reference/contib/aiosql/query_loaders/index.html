@@ -706,6 +706,54 @@ EdgeQLQueryLoader        </code>
 
       <p>Query loader that is compatible with aiosql.</p>
 
+        <details class="quote">
+          <summary>Source code in <code>edgeql_queries/contrib/aiosql/query_loaders.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">EdgeQLQueryLoader</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Query loader that is compatible with aiosql.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Do nothing but be compatible with aiosql query loader.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            args: any args that will be used for initializaton by aiosql.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">load_query_data_from_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">edgeql</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Load queries from EdgeQL string.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            edgeql: EdgeQL string to create a new collection of queries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Parsed queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">query_loaders</span><span class="o">.</span><span class="n">load_query_data_from_edgeql</span><span class="p">(</span><span class="n">edgeql</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_query_data_from_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Load queries from single file.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            file_path: path to EdgeQL file to create a new collection of</span>
+<span class="sd">                queries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Parsed queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">query_loaders</span><span class="o">.</span><span class="n">load_query_data_from_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_query_data_from_dir_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dir_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">QueriesTree</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Load queries from directory.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            dir_path: path to dir with EdgeQL files to create a new collection</span>
+<span class="sd">                of queries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Parsed queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">query_loaders</span><span class="o">.</span><span class="n">load_query_data_from_dir_path</span><span class="p">(</span><span class="n">dir_path</span><span class="p">)</span>
+</code></pre></div>
+        </details>
 
 
 

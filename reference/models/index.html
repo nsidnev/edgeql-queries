@@ -788,6 +788,24 @@ EdgeQLOperationType            (<span title="enum.IntEnum">IntEnum</span>)
 
       <p>Enumeration for operation types for queries.</p>
 
+        <details class="quote">
+          <summary>Source code in <code>edgeql_queries/models.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">EdgeQLOperationType</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Enumeration for operation types for queries.&quot;&quot;&quot;</span>
+
+    <span class="c1">#: type for operation that definetly returns a single object.</span>
+    <span class="n">required_single_return</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+    <span class="c1">#: type for operation that optionally returns a single object.</span>
+    <span class="n">single_return</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+    <span class="c1">#: type for operation that returns a common set of object.</span>
+    <span class="n">set_return</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+
+    <span class="c1">#: type for operation that returns nothing.</span>
+    <span class="n">execute</span> <span class="o">=</span> <span class="n">auto</span><span class="p">()</span>
+</code></pre></div>
+        </details>
 
 
 
@@ -834,6 +852,52 @@ Query        </code>
 
       <p>Parsed query.</p>
 
+        <details class="quote">
+          <summary>Source code in <code>edgeql_queries/models.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Query</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Parsed query.&quot;&quot;&quot;</span>
+
+    <span class="c1">#: name of parsed query.</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="c1">#: query operation type.</span>
+    <span class="n">operation_type</span><span class="p">:</span> <span class="n">EdgeQLOperationType</span>
+
+    <span class="c1">#: EdgeQL query that should be executed.</span>
+    <span class="n">edgeql</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Hash query.</span>
+
+<span class="sd">        Hashing is done by query&#39;s name.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Query&#39;s hash.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return string representation of query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String representation of query that is its name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return raw string representation of query.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Raw string representation of query that contains all fields.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Query(name: </span><span class="si">{0!r}</span><span class="s2">, operation_type: </span><span class="si">{1}</span><span class="s2">, edgeql: </span><span class="si">{2!r}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">operation_type</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">edgeql</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+        </details>
 
 
 

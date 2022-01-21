@@ -857,6 +857,99 @@ Queries        </code>
 
       <p>Collection and executor for queries.</p>
 
+        <details class="quote">
+          <summary>Source code in <code>edgeql_queries/queries.py</code></summary>
+          <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Queries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Collection and executor for queries.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_async</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Initialize collection and executor for queries.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            is_async: use async driver for creating queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="s2">&quot;Queries&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Query</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Queries</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span> <span class="o">=</span> <span class="n">is_async</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">available_queries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Sorted list of queries available on this collection.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">query</span><span class="p">:</span> <span class="n">query</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">is_async</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Will be query handlers generated for async execution.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Will be query handlers generated for async execution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span>
+
+    <span class="k">def</span> <span class="nf">add_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_handler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Queries</span><span class="p">,</span> <span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Add a single query to collection.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            name: name of query or sub-queries to be added.</span>
+<span class="sd">            query_handler: a single [query][edgeql_queries.models.Query] that</span>
+<span class="sd">                will be transformed to executor or</span>
+<span class="sd">                [collection of queries][edgeql_queries.queries.Queries]</span>
+<span class="sd">                that will be registered as sub-queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">handler_for_query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="n">Queries</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query_handler</span><span class="p">,</span> <span class="n">Query</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
+
+            <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">_create_handler_from_query</span><span class="p">(</span>
+                <span class="n">query_handler</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">query_handler</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">handler_for_query</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">handler_for_query</span>
+
+    <span class="k">def</span> <span class="nf">get_executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="s2">&quot;Queries&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Return executor for query by name.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            query_name: name of query for which executor should be returned.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Executor for query.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">[</span><span class="n">query_name</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="s2">&quot;Queries&quot;</span><span class="p">]:</span>
+        <span class="sd">&quot;&quot;&quot;Get executor for query by name.</span>
+
+<span class="sd">        Arguments:</span>
+<span class="sd">            query_name: name of query or group.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Executor for query.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_executor</span><span class="p">(</span><span class="n">query_name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return special string representation of collection.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Raw string for queries collection.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;Queries(queries: </span><span class="si">{0}</span><span class="s2">, groups: </span><span class="si">{1}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">available_queries</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">,</span>
+        <span class="p">)</span>
+</code></pre></div>
+        </details>
 
 
 
