@@ -11,13 +11,13 @@ jobs:
     strategy:
       matrix:
         python-version:
-          - '3.7'
-          - '3.8'
-          - '3.9'
-          - '3.10'
+          - "3.7"
+          - "3.8"
+          - "3.9"
+          - "3.10"
 
         edgedb-version:
-          - '1.0-rc.3'
+          - "1.0-rc.4"
 
     steps:
       - uses: actions/checkout@v2
@@ -34,8 +34,8 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
-            version: '1.1.12'
-            virtualenvs-in-project: true
+          version: "1.1.12"
+          virtualenvs-in-project: true
 
       - name: Set up cache
         uses: actions/cache@v2
