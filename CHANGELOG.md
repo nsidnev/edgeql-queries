@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add support for `Python 3.10`.
-- Add support for `EdgeDB RC 3`.
+- Add support for `EdgeDB RC 4`.
 - Add new operation type `+` that is used for `.query_single` method instead.
 
 ### Changed

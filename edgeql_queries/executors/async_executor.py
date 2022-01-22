@@ -38,8 +38,7 @@ async def _required_single_return(
     *query_args: Any,
     **query_kwargs: Any,
 ) -> Any:
-    # remove silence about an error after releasing fix in edgedb
-    return await conn.query_required_single(  # type: ignore
+    return await conn.query_required_single(
         __edgeql_query__.edgeql,
         *query_args,
         **query_kwargs,
