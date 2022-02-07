@@ -1,9 +1,6 @@
 import edgedb
-import pytest
 
 from edgeql_queries.queries import Queries
-
-pytestmark = pytest.mark.asyncio
 
 
 async def test_selecting_single_object(
