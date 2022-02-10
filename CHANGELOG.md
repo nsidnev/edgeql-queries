@@ -35,7 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use `edgedb/setup-edgedb` action to install `EdgeDB CLI` and run `EdgeDB` instance for tests.
 - Use `snok/install-poetry@v1` to install `Poetry`.
 - Add `Python 3.10` in CI's matrix when running tests.
-- Run CI using latest `EdgeDB RC 3` version.
+- Run CI using latest `EdgeDB 1.0` version.
 
 ## [0.1.0] - 2021-05-17
 
