@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.1.0](https://github.com/nsidnev/edgeql-queries/compare/0.1.0...HEAD)</small>
+<small>[Compare with 0.2.0](https://github.com/nsidnev/edgeql-queries/compare/0.2.0...HEAD)</small>
+
+## [0.2.0] - 2022-02-10
+
+<small>[Compare with 0.1.0](https://github.com/nsidnev/edgeql-queries/compare/0.1.0...0.2.0)</small>
 
 ### Added
 
 - Add support for `Python 3.10`.
-- Add support for `EdgeDB RC 4`.
+- Add support for `EdgeDB 1.0`.
 - Add new operation type `+` that is used for `.query_single` method instead.
 
 ### Changed
