@@ -31,15 +31,15 @@ async def async_client() -> edgedb.AsyncIOExecutor:
 
 @pytest.fixture()
 def sync_client() -> edgedb.Executor:
-    client = edgedb.connect()
+    client = edgedb.create_client()
     yield client
     client.close()
 
 
 @pytest.fixture(autouse=True)
 def _setup_database(sync_queries: Queries) -> None:
-    connection = edgedb.connect()
-    sync_queries.seeds.create_test_data(connection)
+    client = edgedb.create_client()
+    sync_queries.seeds.create_test_data(client)
     yield
-    sync_queries.seeds.drop_test_data(connection)
-    connection.close()
+    sync_queries.seeds.drop_test_data(client)
+    client.close()
