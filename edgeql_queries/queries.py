@@ -4,17 +4,13 @@ from __future__ import annotations
 
 from typing import Callable, Dict, List, Set, Union
 
-from edgeql_queries.executors.async_executor import create_async_executor
-from edgeql_queries.executors.sync_executor import create_sync_executor
+from edgeql_queries.executors.async_executor import AsyncExecutor
+from edgeql_queries.executors.sync_executor import SyncExecutor
 from edgeql_queries.models import Query
 from edgeql_queries.typing import QueriesTree
 
-
-def _create_handler_from_query(query: Query, use_async: bool = True) -> Callable:
-    if use_async:
-        return create_async_executor(query)
-
-    return create_sync_executor(query)
+Executor = Union[AsyncExecutor, SyncExecutor]
+QueryHandler = Union[Executor, "Queries"]
 
 
 def load_from_list(queries_collection: Queries, queries: List[Query]) -> Queries:
@@ -64,10 +60,11 @@ class Queries:
         Arguments:
             is_async: use async driver for creating queries.
         """
-        self._query_handlers: Dict[str, Union[Callable, "Queries"]] = {}
+        self._query_handlers: Dict[str, QueryHandler] = {}
         self._available_queries: Set[Query] = set()
         self._available_queries_groups: Dict[str, Queries] = {}
         self._is_async = is_async
+        self._json = False
 
     @property
     def available_queries(self) -> List[Query]:
@@ -87,6 +84,30 @@ class Queries:
         """
         return self._is_async
 
+    @property
+    def json(self) -> "Queries":
+        """Return copy of queries that will use JSON as output format.
+
+        Returns:
+            Copied queries.
+        """
+        handlers = {}
+        for name, query_handler in self._query_handlers.items():
+            if isinstance(query_handler, Queries):
+                query_handler = query_handler.json
+            else:
+                query_handler = query_handler.as_json()
+
+            handlers[name] = query_handler
+
+        queries = self.__class__()
+        queries._query_handlers = handlers
+        queries._json = True
+        queries._available_queries = self._available_queries
+        queries._available_queries_groups = self._available_queries_groups
+        queries._is_async = self._is_async
+        return queries
+
     def add_query(self, name: str, query_handler: Union[Queries, Query]) -> None:
         """Add a single query to collection.
 
@@ -102,10 +123,10 @@ class Queries:
         if isinstance(query_handler, Query):
             self._available_queries.add(query_handler)
 
-            handler_for_query = _create_handler_from_query(
-                query_handler,
-                self._is_async,
-            )
+            if self._is_async:
+                handler_for_query = AsyncExecutor(query_handler)
+            else:
+                handler_for_query = SyncExecutor(query_handler)
         else:
             handler_for_query = query_handler
             self._available_queries_groups[name] = handler_for_query

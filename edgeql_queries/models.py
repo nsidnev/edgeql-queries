@@ -20,7 +20,7 @@ class EdgeQLOperationType(IntEnum):
     execute = auto()
 
 
-@dataclass
+@dataclass(frozen=True)
 class Query:
     """Parsed query."""
 
@@ -32,16 +32,6 @@ class Query:
 
     #: EdgeQL query that should be executed.
     edgeql: str
-
-    def __hash__(self) -> int:
-        """Hash query.
-
-        Hashing is done by query's name.
-
-        Returns:
-            Query's hash.
-        """
-        return hash(self.name)
 
     def __str__(self) -> str:
         """Return string representation of query.

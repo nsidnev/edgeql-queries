@@ -7,7 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.2.0](https://github.com/nsidnev/edgeql-queries/compare/0.2.0...HEAD)</small>
+<small>[Compare with 0.3.0](https://github.com/nsidnev/edgeql-queries/compare/0.3.0...HEAD)</small>
+
+## [0.3.0] - 2022-03-02
+
+<small>[Compare with 0.2.0](https://github.com/nsidnev/edgeql-queries/compare/0.2.0...0.3.0)</small>
+
+### Added
+
+- Add support for JSON output via `.json` property for [`Queries`][edgeql_queries.queries.Queries].
+
+### Misc
+
+- Bump dependencies.
 
 ## [0.2.0] - 2022-02-10
 

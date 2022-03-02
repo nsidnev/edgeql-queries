@@ -1,1 +1,1 @@
-"""Definition for query executors creators."""
+"""Definition for query executors."""
