@@ -528,6 +528,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#edgeql_queries.queries.Queries.json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#edgeql_queries.queries.Queries.__getattr__" class="md-nav__link">
     __getattr__()
   </a>
@@ -749,6 +756,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#edgeql_queries.queries.Queries.json" class="md-nav__link">
+    json
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#edgeql_queries.queries.Queries.__getattr__" class="md-nav__link">
     __getattr__()
   </a>
@@ -835,6 +849,8 @@
 
 
 
+
+
   <div class="doc doc-object doc-class">
 
 
@@ -862,10 +878,11 @@ Queries        </code>
 <span class="sd">        Arguments:</span>
 <span class="sd">            is_async: use async driver for creating queries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="s2">&quot;Queries&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QueryHandler</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Query</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Queries</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span> <span class="o">=</span> <span class="n">is_async</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_json</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">available_queries</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Query</span><span class="p">]:</span>
@@ -885,6 +902,30 @@ Queries        </code>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Queries&quot;</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return copy of queries that will use JSON as output format.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Copied queries.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">handlers</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">query_handler</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query_handler</span><span class="p">,</span> <span class="n">Queries</span><span class="p">):</span>
+                <span class="n">query_handler</span> <span class="o">=</span> <span class="n">query_handler</span><span class="o">.</span><span class="n">json</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">query_handler</span> <span class="o">=</span> <span class="n">query_handler</span><span class="o">.</span><span class="n">as_json</span><span class="p">()</span>
+
+            <span class="n">handlers</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">query_handler</span>
+
+        <span class="n">queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">()</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">_query_handlers</span> <span class="o">=</span> <span class="n">handlers</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">_json</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">_available_queries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">_available_queries_groups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span>
+        <span class="n">queries</span><span class="o">.</span><span class="n">_is_async</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span>
+        <span class="k">return</span> <span class="n">queries</span>
+
     <span class="k">def</span> <span class="nf">add_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">query_handler</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Queries</span><span class="p">,</span> <span class="n">Query</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Add a single query to collection.</span>
 
@@ -900,10 +941,10 @@ Queries        </code>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query_handler</span><span class="p">,</span> <span class="n">Query</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
 
-            <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">_create_handler_from_query</span><span class="p">(</span>
-                <span class="n">query_handler</span><span class="p">,</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">:</span>
+                <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">AsyncExecutor</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">SyncExecutor</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">query_handler</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">handler_for_query</span>
@@ -1030,6 +1071,44 @@ Queries        </code>
 
 
 
+  <div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="edgeql_queries.queries.Queries.json" class="doc doc-heading">
+<code class="codehilite language-python"><span class="n">json</span><span class="p">:</span> <span class="s1">&#39;Queries&#39;</span></code>
+
+  <span class="doc doc-properties">
+      <small class="doc doc-property doc-property-property"><code>property</code></small>
+      <small class="doc doc-property doc-property-readonly"><code>readonly</code></small>
+  </span>
+
+<a href="#edgeql_queries.queries.Queries.json" class="headerlink" title="Permanent link">&para;</a></h3>
+
+    <div class="doc doc-contents ">
+
+      <p>Return copy of queries that will use JSON as output format.</p>
+
+<p><strong>Returns:</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>&#39;Queries&#39;</code></td>
+      <td><p>Copied queries.</p></td>
+    </tr>
+  </tbody>
+</table>    </div>
+
+  </div>
+
+
+
 
 
 
@@ -1148,10 +1227,11 @@ Queries        </code>
 <span class="sd">    Arguments:</span>
 <span class="sd">        is_async: use async driver for creating queries.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="n">Callable</span><span class="p">,</span> <span class="s2">&quot;Queries&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_query_handlers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">QueryHandler</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">Query</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Queries</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span> <span class="o">=</span> <span class="n">is_async</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_json</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
         </details>
     </div>
@@ -1271,10 +1351,10 @@ that will be registered as sub-queries.</p></td>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">query_handler</span><span class="p">,</span> <span class="n">Query</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
 
-        <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">_create_handler_from_query</span><span class="p">(</span>
-            <span class="n">query_handler</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_async</span><span class="p">:</span>
+            <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">AsyncExecutor</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">SyncExecutor</span><span class="p">(</span><span class="n">query_handler</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">handler_for_query</span> <span class="o">=</span> <span class="n">query_handler</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_available_queries_groups</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">handler_for_query</span>
