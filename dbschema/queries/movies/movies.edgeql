@@ -7,6 +7,22 @@ INSERT Movie {
     actors := (SELECT Person FILTER contains(<array<uuid>>$person_ids, .id))
 };
 
+# name: select-movie-by-title-required!
+# Get a single movie by it's title
+SELECT Movie {
+    title,
+    year,
+    director: {
+        last_name,
+    },
+    actors: {
+        first_name,
+        last_name,
+    }
+}
+FILTER .title ILIKE <str>$title
+LIMIT 1
+
 # name: select-movie-by-title+
 # Get a single movie by it's title
 SELECT Movie {
