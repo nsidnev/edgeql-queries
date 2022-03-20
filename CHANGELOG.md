@@ -7,7 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-<small>[Compare with 0.3.0](https://github.com/nsidnev/edgeql-queries/compare/0.3.0...HEAD)</small>
+<small>[Compare with 0.4.0](https://github.com/nsidnev/edgeql-queries/compare/0.4.0...HEAD)</small>
+
+## [0.4.0] - 2022-03-20
+
+<small>[Compare with 0.3.0](https://github.com/nsidnev/edgeql-queries/compare/0.3.0...0.4.0)</small>
+
+### Fixed
+
+- Swap `!` and `+` operations in query parsing to actually use `!` operation for `.query_required_single` method. PR [#173](https://github.com/nsidnev/edgeql-queries/pull/173) by [@refi64](https://github.com/refi64).
 
 ## [0.3.0] - 2022-03-02
 
