@@ -1,8 +1,28 @@
 import json
 
 import edgedb
+import pytest
 
 from edgeql_queries.queries import Queries
+
+
+async def test_selecting_required_single_object(
+    async_client: edgedb.AsyncIOExecutor,
+    async_queries: Queries,
+) -> None:
+    title_regex = "blade runner%"
+    movie = await async_queries.movies.select_movie_by_title_required(
+        async_client,
+        title=title_regex,
+    )
+    assert movie.title == "Blade Runner 2049"
+
+    title_regex = "this does not exist"
+    with pytest.raises(edgedb.errors.NoDataError):
+        await async_queries.movies.select_movie_by_title_required(
+            async_client,
+            title=title_regex,
+        )
 
 
 async def test_selecting_single_object(
@@ -15,6 +35,13 @@ async def test_selecting_single_object(
         title=title_regex,
     )
     assert movie.title == "Blade Runner 2049"
+
+    title_regex = "this does not exist"
+    movie = await async_queries.movies.select_movie_by_title(
+        async_client,
+        title=title_regex,
+    )
+    assert movie is None
 
 
 async def test_selecting_multiple_objects(

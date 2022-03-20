@@ -43,8 +43,8 @@ VALID_QUERY_NAME_PATTERN = re.compile(r"^\w+$")
 _OPERATION_SUFFFIXES_TO_TYPES: Mapping[str, EdgeQLOperationType] = MappingProxyType(
     {
         "*": EdgeQLOperationType.execute,
-        "!": EdgeQLOperationType.single_return,
-        "+": EdgeQLOperationType.required_single_return,
+        "+": EdgeQLOperationType.single_return,
+        "!": EdgeQLOperationType.required_single_return,
         "": EdgeQLOperationType.set_return,
     },
 )
