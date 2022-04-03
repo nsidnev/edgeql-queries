@@ -237,7 +237,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "edgedb"
-version = "0.22.0"
+version = "0.23.0"
 description = "EdgeDB Python driver"
 category = "main"
 optional = false
@@ -248,8 +248,8 @@ certifi = {version = ">=2021.5.30", markers = "platform_system == \"Windows\""}
 typing-extensions = ">=3.10.0"
 
 [package.extras]
-dev = ["Cython (>=0.29.24,<0.30.0)", "pytest (>=3.6.0)", "sphinx (>=2.3.1,<2.4.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.4.3,<0.5.0)", "pycodestyle (>=2.6.0,<2.7.0)", "pyflakes (>=2.2.0,<2.3.0)", "flake8-bugbear (>=21.4.3,<21.5.0)", "flake8 (>=3.8.1,<3.9.0)", "uvloop (>=0.15.1)"]
-docs = ["sphinx (>=2.3.1,<2.4.0)", "sphinxcontrib-asyncio (>=0.2.0,<0.3.0)", "sphinx-rtd-theme (>=0.4.3,<0.5.0)"]
+dev = ["Cython (>=0.29.24,<0.30.0)", "pytest (>=3.6.0)", "sphinx (>=4.2.0,<4.3.0)", "sphinxcontrib-asyncio (>=0.3.0,<0.4.0)", "sphinx-rtd-theme (>=1.0.0,<1.1.0)", "pycodestyle (>=2.6.0,<2.7.0)", "pyflakes (>=2.2.0,<2.3.0)", "flake8-bugbear (>=21.4.3,<21.5.0)", "flake8 (>=3.8.1,<3.9.0)", "uvloop (>=0.15.1)"]
+docs = ["sphinx (>=4.2.0,<4.3.0)", "sphinxcontrib-asyncio (>=0.3.0,<0.4.0)", "sphinx-rtd-theme (>=1.0.0,<1.1.0)"]
 test = ["pycodestyle (>=2.6.0,<2.7.0)", "pyflakes (>=2.2.0,<2.3.0)", "flake8-bugbear (>=21.4.3,<21.5.0)", "flake8 (>=3.8.1,<3.9.0)", "uvloop (>=0.15.1)"]
 
 [[package]]
@@ -1304,21 +1304,21 @@ docutils = [
     {file = "docutils-0.18.1.tar.gz", hash = "sha256:679987caf361a7539d76e584cbeddc311e3aee937877c87346f31debc63e9d06"},
 ]
 edgedb = [
-    {file = "edgedb-0.22.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0586e5c62a33b41638017cafce00f83aa2358988803ec7a66b60779336ebbefe"},
-    {file = "edgedb-0.22.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8fe370d3effadc082db97dc2e57854c141ff626790425a71c5ff6ed28ca066bf"},
-    {file = "edgedb-0.22.0-cp310-cp310-win_amd64.whl", hash = "sha256:4c745019cf51f533374db663222c4f390b0c05a26da33e79fa042161b28b4570"},
-    {file = "edgedb-0.22.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8c15dd990a368717e774f4dc6be325363f4a7c279aa1b15017377f9b039669e9"},
-    {file = "edgedb-0.22.0-cp36-cp36m-win_amd64.whl", hash = "sha256:2e3879790261cb739c4d3d82b433e7ec29b22b3ee4bbf61a4741b386484a2792"},
-    {file = "edgedb-0.22.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:19450656f94f53f5bc787a427337276ba3f0442e5d71f80c286ae9a47b67b7d7"},
-    {file = "edgedb-0.22.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b731c792d933b04f35f49ec8e91464fc3aaba9edc9033726a383e2a67176aaa3"},
-    {file = "edgedb-0.22.0-cp37-cp37m-win_amd64.whl", hash = "sha256:bcb0b62097e4d6d6174444265d8b37e425e258a2c75fa32453fb35addb9a7c1d"},
-    {file = "edgedb-0.22.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:12aca429fab474bd70cffe5240d2d12a068375755d84231509f8403aaaa3292e"},
-    {file = "edgedb-0.22.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:60e14a1d6950f7ff916530a7becca46a569320e386a1aaf063a8dd6defa1a183"},
-    {file = "edgedb-0.22.0-cp38-cp38-win_amd64.whl", hash = "sha256:71b99c0cf2d1837078162a2306e0fa8b3880512d7d36f995157766bce4e1f39e"},
-    {file = "edgedb-0.22.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:b8e21ef27ac45b645de5c54f5b3a9a7dc2aae072911c857bec8d0b2283760196"},
-    {file = "edgedb-0.22.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8a45e8f8d035dec5c6fadf8739cd892a3f5c3bae326709d73eccf529a5a13b36"},
-    {file = "edgedb-0.22.0-cp39-cp39-win_amd64.whl", hash = "sha256:3bba78c3c62bcdfc4be5e84282e91a85ce6703a897012933d9aa2280953851af"},
-    {file = "edgedb-0.22.0.tar.gz", hash = "sha256:ead71f722ec65c30f1478e504cae43fe00bec2cc1414093b1b436b949814605e"},
+    {file = "edgedb-0.23.0-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:ce14321d70be7c1013ad408c1f1355c89646392ed41238f123211d2505034e59"},
+    {file = "edgedb-0.23.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1d251c9e2e3d9649e65c60ec683b34d2fc0e683f25eaa6225f9ca1e6b4246831"},
+    {file = "edgedb-0.23.0-cp310-cp310-win_amd64.whl", hash = "sha256:b155c19f8f096f1048160de4fa5cd31ac643ca5d34f6a7a0f3d2f230bedc8f29"},
+    {file = "edgedb-0.23.0-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0743c4f8fe105aa2ef0f0323fbeb7ae60514c5474c7c39612eb933d048364880"},
+    {file = "edgedb-0.23.0-cp36-cp36m-win_amd64.whl", hash = "sha256:cff72f809b3b8afe833de3d5f099424276a250ee01cbcea552a8fc92357b039d"},
+    {file = "edgedb-0.23.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:a19ca32a4e6ed7218b65509f096538d239f6d01cebf323176574aa4691cdc01e"},
+    {file = "edgedb-0.23.0-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fc71aa865ead0faa880cfef62f3ff44442a78c30397a48c96501b82a63f7b963"},
+    {file = "edgedb-0.23.0-cp37-cp37m-win_amd64.whl", hash = "sha256:e7925e37b13255a427e1727a5dedda9164c8559019994aa422fde870d831ee91"},
+    {file = "edgedb-0.23.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:2370e97d3bc6db84c5a474caa80ca95f6ae35c96a85b551075f6ade722d05947"},
+    {file = "edgedb-0.23.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9f7f8c09835ea59622ebaec703f92ca8810830cb4c68738f4dbfeb92edfe9d24"},
+    {file = "edgedb-0.23.0-cp38-cp38-win_amd64.whl", hash = "sha256:9357b787d9b7c895fa2b7904e300cd30b28ec168687be4bdc59ce023e9f90b21"},
+    {file = "edgedb-0.23.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:dd2024953ecb26d92d9f498f05ff66a17ce4830a9e9e1c56fdde0074646639dc"},
+    {file = "edgedb-0.23.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:73ecdb0f0d1bab6786ad01531ff29caaec437af578bbf22b44374219983a287b"},
+    {file = "edgedb-0.23.0-cp39-cp39-win_amd64.whl", hash = "sha256:8617dfa1aa77d168574bbe2bdf5dd6ba5364a84ca0f502e7c336a664c582269c"},
+    {file = "edgedb-0.23.0.tar.gz", hash = "sha256:8d156f84cb1c937ce73cfd0c09ea9e6c41a37992941e32fcaec7fcefc1d4186a"},
 ]
 eradicate = [
     {file = "eradicate-2.0.0.tar.gz", hash = "sha256:27434596f2c5314cc9b31410c93d8f7e8885747399773cd088d3adea647a60c8"},
