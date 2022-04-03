@@ -25,7 +25,7 @@ wemake-python-styleguide = "^0.16.1"
 flake8-pytest-style = "^1.6.0"
 mypy = "^0.942"
 # tests
-pytest = "^7.0.1"
+pytest = "^7.1.1"
 pytest-cov = "^3.0.0"
 pytest-asyncio = "^0.18.1"
 pytest-env = "^0.6.2"
