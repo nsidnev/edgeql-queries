@@ -3,12 +3,11 @@ name: Build and Deploy to Netlify
 on:
   push:
     branches:
-      - master
+      - "master"
 
   pull_request:
-    types:
-      - opened
-      - synchronize
+    branches:
+      - "*"
 
 jobs:
   build:

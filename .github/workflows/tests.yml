@@ -1,8 +1,13 @@
 name: Tests
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - "master"
+
+  pull_request:
+    branches:
+      - "*"
 
 jobs:
   tests:
@@ -57,3 +62,13 @@ jobs:
         run: poetry run nox -s test
 
       - uses: codecov/codecov-action@v3
+
+  result:
+    name: Tests conclusion
+
+    needs: tests
+
+    runs-on: ubuntu-18.04
+
+    steps:
+      - run: "echo 'Completed!'"
