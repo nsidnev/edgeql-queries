@@ -11,15 +11,11 @@ tokenize-rt = ">=3.0.1"
 
 [[package]]
 name = "aiosql"
-version = "3.4.1"
+version = "6.1"
 description = "Simple SQL in Python"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
-
-[package.dependencies]
-contextlib2 = ">=21.6.0"
-typing-extensions = ">=4.0.0,<5"
+python-versions = ">=3.7"
 
 [[package]]
 name = "argcomplete"
@@ -178,14 +174,6 @@ colorama = {version = "*", markers = "sys_platform == \"win32\""}
 
 [package.extras]
 development = ["black", "flake8", "mypy", "pytest", "types-colorama"]
-
-[[package]]
-name = "contextlib2"
-version = "21.6.0"
-description = "Backports and enhancements for the contextlib module"
-category = "dev"
-optional = false
-python-versions = ">=3.6"
 
 [[package]]
 name = "coverage"
@@ -1146,7 +1134,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "fa676814020106ec03a60e15df2c2ac00b40ec70f86fad6ee7787114b196db8a"
+content-hash = "6e4b80dcf264d036ab24adde8d142f13dd602d952886fac2c447c631cc624f8d"
 
 [metadata.files]
 add-trailing-comma = [
@@ -1154,8 +1142,8 @@ add-trailing-comma = [
     {file = "add_trailing_comma-2.2.3.tar.gz", hash = "sha256:d118070060a40be1f6b7f0bcc2f7be3b9f88d22eb9511b5d7a6535fa9fa74571"},
 ]
 aiosql = [
-    {file = "aiosql-3.4.1-py3-none-any.whl", hash = "sha256:eb28b237c31768843a050c635d01314d22c8da6a9144eab498b27e58eb39ad08"},
-    {file = "aiosql-3.4.1.tar.gz", hash = "sha256:6cbab2870c8e169007653d6b4c41f6abb8fc1f3744d985708901b49e8042c997"},
+    {file = "aiosql-6.1-py3-none-any.whl", hash = "sha256:bc4dbb09cd0421b7122574cd15de09b92906cdb2affc93d420bae1fdc0bdfd2f"},
+    {file = "aiosql-6.1.tar.gz", hash = "sha256:a426fda937d29fd10ffd6e1fbbc55afdf412da2f41226e02e06ae4bc7bc05fc1"},
 ]
 argcomplete = [
     {file = "argcomplete-1.12.3-py2.py3-none-any.whl", hash = "sha256:291f0beca7fd49ce285d2f10e4c1c77e9460cf823eef2de54df0c0fec88b0d81"},
@@ -1228,10 +1216,6 @@ colorama = [
 colorlog = [
     {file = "colorlog-6.6.0-py2.py3-none-any.whl", hash = "sha256:351c51e866c86c3217f08e4b067a7974a678be78f07f85fc2d55b8babde6d94e"},
     {file = "colorlog-6.6.0.tar.gz", hash = "sha256:344f73204009e4c83c5b6beb00b3c45dc70fcdae3c80db919e0a4171d006fde8"},
-]
-contextlib2 = [
-    {file = "contextlib2-21.6.0-py2.py3-none-any.whl", hash = "sha256:3fbdb64466afd23abaf6c977627b75b6139a5a3e8ce38405c5b413aed7a0471f"},
-    {file = "contextlib2-21.6.0.tar.gz", hash = "sha256:ab1e2bfe1d01d968e1b7e8d9023bc51ef3509bba217bb730cee3827e1ee82869"},
 ]
 coverage = [
     {file = "coverage-6.4.2-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:a9032f9b7d38bdf882ac9f66ebde3afb8145f0d4c24b2e600bc4c6304aafb87e"},
