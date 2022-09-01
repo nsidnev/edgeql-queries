@@ -11,7 +11,7 @@ tokenize-rt = ">=3.0.1"
 
 [[package]]
 name = "aiosql"
-version = "6.1"
+version = "6.3"
 description = "Simple SQL in Python"
 category = "dev"
 optional = false
@@ -1143,7 +1143,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "179e116130cc617b3a4117f20404914a867a8dd9e38f9158cf95b9d20059cb6a"
+content-hash = "864fa76ba46db19b2c472f7ef74c06d606746fe925a4528c8fbd49d9c35e3817"
 
 [metadata.files]
 add-trailing-comma = [
@@ -1151,8 +1151,8 @@ add-trailing-comma = [
     {file = "add_trailing_comma-2.2.3.tar.gz", hash = "sha256:d118070060a40be1f6b7f0bcc2f7be3b9f88d22eb9511b5d7a6535fa9fa74571"},
 ]
 aiosql = [
-    {file = "aiosql-6.1-py3-none-any.whl", hash = "sha256:bc4dbb09cd0421b7122574cd15de09b92906cdb2affc93d420bae1fdc0bdfd2f"},
-    {file = "aiosql-6.1.tar.gz", hash = "sha256:a426fda937d29fd10ffd6e1fbbc55afdf412da2f41226e02e06ae4bc7bc05fc1"},
+    {file = "aiosql-6.3-py3-none-any.whl", hash = "sha256:f64d369b92f2d018444f64be3668c9f4ab1761b42453a875c9ff31b99ed52cef"},
+    {file = "aiosql-6.3.tar.gz", hash = "sha256:79fb25162614afc35819576d1b9acde318da9ca17a0a64bf6062da98631c6eb0"},
 ]
 argcomplete = [
     {file = "argcomplete-1.12.3-py2.py3-none-any.whl", hash = "sha256:291f0beca7fd49ce285d2f10e4c1c77e9460cf823eef2de54df0c0fec88b0d81"},
