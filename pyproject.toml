@@ -16,7 +16,7 @@ edgedb = ">= 0.19.0"
 # common tasks
 nox = "^2022.8.7"
 # formatters
-black = "^22.3"
+black = "^22.8"
 isort = "^5.10"
 autoflake = "^1.5.3"
 add-trailing-comma = "^2.2.3"
