@@ -28,6 +28,10 @@
 
 ---
 
+**NOTE**: This project is deprecated, prefer the official [code generators](https://www.edgedb.com/docs/clients/python/api/codegen) from EdgeDB instead.
+
+---
+
 **Documentation**: https://nsidnev.github.io/edgeql-queries/
 
 ## Requirements
