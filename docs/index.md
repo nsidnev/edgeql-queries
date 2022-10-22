@@ -28,6 +28,11 @@
 
 ---
 
+!!! warning
+    This library is deprecated, prefer the official
+    [code generators](https://www.edgedb.com/docs/clients/python/api/codegen)
+    from EdgeDB instead.
+
 # Introduction
 
 
@@ -35,11 +40,6 @@
 [EdgeQL](https://edgedb.com/docs/edgeql/overview/) queries in separate files and then
 execute them like normal Python functions. This way you can control versions of the
 queries code, as with any other languages, but use it in Python applications.
-
-!!! information
-    This library may become less useful after the release of the
-    [query builder](https://edgedb.com/roadmap#client-language-bindings for EdgeDB,
-    but who knows  `¯\_(ツ)_/¯`.
 
 ## Requirements
 
